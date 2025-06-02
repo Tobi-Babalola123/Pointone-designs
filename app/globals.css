@@ -63,20 +63,18 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
-    /* Hide default cursor on desktop */
     cursor: none;
   }
 
-  /* Show default cursor on mobile/touch devices */
   @media (hover: none) and (pointer: coarse) {
     body {
       cursor: auto;
     }
   }
 
-  /* Custom cursor styles for interactive elements */
   button,
   a,
   input,
@@ -95,6 +93,12 @@
     .hover-target {
       cursor: pointer;
     }
+  }
+}
+
+@layer utilities {
+  .border-border {
+    border-color: hsl(var(--border));
   }
 }
 
