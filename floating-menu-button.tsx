@@ -1,20 +1,26 @@
-"use client"
+"use client";
 
-import { Menu } from "lucide-react"
-import { useState, useEffect } from "react"
+import { Menu } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface FloatingMenuButtonProps {
-  onMenuToggle: () => void
+  onMenuToggle: () => void;
 }
 
-export default function FloatingMenuButton({ onMenuToggle }: FloatingMenuButtonProps) {
-  const [scrollY, setScrollY] = useState(0)
+export default function FloatingMenuButton({
+  onMenuToggle,
+}: FloatingMenuButtonProps) {
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setScrollY(window.scrollY);
+
+    // Run once on mount
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <button
@@ -24,7 +30,10 @@ export default function FloatingMenuButton({ onMenuToggle }: FloatingMenuButtonP
         transform: `translateY(${scrollY * 0.1}px)`,
       }}
     >
-      <Menu size={24} className="group-hover:rotate-90 transition-transform duration-300" />
+      <Menu
+        size={24}
+        className="group-hover:rotate-90 transition-transform duration-300"
+      />
     </button>
-  )
+  );
 }
