@@ -1,8 +1,23 @@
 import { MapPin } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useScrollAnimation } from "./use-scroll-animation";
 
 export default function SkillsSection() {
   const { ref, isVisible } = useScrollAnimation(0.2);
+  const [dotCount, setDotCount] = useState(64);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setDotCount(window.innerWidth < 1024 ? 36 : 64);
+      };
+
+      handleResize(); // initialize on mount
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   return (
     <section
@@ -19,14 +34,12 @@ export default function SkillsSection() {
               : "translate-x-10 opacity-0"
           }`}
         >
-          {Array.from({ length: window.innerWidth < 1024 ? 36 : 64 }).map(
-            (_, i) => (
-              <div
-                key={i}
-                className="w-1 h-1 bg-gray-400 rounded-full hover:bg-purple-400 transition-colors duration-300"
-              />
-            )
-          )}
+          {Array.from({ length: dotCount }).map((_, i) => (
+            <div
+              key={i}
+              className="w-1 h-1 bg-gray-400 rounded-full hover:bg-purple-400 transition-colors duration-300"
+            />
+          ))}
         </div>
 
         {/* Pagination dots - responsive positioning */}

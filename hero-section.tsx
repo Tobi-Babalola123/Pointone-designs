@@ -248,7 +248,7 @@ export default function HeroSection() {
       </div>
 
       {/* Floating menu button and mobile menu */}
-      <FloatingMenuButton onClick={() => setIsMobileMenuOpen(true)} />
+      <FloatingMenuButton onMenuToggle={() => setIsMobileMenuOpen(true)} />
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
