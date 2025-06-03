@@ -1,9 +1,43 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import MobileMenu from "./mobile-menu";
 import FloatingMenuButton from "./floating-menu-button";
+
+const bounceVariants = {
+  hidden: { y: -20, opacity: 0 },
+  visible: (i: number) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: i * 0.05,
+      type: "spring",
+      stiffness: 500,
+      damping: 15,
+    },
+  }),
+};
+
+const text = "Tobi Babalola";
+
+const name = "Tobi Babalola";
+
+const letterAnimation = {
+  hidden: { opacity: 0, y: 20, rotateX: -90 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      delay: i * 0.05,
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  }),
+};
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -147,9 +181,17 @@ export default function HeroSection() {
           isLoaded ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
         }`}
       >
-        <div className="text-lime-400 text-xl lg:text-2xl font-bold font-poppins hover:scale-110 transition-transform duration-300">
-          Tobi Babalola
-        </div>
+        <Link href="/">
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="overflow-hidden text-lime-400 text-xl lg:text-2xl font-bold font-poppins cursor-pointer hover:scale-110 transition-transform duration-300"
+          >
+            <span className="inline-block">Tobi Babalola</span>
+          </motion.div>
+        </Link>
+
         <button
           onClick={() => setIsMobileMenuOpen(true)}
           className="text-lime-400 p-2 hover:scale-110 transition-transform duration-300"

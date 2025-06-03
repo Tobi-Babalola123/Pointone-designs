@@ -1,19 +1,20 @@
-"use client"
+"use client";
 
-import { Menu } from "lucide-react"
-import { useState } from "react"
-import FooterSection from "./footer-section"
-import MobileMenu from "./mobile-menu"
-import MouseFollower from "./mouse-follower"
+import { Menu } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import FooterSection from "./footer-section";
+import MobileMenu from "./mobile-menu";
+import MouseFollower from "./mouse-follower";
 
-const categories = ["All", "dev", "ui", "video"]
+const categories = ["All", "dev", "ui", "video"];
 
 const categoryLabels = {
   All: "All",
   dev: "Development",
   ui: "UI Design",
   video: "Video Project",
-}
+};
 
 export default function WorkPage() {
   const projects = [
@@ -164,10 +165,10 @@ export default function WorkPage() {
       imageUrl: "/shreddedbeef.webp",
       link: "https://dribbble.com/shots/25697673-Premium-Shredded-Beef-Packaging-Design-Ransomed2foods",
     },
-  ]
+  ];
 
-  const [activeCategory, setActiveCategory] = useState("All")
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const filteredProjects =
     activeCategory === "All"
@@ -175,7 +176,7 @@ export default function WorkPage() {
       : projects.filter(
           (project) =>
             project.category.toLowerCase() === activeCategory.toLowerCase()
-        )
+        );
 
   return (
     <>
@@ -187,9 +188,11 @@ export default function WorkPage() {
 
         {/* Header */}
         <header className="relative z-10 flex justify-between items-center p-4 lg:p-8">
-          <div className="text-purple-600 text-xl lg:text-2xl font-bold font-poppins">
-            Tobi Babalola
-          </div>
+          <Link href="/">
+            <div className="text-lime-400 text-xl lg:text-2xl font-bold font-poppins hover:scale-110 transition-transform duration-300 cursor-pointer">
+              Tobi Babalola
+            </div>
+          </Link>
           <button
             onClick={() => setIsMobileMenuOpen(true)}
             className="text-purple-600 p-2 hover-target"
@@ -257,7 +260,8 @@ export default function WorkPage() {
                       {project.title}
                     </h3>
                     <p className="text-gray-500 text-xs lg:text-sm font-montserrat mb-3 lg:mb-4 uppercase tracking-wide">
-                      {project.year} &nbsp;|&nbsp; {project.category.toUpperCase()}
+                      {project.year} &nbsp;|&nbsp;{" "}
+                      {project.category.toUpperCase()}
                     </p>
                   </div>
                 </a>
@@ -268,8 +272,11 @@ export default function WorkPage() {
       </div>
 
       <FooterSection />
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
       <MouseFollower />
     </>
-  )
+  );
 }
