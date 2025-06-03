@@ -100,6 +100,9 @@
   .border-border {
     border-color: hsl(var(--border));
   }
+  .text-foreground {
+    color: var(--color-foreground);
+  }
 }
 
 /* Custom animations */
