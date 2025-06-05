@@ -7,13 +7,14 @@ import FooterSection from "./footer-section";
 import MobileMenu from "./mobile-menu";
 import MouseFollower from "./mouse-follower";
 
-const categories = ["All", "dev", "ui", "video"];
+const categories = ["All", "websites", "ui", "video", "graphic design"];
 
 const categoryLabels = {
   All: "All",
-  dev: "Development",
+  website: "website",
   ui: "UI Design",
   video: "Video Project",
+  "social media design": "Social Media Design",
 };
 
 export default function WorkPage() {
@@ -21,28 +22,28 @@ export default function WorkPage() {
     {
       title: "TravelSphere Booking App",
       year: "2024",
-      category: "dev",
+      category: "websites",
       imageUrl: "/Travelsphere.jpg",
       link: "https://bus-booking-system1.netlify.app/",
     },
     {
       title: "Solar Panel Estimator",
       year: "2024",
-      category: "dev",
+      category: "websites",
       imageUrl: "/solaris-surge.png",
       link: "https://solaris-surge-nett.vercel.app/home",
     },
     {
       title: "Health Monitoring Dashboard",
       year: "2024",
-      category: "dev",
+      category: "websites",
       imageUrl: "/healthsphere.png",
       link: "https://health-monitoring-app2.netlify.app/",
     },
     {
       title: "Trentrove E-commerce Website",
       year: "2024",
-      category: "dev",
+      category: "websites",
       imageUrl: "/trendtrovy.png",
       link: "https://trendtrovei.netlify.app/",
     },
@@ -54,12 +55,103 @@ export default function WorkPage() {
       link: "https://dribbble.com/shots/25655700-Product-Design-crypto-wallet-design",
     },
     {
+      title: "Christian Ebook Cover Design",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/deepthingsofgod.jpeg",
+      link: "https://dribbble.com/shots/25655700-Product-Design-crypto-wallet-design",
+    },
+    {
+      title: "Music Cover",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/musiccover.jpeg",
+      link: "https://dribbble.com/shots/25655700-Product-Design-crypto-wallet-design",
+    },
+    {
+      title: "Art Illustration",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/fffff.jpeg",
+      link: "https://dribbble.com/shots/25655700-Product-Design-crypto-wallet-design",
+    },
+    {
       title: "Real Estate Video Ad",
       year: "2025",
       category: "video",
       imageUrl: "/videos/realestate.mp4",
       isVideo: true,
       link: "https://dribbble.com/shots/25849166-Greater-Construction-Video-ad",
+    },
+    {
+      title: "Web Novel Cover Design",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/ccccc.jpeg",
+      link: "https://dribbble.com/shots/25803315-Death-Plus-One-A-Psychological-Thriller",
+    },
+    {
+      title: "Raw Foodstrore Branding",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/33.jpeg",
+      link: "https://dribbble.com/shots/25640394-Branding-Logo-Design-for-FD-Foodstore",
+    },
+    {
+      title: "Organic Skincare poster",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/skincare.jpeg",
+      link: "https://dribbble.com/shots/25848733-Skincare-Organics-Flyer-Krina-Organics-Skincare",
+    },
+    {
+      title: "Happy Birthday Social Media Post",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/birthday.jpeg",
+      link: "https://dribbble.com/shots/25648603-Birthday-design-mockups",
+    },
+    {
+      title: "Night Club Events Poster",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/clubflame.webp",
+      link: "https://dribbble.com/shots/25046847-Electric-Nights-Club-Vibes",
+    },
+    {
+      title: "Crypto Wallet Logo Design",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/pointone.jpg",
+      link: "https://dribbble.com/shots/25655684-Logo-Design-crypto-wallet-product-design",
+    },
+    {
+      title: "Gospel Campaign Banner Design",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/fire.jpeg",
+      link: "https://dribbble.com/shots/25928478-Ignite-the-Fire-Gospel-Campaign-The-Hill-Evangelical-Ministry",
+    },
+    {
+      title: "Fasting & Prayer Poster Design",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/rrrr.jpeg",
+      link: "https://dribbble.com/shots/25848746-Fasting-Prayers-Flier-design-Thehillevangelicalministry",
+    },
+    {
+      title: "To-do Webapp",
+      year: "2025",
+      category: "websites",
+      imageUrl: "/todowebapp2.png",
+      link: "",
+    },
+    {
+      title: "Night Club Events Poster",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/flame.jpeg",
+      link: "",
     },
     {
       title: "Health Supplement Video Ad",
@@ -72,21 +164,28 @@ export default function WorkPage() {
     {
       title: "Charcoal Hardwood Branding",
       year: "2024",
-      category: "ui",
+      category: "graphic design",
       imageUrl: "/hardwoodcharcoal.webp",
       link: "https://dribbble.com/shots/25728199-Charcoal-Packaging-and-mockup-professional-export-box",
     },
     {
       title: "FD Foodstore Branding",
       year: "2024",
-      category: "ui",
+      category: "graphic design",
       imageUrl: "/FDfoodstore.webp",
       link: "https://dribbble.com/shots/25640394-Branding-Logo-Design-for-FD-Foodstore",
     },
     {
+      title: "A Tribute to Heritage & Culture",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/nigeria.jpeg",
+      link: "https://dribbble.com/shots/25634163-Celebrating-Nigeria-Visual-tribute-to-heritage-and-culture",
+    },
+    {
       title: "Fresh eggs Label Design",
       year: "2024",
-      category: "ui",
+      category: "graphic design",
       imageUrl: "/histokem.webp",
       link: "https://dribbble.com/shots/25634173-Branding-Sticker-Design",
     },
@@ -109,7 +208,7 @@ export default function WorkPage() {
     {
       title: "Bottle Water Label design",
       year: "2024",
-      category: "ui",
+      category: "graphic design",
       imageUrl: "/kingbirthday.webp",
       link: "https://dribbble.com/shots/25046947-Noble-Wishes-A-Royal-Birthday-Card",
     },
@@ -124,7 +223,7 @@ export default function WorkPage() {
     {
       title: "Church Graphics",
       year: "2024",
-      category: "ui",
+      category: "graphic design",
       imageUrl: "/THEM..webp",
       link: "https://dribbble.com/shots/25046947-Noble-Wishes-A-Royal-Birthday-Card",
     },
@@ -147,23 +246,65 @@ export default function WorkPage() {
     {
       title: "Scent Elixir Poster Design",
       year: "2024",
-      category: "ui",
+      category: "graphic design",
       imageUrl: "/scent.webp",
       link: "https://dribbble.com/shots/25046774-T",
     },
     {
       title: "Bakery Label design",
       year: "2024",
-      category: "ui",
+      category: "graphic design",
       imageUrl: "/bakery.webp",
       link: "https://dribbble.com/shots/25046991-Artisan-Loaves-Crafted-with-Love",
     },
     {
       title: "Shredded Beef Label design",
       year: "2024",
-      category: "ui",
+      category: "graphic design",
       imageUrl: "/shreddedbeef.webp",
       link: "https://dribbble.com/shots/25697673-Premium-Shredded-Beef-Packaging-Design-Ransomed2foods",
+    },
+    {
+      title: "CAP Building Construction Company Logo Design",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/cap.jpeg",
+      link: "https://dribbble.com/shots/25848729-CAP-Construction-Logo-Design",
+    },
+    {
+      title: "Handbills Design",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/handbills.png",
+      link: "https://dribbble.com/shots/25926724-Gospel-Campaign-Flyer-design-The-Hill-Evangelical-Ministry",
+    },
+    {
+      title: "Marksmen Construction Company Logo",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/1.png",
+      link: "https://dribbble.com/shots/25848675-Marks-Men-Construction-Logo-design",
+    },
+    {
+      title: "Corporate Investment Errands Logo",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/dirt.jpg",
+      link: "https://dribbble.com/shots/25848708-Logo-Design-Corporate-Investment-Errands",
+    },
+    {
+      title: "Gospel Campaign Poster Design",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/gospel.jpeg",
+      link: "https://dribbble.com/shots/25926705-Gospel-Campaign-Flyer-The-Hill-Evangelical-Ministry",
+    },
+    {
+      title: "FD Foodstore Logo",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/fd.jpg",
+      link: "https://www.behance.net/gallery/219117103/Branding-(Logo-design)-for-FD-Foodstore",
     },
   ];
 
@@ -189,7 +330,7 @@ export default function WorkPage() {
         {/* Header */}
         <header className="relative z-10 flex justify-between items-center p-4 lg:p-8">
           <Link href="/">
-            <div className="text-lime-400 text-xl lg:text-2xl font-bold font-poppins hover:scale-110 transition-transform duration-300 cursor-pointer">
+            <div className="text-purple-600 text-xl lg:text-2xl font-bold font-poppins hover:scale-110 transition-transform duration-300 cursor-pointer">
               Tobi Babalola
             </div>
           </Link>
@@ -229,7 +370,7 @@ export default function WorkPage() {
             </div>
 
             {/* Projects grid - responsive */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
               {filteredProjects.map((project, index) => (
                 <a
                   key={index}

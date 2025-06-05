@@ -1,4 +1,11 @@
-import { MapPin, Menu, Twitter, Github, Linkedin, Dribbble } from "lucide-react"
+import {
+  MapPin,
+  Menu,
+  Twitter,
+  Github,
+  Linkedin,
+  Dribbble,
+} from "lucide-react";
 
 export default function FooterSection() {
   return (
@@ -72,7 +79,9 @@ export default function FooterSection() {
           {/* Bottom section */}
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
-            <p className="text-lime-400 text-sm font-medium font-montserrat">© Tobi Babalola 2025</p>
+            <p className="text-lime-400 text-sm font-medium font-montserrat">
+              © Tobi Babalola 2025
+            </p>
 
             {/* Social links with icons */}
             <div className="flex space-x-6">
@@ -95,7 +104,7 @@ export default function FooterSection() {
                 <Github size={20} />
               </a>
               <a
-                href="www.linkedin.com/in/tobi-babalola"
+                href="https://www.linkedin.com/in/tobi-babalola/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-lime-400 hover:text-lime-300 hover:scale-110 transition-all duration-300"
@@ -117,5 +126,5 @@ export default function FooterSection() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -1,18 +1,23 @@
-"use client"
+"use client";
 
-import { X, Twitter, Github, Linkedin, Dribbble } from "lucide-react"
-import Link from "next/link"
+import { X, Twitter, Github, Linkedin, Dribbble } from "lucide-react";
+import Link from "next/link";
 
 interface MobileMenuProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   return (
     <>
       {/* Backdrop */}
-      {isOpen && <div className="fixed inset-0 z-40 bg-black bg-opacity-20" onClick={onClose} />}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black bg-opacity-20"
+          onClick={onClose}
+        />
+      )}
 
       {/* Slide-in menu - responsive width */}
       <div
@@ -46,7 +51,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 My Projects
               </Link>
               <Link
-                href="/about"
+                href="#about"
                 onClick={onClose}
                 className="block text-purple-600 text-lg lg:text-xl font-medium font-montserrat hover:text-purple-700 transition-colors duration-300"
               >
@@ -132,5 +137,5 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </div>
       </div>
     </>
-  )
+  );
 }
