@@ -94,7 +94,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className="px-4 lg:px-6 pb-6">
             <div className="flex space-x-6">
               <a
-                href="https://twitter.com/alexdev"
+                href="https://x.com/babalola_t4714"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-600 hover:text-purple-700 hover:scale-110 transition-all duration-300"
@@ -103,7 +103,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Twitter size={24} />
               </a>
               <a
-                href="https://github.com/alexdev"
+                href="https://github.com/Tobi-Babalola123"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-600 hover:text-purple-700 hover:scale-110 transition-all duration-300"
@@ -112,7 +112,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Github size={24} />
               </a>
               <a
-                href="https://linkedin.com/in/alexdev"
+                href="https://www.linkedin.com/in/tobi-babalola/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-600 hover:text-purple-700 hover:scale-110 transition-all duration-300"
@@ -121,7 +121,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Linkedin size={24} />
               </a>
               <a
-                href="https://dribbble.com/alexdev"
+                href="https://dribbble.com/Tbabalola2024"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-600 hover:text-purple-700 hover:scale-110 transition-all duration-300"
