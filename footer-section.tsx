@@ -6,6 +6,7 @@ import {
   Linkedin,
   Dribbble,
 } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 export default function FooterSection() {
   return (
@@ -31,19 +32,20 @@ export default function FooterSection() {
                 Get In Touch
               </h3>
               <div className="space-y-4">
+                {/* Phone Link */}
                 <a
-                  href="mailto:hello@alexdev.com"
-                  className="block text-lime-400 text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
+                  href="tel:+2348105333852"
+                  className="flex items-center space-x-2 text-lime-400 text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
                 >
-                  +2348105333852
+                  <Phone size={20} />
+                  <span>+2348105333852</span>
                 </a>
                 <a
-                  href="https://t.me/alexdev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-lime-400 text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
+                  href="mailto:babalolatobi308@gmail.com"
+                  className="flex items-center space-x-2 text-lime-400 text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
                 >
-                  babalolatobi308@gmail.com
+                  <Mail size={20} />
+                  <span>babalolatobi308@gmail.com</span>
                 </a>
               </div>
             </div>
