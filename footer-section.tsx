@@ -35,18 +35,18 @@ export default function FooterSection() {
                 {/* Phone Link */}
                 <a
                   href="tel:+2348105333852"
-                  className="flex items-center space-x-2 text-lime-400 text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
+                  className="flex items-center space-x-2 text-lime-400 text-base sm:text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
                 >
                   <Phone size={20} />
                   <span>+2348105333852</span>
                 </a>
                 <a
                   href="mailto:babalolatobi308@gmail.com"
-                  className="flex items-center space-x-2 text-lime-400 text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
+                  className="flex items-center space-x-2 text-lime-400 text-base sm:text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
                 >
                   <Mail size={20} />
                   <span>babalolatobi308@gmail.com</span>
-                </a>
+                </a>{" "}
               </div>
             </div>
 
