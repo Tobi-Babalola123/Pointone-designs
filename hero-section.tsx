@@ -40,10 +40,23 @@ const letterAnimation = {
 };
 
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false); // ✅ renamed no longer conflicts
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
+  // Detect mobile screen
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 768);
+    }
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Handle windowWidth and loaded state
   useEffect(() => {
     setIsLoaded(true);
 
@@ -65,22 +78,27 @@ export default function HeroSection() {
   return (
     <section className="min-h-screen lg:min-h-[120vh] relative overflow-hidden">
       {/* Split background */}
-      <div className="absolute inset-0 flex">
-        {/* Purple background - full width on mobile, 2/3 on desktop */}
-        <div className="w-full lg:w-2/3 bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500" />
-        {/* Lime green background - hidden on mobile, 1/3 on desktop */}
-        <div className="hidden lg:block lg:w-1/3 bg-lime-400" />
+      <div className="absolute inset-0 flex flex-col lg:flex-row">
+        {/* Purple background: 70% height on mobile, 70% width on desktop */}
+        <div className="w-full h-[60%] lg:w-2/3 lg:h-full bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500" />
+
+        {/* Lime green background: 30% height on mobile, 30% width on desktop */}
+        <div className="w-full h-[38%] lg:w-1/3 lg:h-full bg-lime-400" />
       </div>
 
       {/* Background decorative elements - reduced on mobile */}
       <div className="absolute inset-0">
         {/* Dotted grid pattern - smaller on mobile */}
         <div
-          className={`absolute top-20 right-4 lg:right-1/2 lg:transform lg:translate-x-16 grid grid-cols-8 lg:grid-cols-12 gap-1 opacity-30 lg:opacity-50 transition-all duration-1000 delay-300 ${
+          className={`absolute grid grid-cols-8 lg:grid-cols-12 gap-1 opacity-30 lg:opacity-50 transition-all duration-1000 delay-300 ${
             isLoaded
               ? "translate-x-0 opacity-30 lg:opacity-50"
               : "translate-x-4 lg:translate-x-24 opacity-0"
           }`}
+          style={{
+            top: "8rem", // equivalent to top-40
+            right: "31.5rem", // adjusted from right-4
+          }}
         >
           {Array.from({ length: dotCount }).map((_, i) => (
             <div
@@ -94,14 +112,18 @@ export default function HeroSection() {
           ))}
         </div>
 
-        {/* Crystal/Diamond pattern - simplified on mobile */}
+        {/* Crystal/Diamond pattern */}
         <div
-          className={`absolute right-4 lg:right-8 top-1/2 transform -translate-y-1/2 transition-all duration-1000 delay-600 ${
+          className={`absolute transition-all duration-1000 delay-600 ${
             isLoaded ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
           }`}
+          style={{
+            top: "65%", // moves it further down
+            right: "1.5rem", // moves it further right
+            transform: "translateY(-50%) translateX(1rem)", // additional nudge
+          }}
         >
           <div className="relative scale-75 lg:scale-100">
-            {/* Simplified diamond for mobile */}
             <div className="flex justify-center mb-1">
               <div className="w-2 h-2 bg-purple-600 rounded-full" />
             </div>
@@ -139,9 +161,13 @@ export default function HeroSection() {
         <div className="hidden md:block">
           {/* Small dotted pattern */}
           <div
-            className={`absolute bottom-16 right-12 grid grid-cols-4 gap-1 opacity-70 transition-all duration-1000 delay-500 ${
+            className={`absolute grid grid-cols-4 gap-1 opacity-70 transition-all duration-1000 delay-500 ${
               isLoaded ? "translate-y-0 opacity-70" : "translate-y-8 opacity-0"
             }`}
+            style={{
+              bottom: "1.5rem", // equivalent to bottom-6
+              right: "2rem", // adjusted from right-12
+            }}
           >
             {Array.from({ length: 16 }).map((_, i) => (
               <div
@@ -157,9 +183,13 @@ export default function HeroSection() {
 
           {/* Stepped line graphics */}
           <div
-            className={`absolute bottom-1/3 left-1/3 w-16 lg:w-20 h-12 lg:h-16 opacity-60 transition-all duration-1000 delay-400 ${
+            className={`absolute w-16 lg:w-20 h-12 lg:h-16 opacity-60 transition-all duration-1000 delay-400 ${
               isLoaded ? "scale-100 rotate-0" : "scale-0 rotate-45"
             }`}
+            style={{
+              bottom: "20%", // was bottom-1/3
+              left: "60%", // was left-1/3
+            }}
           >
             <svg
               viewBox="0 0 80 64"
@@ -186,7 +216,7 @@ export default function HeroSection() {
             initial={{ x: "-100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="overflow-hidden text-lime-400 text-xl lg:text-2xl font-bold font-poppins cursor-pointer hover:scale-110 transition-transform duration-300"
+            className="ml-6 mt-6 overflow-hidden text-lime-400 text-xl lg:text-2xl font-bold font-poppins cursor-pointer hover:scale-110 transition-transform duration-300"
           >
             <span className="inline-block">Tobi Babalola</span>
           </motion.div>
@@ -216,8 +246,12 @@ export default function HeroSection() {
                 : "-translate-x-20 opacity-0"
             }`}
           >
-            <div className="px-4 sm:px-6 lg:px-0">
-              <h1 className="text-4xl sm:text-5xl lg:ml-20 lg:text-6xl xl:text-7xl font-bold font-poppins text-lime-400 leading-tight">
+            <div
+              className={`mt-8 mb-12 px-4 sm:px-6 lg:px-0 max-w-md mx-auto lg:mx-0 lg:max-w-none ${
+                isMobile ? "ml-8" : ""
+              }`}
+            >
+              <h1 className="text-5xl sm:text-4xl lg:ml-20 lg:text-5xl xl:text-6xl font-bold font-poppins text-lime-400 leading-tight text-left lg:text-left lg:ml-20">
                 <span className="inline-block hover:scale-105 transition-transform duration-300">
                   Frontend
                 </span>
@@ -226,20 +260,31 @@ export default function HeroSection() {
                   Developer.
                 </span>
               </h1>
+
               <p
-                className={`text-white text-base lg:text-lg lg:ml-20 font-montserrat font-medium mt-4 lg:mt-6 max-w-lg mx-auto lg:mx-0 transition-all duration-1000 delay-400 ${
+                className={`text-white text-sm lg:text-base font-montserrat font-medium mt-4 lg:mt-6 max-w-lg mx-auto lg:mx-0 text-left lg:text-left lg:ml-20 transition-all duration-1000 delay-400 ${
                   isLoaded
                     ? "translate-y-0 opacity-100"
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Transforming ideas into exceptional digital experiences through
-                innovative web development and thoughtful design.
+                {isMobile ? (
+                  <>
+                    Transforming ideas into exceptional <br />
+                    digital experiences through innovative <br />
+                    web development and thoughtful design.
+                  </>
+                ) : (
+                  <>
+                    Transforming ideas into exceptional digital experiences
+                    through innovative web development and thoughtful design.
+                  </>
+                )}
               </p>
             </div>
 
             {/* Feature boxes */}
-            <div className="grid sm:grid-cols-2 gap-4 lg:gap-8 pt-4 lg:pt-8 px-4 sm:px-6 lg:px-0">
+            <div className="-mb-12 grid grid-cols-2 gap-4 lg:gap-8 pt-4 lg:pt-8 px-4 sm:px-6 lg:px-0">
               <div
                 className={`space-y-2 lg:ml-20 transition-all duration-1000 delay-500 hover:scale-105 ${
                   isLoaded
@@ -247,7 +292,7 @@ export default function HeroSection() {
                     : "translate-y-10 opacity-0"
                 }`}
               >
-                <h3 className="text-lime-400 font-semibold font-montserrat text-sm lg:text-base leading-relaxed">
+                <h3 className="text-lime-400 font-montserrat text-[11px] lg:text-sm leading-relaxed text-left lg:text-left ml-8 lg:ml-0 ">
                   Specialized in modern web technologies, responsive design, and
                   creating seamless user interfaces.
                 </h3>
@@ -259,9 +304,10 @@ export default function HeroSection() {
                     : "translate-y-10 opacity-0"
                 }`}
               >
-                <h3 className="text-lime-400 font-semibold font-montserrat text-sm lg:text-base leading-relaxed">
-                  Passionate about delivering high-quality solutions that drive
-                  business growth and user satisfaction.
+                <h3 className="text-lime-400 font-montserrat text-[11px] lg:text-sm leading-relaxed text-left lg:text-center">
+                  Passionate about delivering <br /> high-quality solutions that
+                  <br /> drive business growth and <br />
+                  user satisfaction.
                 </h3>
               </div>
             </div>
@@ -269,7 +315,7 @@ export default function HeroSection() {
 
           {/* Right content - Profile image */}
           <div className="col-span-full lg:col-span-6">
-            <div className="relative group w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem] mx-auto">
+            <div className="relative group w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 mt-24 mx-auto lg:mt-[-12rem] lg:ml-[-10rem]">
               {/* Elegant glassmorphic frame with animation */}
               <div className="absolute inset-0 rounded-xl border border-lime-400/40 bg-lime-400/20 backdrop-blur-md shadow-lg shadow-lime-500/40 transition-all duration-500 group-hover:scale-105 group-hover:rotate-1" />
 

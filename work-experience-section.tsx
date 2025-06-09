@@ -107,9 +107,9 @@ export default function WorkExperienceSection() {
       <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-4 lg:pt-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left content - Text */}
-          <div className="space-y-6 lg:space-y-8 mb-16 text-center lg:text-left">
+          <div className="space-y-6 lg:space-y-8 mb-16 text-left lg:text-left">
             <h2
-              className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-poppins text-lime-400 leading-tight transition-all duration-1000 delay-200 hover:scale-105 ${
+              className={`text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-poppins text-lime-400 leading-tight transition-all duration-1000 delay-200 hover:scale-105 ml-6 lg:ml-8 ${
                 isVisible
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-20 opacity-0"
@@ -120,13 +120,13 @@ export default function WorkExperienceSection() {
               Journey,
             </h2>
 
-            <div className="space-y-4 lg:space-y-6 text-white text-sm lg:text-lg font-montserrat leading-relaxed">
+            <div className="space-y-4 lg:space-y-6 text-white text-xs lg:text-base font-montserrat leading-relaxed ml-8">
               {[
-                "As a frontend developer, I've collaborated with cross-functional teams to build user-centric digital experiences that solve real-world problems across different industries.",
-                "I'm currently focused on building responsive and interactive web applications using modern technologies like React and Tailwind CSS.",
-                "In past roles, I’ve contributed to projects ranging from solar estimate platforms to transport booking systems, consistently translating design visions into functional, scalable interfaces.",
-                "My strength lies in crafting clean, accessible, and pixel-perfect UIs while ensuring performance and responsiveness across devices.",
-                "I'm committed to continuous growth and enjoy sharing insights through collaboration, design feedback, and helping others grow in the developer space.",
+                "As a frontend developer, I've collaborated with cross-functional teams <br /> to build user-centric digital experiences that solve real-world problems <br /> across different industries.",
+                "I'm currently focused on building responsive and interactive web applications <br /> using modern technologies like React and Tailwind CSS.",
+                "In past roles, I’ve contributed to projects ranging from solar estimate platforms <br /> to transport booking systems, consistently translating design visions <br /> into functional, scalable interfaces.",
+                "My strength lies in crafting clean, accessible, and pixel-perfect UIs <br /> while ensuring performance and responsiveness across devices.",
+                "I'm committed to continuous growth and enjoy sharing insights <br /> through collaboration, design feedback, and helping others <br /> grow in the developer space.",
               ].map((text, i) => (
                 <p
                   key={i}
@@ -136,9 +136,8 @@ export default function WorkExperienceSection() {
                       : "translate-y-10 opacity-0"
                   }`}
                   style={{ transitionDelay: `${300 + i * 100}ms` }}
-                >
-                  {text}
-                </p>
+                  dangerouslySetInnerHTML={{ __html: text }}
+                />
               ))}
             </div>
           </div>
@@ -151,7 +150,7 @@ export default function WorkExperienceSection() {
                 : "translate-x-20 opacity-0"
             }`}
           >
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+            <div className="relative mb-6 w-80 h-80 lg:w-96 lg:h-96">
               {/* Central image */}
               <div className="absolute inset-6 lg:inset-8 group">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden group-hover:scale-105 transition-transform duration-500">

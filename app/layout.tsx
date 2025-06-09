@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Poppins, Montserrat } from "next/font/google";
+import { Poppins, Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -8,6 +8,11 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-poppins",
   display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 const montserrat = Montserrat({
@@ -33,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
       <head>
         {/* ✅ Manual fallback for favicon */}
         <link rel="icon" href="/favicon.ico" />
