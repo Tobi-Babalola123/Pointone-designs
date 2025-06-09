@@ -42,7 +42,7 @@ export default function RootLayout({
       <head>
         {/* ✅ Manual fallback for favicon */}
         <link rel="icon" href="/favicon.ico" />
-        <title>Tobi Babalola</title>
+        {/* <title></title> */}
       </head>
       <body className="font-montserrat antialiased">{children}</body>
     </html>
