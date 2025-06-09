@@ -257,7 +257,7 @@ export default function HeroSection() {
                 </span>
                 <br />
                 <span className="inline-block hover:scale-105 transition-transform duration-300">
-                  Developer.
+                  Developer<span className="text-white">.</span>
                 </span>
               </h1>
 
