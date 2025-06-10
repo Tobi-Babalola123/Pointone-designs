@@ -72,11 +72,12 @@ export default function PortfolioBlogSection() {
                 }`}
               >
                 <div className="space-y-6">
-                  <h2 className="text-5xl lg:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
+                  <h2 className="text-3xl lg:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
                     I create &<br /> innovate
                   </h2>
+
                   <p
-                    className={`text-gray-600 text-lg font-montserrat leading-relaxed max-w-md transition-all duration-1000 delay-500 ${
+                    className={`text-gray-600 text-sm lg:text-lg font-montserrat leading-relaxed max-w-md transition-all duration-1000 delay-500 ${
                       isVisible
                         ? "translate-y-0 opacity-100"
                         : "translate-y-5 opacity-0"
@@ -95,10 +96,10 @@ export default function PortfolioBlogSection() {
                   }`}
                 >
                   <Link href="/work">
-                    <button className="group flex items-center space-x-4 px-8 py-4 border-2 border-purple-600 text-purple-600 font-semibold font-montserrat hover:bg-purple-600 hover:text-white hover:scale-105 transition-all duration-300">
-                      <span>VIEW MY WORK</span>
+                    <button className="group flex items-center space-x-3 px-5 py-2 md:px-8 md:py-4 border-2 border-purple-600 text-purple-600 font-semibold font-montserrat hover:bg-purple-600 hover:text-white hover:scale-105 transition-all duration-300">
+                      <span className="text-sm md:text-base">VIEW MY WORK</span>
                       <ArrowRight
-                        size={20}
+                        size={18} // Slightly smaller icon
                         className="group-hover:translate-x-2 transition-transform duration-300"
                       />
                     </button>
@@ -115,12 +116,12 @@ export default function PortfolioBlogSection() {
                 }`}
               >
                 <div className="space-y-6">
-                  <h2 className="text-5xl lg:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
+                  <h2 className="text-3xl lg:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300text-3xl lg:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
                     I share,
                     <br /> insights
                   </h2>
                   <p
-                    className={`text-gray-600 text-lg font-montserrat leading-relaxed max-w-md transition-all duration-1000 delay-600 ${
+                    className={`text-gray-600 text-sm lg:text-lg font-montserrat leading-relaxed max-w-md transition-all duration-1000 delay-500 ${
                       isVisible
                         ? "translate-y-0 opacity-100"
                         : "translate-y-5 opacity-0"
@@ -138,7 +139,7 @@ export default function PortfolioBlogSection() {
                       : "translate-y-10 opacity-0"
                   }`}
                 >
-                  <button className="group flex items-center space-x-4 px-8 py-4 border-2 border-purple-600 text-purple-600 font-semibold font-montserrat hover:bg-purple-600 hover:text-white hover:scale-105 transition-all duration-300">
+                  <button className="group flex items-center space-x-3 px-5 py-2 md:px-8 md:py-4 border-2 border-purple-600 text-purple-600 font-semibold font-montserrat hover:bg-purple-600 hover:text-white hover:scale-105 transition-all duration-300">
                     <span>READ MY BLOG</span>
                     <ArrowRight
                       size={20}

@@ -315,7 +315,7 @@ export default function HeroSection() {
 
           {/* Right content - Profile image */}
           <div className="col-span-full lg:col-span-6 mt-4">
-            <div className="relative group w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 mt-20 mx-auto lg:mt-0 lg:-mt-48 lg:-ml-40">
+            <div className="relative group w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 mt-16 mx-auto lg:mt-0 lg:-mt-48 lg:-ml-40">
               {/* Elegant glassmorphic frame with animation */}
               <div className="absolute inset-0 rounded-xl border border-lime-400/40 bg-lime-400/20 backdrop-blur-md shadow-lg shadow-lime-500/40 transition-all duration-500 group-hover:scale-105 group-hover:rotate-1" />
 
