@@ -9,7 +9,7 @@ const config: Config = {
     "./*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
-  safelist: ["mt-16", "-mt-48", "lg:-mt-48", "mx-auto", "lg:-ml-40"],
+  // safelist: ["mt-16", "-mt-48", "lg:-mt-48", "mx-auto", "lg:-ml-40"],
   theme: {
     extend: {
       fontFamily: {
