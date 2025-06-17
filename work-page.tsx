@@ -20,6 +20,13 @@ const categoryLabels = {
 export default function WorkPage() {
   const projects = [
     {
+      title: "Emergency Toolkit Website",
+      year: "2025",
+      category: "websites",
+      imageUrl: "/crisisaid.png",
+      link: "https://emergency-toolkit.netlify.app/",
+    },
+    {
       title: "TravelSphere Booking App",
       year: "2024",
       category: "websites",
