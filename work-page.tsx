@@ -105,6 +105,13 @@ export default function WorkPage() {
       link: "https://dribbble.com/shots/25640394-Branding-Logo-Design-for-FD-Foodstore",
     },
     {
+      title: "Professional eBook Design: “The Basics of an Exit Strategy",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/mockups.png",
+      link: "https://dribbble.com/shots/26159172-Professional-eBook-Design-The-Basics-of-an-Exit-Strategy",
+    },
+    {
       title: "Organic Skincare poster",
       year: "2025",
       category: "graphic design",
