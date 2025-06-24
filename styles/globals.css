@@ -6,6 +6,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Only apply Lexend Deca to content elements — not headings */
+
+p,
+span,
+li,
+a,
+small,
+label,
+input,
+textarea,
+button,
+blockquote {
+  font-family: var(--font-lexend), sans-serif;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

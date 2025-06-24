@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Poppins, Montserrat, Inter } from "next/font/google";
+import { Poppins, Montserrat, Inter, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -13,12 +13,20 @@ const poppins = Poppins({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-montserrat",
+  display: "swap",
+});
+
+const lexendDeca = Lexend_Deca({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-lexend",
   display: "swap",
 });
 
@@ -38,13 +46,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${inter.variable} ${montserrat.variable} ${lexendDeca.variable}`}
+    >
       <head>
-        {/* ✅ Manual fallback for favicon */}
         <link rel="icon" href="/favicon.ico" />
-        {/* <title></title> */}
       </head>
-      <body className="font-montserrat antialiased">{children}</body>
+      <body style={{ fontFamily: "var(--font-lexend)" }}>{children}</body>
     </html>
   );
 }

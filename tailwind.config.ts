@@ -15,6 +15,7 @@ const config: Config = {
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
         montserrat: ["var(--font-montserrat)", "sans-serif"],
+        lexend: ["var(--font-lexend)", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
