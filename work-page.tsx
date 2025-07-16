@@ -38,7 +38,7 @@ export default function WorkPage() {
       year: "2024",
       category: "websites",
       imageUrl: "/solaris-surge.png",
-      link: "https://solaris-surge-nett.vercel.app/home",
+      link: "https://solaris-surge-net.netlify.app/",
     },
     {
       title: "Health Monitoring Dashboard",
