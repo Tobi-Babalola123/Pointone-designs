@@ -20,20 +20,6 @@ const categoryLabels = {
 export default function WorkPage() {
   const projects = [
     {
-      title: "Emergency Toolkit Website",
-      year: "2025",
-      category: "websites",
-      imageUrl: "/crisisaid.png",
-      link: "https://emergency-toolkit.netlify.app/",
-    },
-    {
-      title: "TravelSphere Booking App",
-      year: "2024",
-      category: "websites",
-      imageUrl: "/Travelsphere.jpg",
-      link: "https://bus-booking-system1.netlify.app/",
-    },
-    {
       title: "Solar Panel Estimator",
       year: "2024",
       category: "websites",
@@ -48,12 +34,27 @@ export default function WorkPage() {
       link: "https://health-monitoring-app2.netlify.app/",
     },
     {
+      title: "TravelSphere Booking App",
+      year: "2024",
+      category: "websites",
+      imageUrl: "/Travelsphere.jpg",
+      link: "https://bus-booking-system1.netlify.app/",
+    },
+    {
       title: "Trentrove E-commerce Website",
       year: "2024",
       category: "websites",
       imageUrl: "/trendtrovy.png",
       link: "https://trendtrovei.netlify.app/",
     },
+    {
+      title: "Emergency Toolkit Website",
+      year: "2025",
+      category: "websites",
+      imageUrl: "/crisisaid.png",
+      link: "https://emergency-toolkit.netlify.app/",
+    },
+
     {
       title: "PointOne Crypto Wallet design",
       year: "2024",
