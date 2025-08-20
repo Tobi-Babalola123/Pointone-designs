@@ -63,6 +63,35 @@ export default function WorkPage() {
       link: "https://dribbble.com/shots/25655700-Product-Design-crypto-wallet-design",
     },
     {
+      title: "Bite Base – Food Truck Logo Design Mockups",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/biebase.webp",
+      link: "https://dribbble.com/shots/26269024-Bite-Base-Food-Truck-Logo-Design-Mockups",
+    },
+    {
+      title: "Charcoal Hardwood Branding",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/hardwoodcharcoal.webp",
+      link: "https://dribbble.com/shots/25728199-Charcoal-Packaging-and-mockup-professional-export-box",
+    },
+    {
+      title: "FD Foodstore Branding",
+      year: "2024",
+      category: "graphic design",
+      imageUrl: "/FDfoodstore.webp",
+      link: "https://dribbble.com/shots/25640394-Branding-Logo-Design-for-FD-Foodstore",
+    },
+
+    {
+      title: "Blue Obsession – Dive Travel Logo Mockup",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/blue.webp",
+      link: "https://dribbble.com/shots/26257399-Blue-Obsession-Dive-Travel-Logo-Mockup",
+    },
+    {
       title: "Christian Ebook Cover Design",
       year: "2025",
       category: "graphic design",
@@ -140,13 +169,7 @@ export default function WorkPage() {
       imageUrl: "/logoxx.webp",
       link: "https://dribbble.com/shots/26370914-Logo-Design-Exploration-Clean-Vector-Marks",
     },
-    {
-      title: "Bite Base – Food Truck Logo Design Mockups",
-      year: "2025",
-      category: "graphic design",
-      imageUrl: "/biebase.webp",
-      link: "https://dribbble.com/shots/26269024-Bite-Base-Food-Truck-Logo-Design-Mockups",
-    },
+
     {
       title: "Desert Sage Retreat – Glamping Adventure Logo",
       year: "2025",
@@ -168,13 +191,7 @@ export default function WorkPage() {
       imageUrl: "/prayer.png",
       link: "https://www.behance.net/gallery/216059131/Creative-Flyer-for-Prayer-and-Fasting-Program-2025",
     },
-    {
-      title: "Blue Obsession – Dive Travel Logo Mockup",
-      year: "2025",
-      category: "graphic design",
-      imageUrl: "/blue.webp",
-      link: "https://dribbble.com/shots/26257399-Blue-Obsession-Dive-Travel-Logo-Mockup",
-    },
+
     {
       title: "Happy Birthday Social Media Post",
       year: "2025",
@@ -210,13 +227,13 @@ export default function WorkPage() {
       imageUrl: "/rrrr.jpeg",
       link: "https://dribbble.com/shots/25848746-Fasting-Prayers-Flier-design-Thehillevangelicalministry",
     },
-    {
-      title: "To-do Webapp",
-      year: "2025",
-      category: "websites",
-      imageUrl: "/todowebapp2.png",
-      link: "",
-    },
+    // {
+    //   title: "To-do Webapp",
+    //   year: "2025",
+    //   category: "websites",
+    //   imageUrl: "/todowebapp2.png",
+    //   link: "",
+    // },
     {
       title: "Night Club Events Poster",
       year: "2025",
@@ -232,20 +249,7 @@ export default function WorkPage() {
       isVideo: true,
       link: "https://dribbble.com/shots/25497685-Advertising-Video-for-Natural-Pile-Relief-Product",
     },
-    {
-      title: "Charcoal Hardwood Branding",
-      year: "2024",
-      category: "graphic design",
-      imageUrl: "/hardwoodcharcoal.webp",
-      link: "https://dribbble.com/shots/25728199-Charcoal-Packaging-and-mockup-professional-export-box",
-    },
-    {
-      title: "FD Foodstore Branding",
-      year: "2024",
-      category: "graphic design",
-      imageUrl: "/FDfoodstore.webp",
-      link: "https://dribbble.com/shots/25640394-Branding-Logo-Design-for-FD-Foodstore",
-    },
+
     {
       title: "A Tribute to Heritage & Culture",
       year: "2024",
