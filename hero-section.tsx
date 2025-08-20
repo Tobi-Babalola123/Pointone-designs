@@ -321,7 +321,7 @@ export default function HeroSection() {
 
               {/* Profile Image with hover pulse effect */}
               <Image
-                src="/pointone.png"
+                src="/tobi.webp"
                 alt="Portrait of Tobi Babalola"
                 title="Tobi Babalola"
                 aria-label="Tobi Babalola profile picture"
