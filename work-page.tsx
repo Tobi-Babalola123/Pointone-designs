@@ -83,6 +83,13 @@ export default function WorkPage() {
       imageUrl: "/FDfoodstore.webp",
       link: "https://dribbble.com/shots/25640394-Branding-Logo-Design-for-FD-Foodstore",
     },
+    {
+      title: "Jabeam Autos Logo Design",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/jabeam signpost.png",
+      link: "https://dribbble.com/shots/26488669-Jabeam-Autos-Automobile-Brand-Logo-Design",
+    },
 
     {
       title: "Blue Obsession – Dive Travel Logo Mockup",
@@ -91,13 +98,7 @@ export default function WorkPage() {
       imageUrl: "/blue.webp",
       link: "https://dribbble.com/shots/26257399-Blue-Obsession-Dive-Travel-Logo-Mockup",
     },
-    {
-      title: "Christian Ebook Cover Design",
-      year: "2025",
-      category: "graphic design",
-      imageUrl: "/deepthingsofgod.jpeg",
-      link: "https://dribbble.com/shots/25848651-E-Book-Cover-design-The-Deep-things-of-God",
-    },
+
     {
       title: "Music Cover",
       year: "2025",
@@ -118,6 +119,13 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/ebook.jpeg",
       link: "https://dribbble.com/shots/26102133-Christian-eBook-Design-Purposeful-Living-Divine-Calling",
+    },
+    {
+      title: "Christian Ebook Cover Design",
+      year: "2025",
+      category: "graphic design",
+      imageUrl: "/deepthingsofgod.jpeg",
+      link: "https://dribbble.com/shots/25848651-E-Book-Cover-design-The-Deep-things-of-God",
     },
     {
       title: "Kings Night – Premium Club Event Flyer Design",
