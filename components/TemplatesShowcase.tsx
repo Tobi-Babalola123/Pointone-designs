@@ -4,8 +4,49 @@ import React from "react";
 import { CheckCircle, Headphones, Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import ".";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+// Import required modules
+import { Pagination, Autoplay } from "swiper/modules";
 export default function TemplatesShowcase() {
+  // Free mockups data
+  const freeMockups = [
+    {
+      title: "Employee ID Card Mockup",
+      preview: "../ID card.png",
+      downloadUrl: "/Mockups/employee ID card mockup.zip",
+    },
+    {
+      title: "Poster Mockup",
+      preview: "../scentelixir.png",
+      downloadUrl: "/Mockups/Free Floating Curved A4 Flyer Mockup.zip",
+    },
+    {
+      title: "T-Shirt Mockup",
+      preview: "../tshirt.webp",
+      downloadUrl: "/Mockups/men-t-shirt-mockup-floating.zip",
+    },
+    {
+      title: "Baseball cap Mockup",
+      preview: "../blue.webp",
+      downloadUrl: "/Mockups/475-01-Baseball-Cap-Mockup.zip",
+    },
+    {
+      title: "free-burger-box-mockup",
+      preview: "../biebase.webp",
+      downloadUrl: "/Mockups/free-burger-box-mockup.zip",
+    },
+    {
+      title: "Rectangle Signage on Wall Mockup",
+      preview: "../jabeam signpost.png",
+      downloadUrl: "/Mockups/Rectangle+Signage+on+Wall+Mockup.zip",
+    },
+  ];
+
   return (
     <section className="relative bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -28,7 +69,7 @@ export default function TemplatesShowcase() {
           </div>
         </div>
 
-        {/* Product Cards */}
+        {/* Product Cards (Paid Templates) */}
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
@@ -50,6 +91,7 @@ export default function TemplatesShowcase() {
               price: "$29.99",
               image: "../hero.png",
               gradient: "from-orange-600 to-pink-600",
+              url: "#",
             },
             {
               title: "Design Assets",
@@ -57,6 +99,7 @@ export default function TemplatesShowcase() {
               image:
                 "https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=800",
               gradient: "from-teal-600 to-blue-600",
+              url: "#",
             },
           ].map((product, idx) => (
             <a
@@ -83,6 +126,62 @@ export default function TemplatesShowcase() {
               </div>
             </a>
           ))}
+        </div>
+
+        {/* Free Mockups Section */}
+        {/* Free Mockups Section (Carousel) */}
+        <div className="mt-20">
+          <h3 className="text-2xl font-bold text-center">
+            Free Mockups for Designers
+          </h3>
+          <p className="mt-2 text-center text-gray-400">
+            Download high-quality mockups to showcase your work in style.
+          </p>
+
+          <div className="mt-10">
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1}
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 4000, disableOnInteraction: false }}
+              breakpoints={{
+                640: { slidesPerView: 1 }, // mobile
+                768: { slidesPerView: 2 }, // tablet
+                1024: { slidesPerView: 3 }, // desktop
+              }}
+              className="pb-12"
+            >
+              {freeMockups.map((mockup, idx) => (
+                <SwiperSlide key={idx}>
+                  <div className="rounded-2xl p-6 bg-gradient-to-tr from-gray-800 to-gray-700 shadow-lg h-full flex flex-col">
+                    <div className="overflow-hidden rounded-lg bg-black/20">
+                      <Image
+                        src={mockup.preview}
+                        alt={mockup.title}
+                        width={400}
+                        height={250}
+                        className="object-cover w-full h-48"
+                      />
+                    </div>
+                    <h3 className="mt-4 text-lg font-semibold">
+                      {mockup.title}
+                    </h3>
+                    <a
+                      href={mockup.downloadUrl}
+                      download
+                      className="mt-3 inline-block rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 text-sm font-medium transition w-fit" // 👈 smaller button
+                      onClick={() => {
+                        console.log("Download clicked:", mockup.title);
+                      }}
+                    >
+                      Download
+                    </a>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
 
         {/* Why Choose Us */}
