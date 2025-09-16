@@ -18,42 +18,50 @@ export default function TemplatesShowcase() {
     {
       title: "Employee ID Card Mockup",
       preview: "../ID card.png",
-      downloadUrl: "/Mockups/employee ID card mockup.zip",
+      downloadUrl:
+        "https://drive.google.com/file/d/1VrTuL0_-T7w9OpkjuB33QIGQwNaqM94M/view?usp=drive_link",
     },
     {
       title: "Poster Mockup",
       preview: "../scentelixir.png",
-      downloadUrl: "/Mockups/Free Floating Curved A4 Flyer Mockup.zip",
+      downloadUrl:
+        "https://drive.google.com/file/d/1anlLHzvPp5Ilo48exzzqa7Z6LZk4QyQ7/view?usp=sharing",
     },
     {
       title: "T-Shirt Mockup",
       preview: "../tshirt.webp",
-      downloadUrl: "/Mockups/men-t-shirt-mockup-floating.zip",
+      downloadUrl:
+        "https://drive.google.com/file/d/1AAe-1IHzroWT_eUGcnLpIMlhb4Zk5g9t/view?usp=sharing",
     },
     {
       title: "Baseball cap Mockup",
       preview: "../blue.webp",
-      downloadUrl: "/Mockups/475-01-Baseball-Cap-Mockup.zip",
+      downloadUrl:
+        "https://drive.google.com/file/d/1jdYvJw8DR22bOgEHRJjwTORROvYPageP/view?usp=sharing",
     },
     {
       title: "free-burger-box-mockup",
       preview: "../biebase.webp",
-      downloadUrl: "/Mockups/free-burger-box-mockup.zip",
+      downloadUrl:
+        "https://drive.google.com/file/d/1b7K-rBIyAHTYorcS-nd4-zlo6mnx53fC/view?usp=sharing",
     },
     {
       title: "Rectangle Signage on Wall Mockup",
       preview: "../jabeam signpost.png",
-      downloadUrl: "/Mockups/Rectangle+Signage+on+Wall+Mockup.zip",
+      downloadUrl:
+        "https://drive.google.com/file/d/1DCX1jNG09ocHfoO0BXY_jUQUbUxwy6JL/view?usp=sharing",
     },
     {
       title: "Double A4 Flyer Poster mockup",
       preview: "../scentelixirr.png",
-      downloadUrl: "/Mockups/double-a4-flyer-poster-mockup.zip",
+      downloadUrl:
+        "https://drive.google.com/file/d/1In6twRMO4v_9sXU_lCx21Ams7OFDbMgG/view?usp=sharing",
     },
     {
       title: "Round Embroidered patch mockup ",
       preview: "../desert.webp",
-      downloadUrl: "/Mockups/patch.zip",
+      downloadUrl:
+        "https://drive.google.com/file/d/1sYpyzajL2f86om9-ojnKxbIVVj2hfXXD/view?usp=sharing",
     },
   ];
 
