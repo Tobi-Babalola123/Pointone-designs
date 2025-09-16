@@ -45,6 +45,16 @@ export default function TemplatesShowcase() {
       preview: "../jabeam signpost.png",
       downloadUrl: "/Mockups/Rectangle+Signage+on+Wall+Mockup.zip",
     },
+    {
+      title: "Double A4 Flyer Poster mockup",
+      preview: "../scentelixirr.png",
+      downloadUrl: "/Mockups/double-a4-flyer-poster-mockup.zip",
+    },
+    {
+      title: "Round Embroidered patch mockup ",
+      preview: "../desert.webp",
+      downloadUrl: "/Mockups/patch.zip",
+    },
   ];
 
   return (
