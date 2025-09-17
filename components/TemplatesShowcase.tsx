@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { CheckCircle, Headphones, Download } from "lucide-react";
+import React, { useState } from "react";
+import { CheckCircle, Headphones, Download, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ".";
@@ -12,7 +12,10 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 // Import required modules
 import { Pagination, Autoplay } from "swiper/modules";
+
 export default function TemplatesShowcase() {
+  const [selectedMockup, setSelectedMockup] = useState<any>(null);
+
   // Free mockups data
   const freeMockups = [
     {
@@ -185,16 +188,12 @@ export default function TemplatesShowcase() {
                     <h3 className="mt-4 text-lg font-semibold">
                       {mockup.title}
                     </h3>
-                    <a
-                      href={mockup.downloadUrl}
-                      download
-                      className="mt-3 inline-block rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 text-sm font-medium transition w-fit" // 👈 smaller button
-                      onClick={() => {
-                        console.log("Download clicked:", mockup.title);
-                      }}
+                    <button
+                      onClick={() => setSelectedMockup(mockup)}
+                      className="mt-3 inline-block rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 text-sm font-medium transition w-fit"
                     >
                       Download
-                    </a>
+                    </button>
                   </div>
                 </SwiperSlide>
               ))}
@@ -245,6 +244,67 @@ export default function TemplatesShowcase() {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedMockup && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-gray-900 rounded-2xl p-8 max-w-lg w-full relative shadow-xl">
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedMockup(null)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-white"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Preview Image */}
+            <Image
+              src={selectedMockup.preview}
+              alt={selectedMockup.title}
+              width={500}
+              height={300}
+              className="rounded-lg object-cover w-full h-48"
+            />
+
+            {/* Title */}
+            <h2 className="mt-4 text-xl font-semibold">
+              {selectedMockup.title}
+            </h2>
+            <p className="mt-2 text-gray-400 text-sm">
+              Use this free mockup to enhance your presentations or showcase
+              designs to clients.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-6 flex flex-col gap-3">
+              <a
+                href={selectedMockup.downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-sm font-medium"
+              >
+                Confirm & Download
+              </a>
+
+              <Link
+                href="/supportpage"
+                // target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center rounded-lg bg-yellow-500 hover:bg-yellow-600 px-4 py-2 text-sm font-medium"
+              >
+                ☕ Buy Me a Coffee
+              </Link>
+
+              <Link
+                href="/contact-section"
+                className="block text-center rounded-lg bg-green-600 hover:bg-green-700 px-4 py-2 text-sm font-medium"
+              >
+                Work With Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
