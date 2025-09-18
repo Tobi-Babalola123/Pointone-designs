@@ -3,28 +3,33 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { PaystackButton } from "react-paystack"; // ✅ import PaystackButton
+import dynamic from "next/dynamic";
 import FooterSection from "@/footer-section";
 
+// ✅ Dynamically import PaystackButton so it only loads in browser
+const PaystackButton = dynamic(
+  () => import("react-paystack").then((mod) => mod.PaystackButton),
+  { ssr: false }
+);
+
 export default function SupportPage() {
-  const publicKey = "pk_live_30a816d0151fde156a906e88af16f632d3cf78e5"; // ✅ replace with your Paystack public key
-  const email = "donor@example.com"; // you can collect this from input if you like
+  const publicKey = "pk_live_30a816d0151fde156a906e88af16f632d3cf78e5"; // ✅ replace with your own
+  const email = "donor@example.com"; // ideally collect from input
   const [selected, setSelected] = useState(1);
   const [donationOptions] = useState([2, 3, 5, 10]);
   const [selectedDonation, setSelectedDonation] = useState(5);
   const [isMonthly, setIsMonthly] = useState(false);
   const options = [1, 3, 5, 10];
 
+  // Paystack amount must be in kobo (₦)
   const amountInKobo = selectedDonation * 100 * 1000;
-  // Paystack expects amount in kobo (₦).
-  // Example: 5000 = ₦50
 
   const componentProps = {
     email,
     amount: amountInKobo,
     publicKey,
     text: `Support ₦${selectedDonation * 1000} ${isMonthly ? "(Monthly)" : ""}`,
-    onSuccess: () => alert("Thanks for supporting 💚"),
+    onSuccess: () => alert("💚 Thanks for supporting!"),
     onClose: () => alert("Transaction closed"),
   };
 
