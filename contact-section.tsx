@@ -50,6 +50,7 @@ export default function ContactSection() {
 
   return (
     <section
+      id="contact"
       ref={ref}
       className="min-h-screen bg-gradient-to-b from-gray-50 to-purple-600 relative overflow-hidden"
     >

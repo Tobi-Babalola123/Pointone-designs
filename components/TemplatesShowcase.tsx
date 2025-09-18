@@ -296,7 +296,7 @@ export default function TemplatesShowcase() {
               </Link>
 
               <Link
-                href="/contact-section"
+                href="/#contact"
                 className="block text-center rounded-lg bg-green-600 hover:bg-green-700 px-4 py-2 text-sm font-medium"
               >
                 Work With Us
