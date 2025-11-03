@@ -1,7 +1,12 @@
 "use client";
-import { PaystackButton } from "react-paystack";
+import dynamic from "next/dynamic";
 import { TemplateCard } from "@/components/template-card";
 import { Button } from "@/components/ui/button";
+
+// ✅ Dynamically import BuyNowButton (SSG/SSR safe)
+const BuyNowButton = dynamic(() => import("@/components/BuyNowButton"), {
+  ssr: false,
+});
 
 const templates = [
   {
@@ -45,47 +50,7 @@ const templates = [
   },
 ];
 
-// ✅ define the BuyNowButton (not exported)
-function BuyNowButton({ amount, email, templateName }: any) {
-  const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY;
-
-  if (!publicKey) {
-    console.log("Paystack Key:", publicKey);
-
-    console.error("⚠️ Missing Paystack public key");
-    return (
-      <button className="bg-red-600 text-white px-5 py-2 rounded">
-        Missing Paystack Key
-      </button>
-    );
-  }
-
-  const componentProps = {
-    email,
-    amount: amount * 100,
-    metadata: {
-      name: "Template Purchase",
-      template: templateName,
-    },
-    publicKey,
-    text: "Buy Now",
-    currency: "NGN",
-    reference: new Date().getTime().toString(),
-    onSuccess: () => alert("✅ Payment successful!"),
-    onClose: () => alert("❌ Transaction closed!"),
-  };
-
-  console.log("💳 Paystack Config:", componentProps);
-
-  return (
-    <PaystackButton
-      {...componentProps}
-      className="border-[#C6FF00] text-[#C6FF00] font-semibold px-5 py-2 rounded-full hover:bg-[#C6FF00] hover:text-black hover:scale-105 transition-all duration-300"
-    />
-  );
-}
-
-// ✅ main export (only one per file)
+// ✅ Main export only
 export default function TemplatesPage() {
   return (
     <div className="min-h-screen bg-[#6A1B9A] text-white relative overflow-hidden">
