@@ -1,3 +1,5 @@
+"use client";
+
 import { MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useScrollAnimation } from "./use-scroll-animation";
