@@ -7,6 +7,7 @@ import {
   Dribbble,
 } from "lucide-react";
 import { Phone, Mail } from "lucide-react";
+import Link from "next/link";
 
 export default function FooterSection() {
   return (
@@ -53,12 +54,12 @@ export default function FooterSection() {
             {/* Right side - Navigation */}
             <div className="space-y-6">
               <nav className="space-y-4">
-                <a
-                  href="#work"
+                <Link
+                  href="/work"
                   className="block text-lime-400 text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"
                 >
                   My Projects
-                </a>
+                </Link>
                 <a
                   href="#about"
                   className="block text-lime-400 text-xl font-medium font-montserrat hover:text-lime-300 transition-colors duration-300"

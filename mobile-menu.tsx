@@ -73,18 +73,19 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </h3>
               <div className="space-y-3">
                 <a
-                  href="mailto:hello@alexdev.com"
+                  href="mailto:babalolatobi308@gmail.com"
                   className="block text-purple-600 text-base lg:text-lg font-medium font-montserrat hover:text-purple-700 transition-colors duration-300"
                 >
-                  +2348105333852
+                  babalolatobi308@gmail.com
                 </a>
+
                 <a
-                  href="https://t.me/alexdev"
+                  href="https://www.linkedin.com/in/tobi-babalola/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-purple-600 text-base lg:text-lg font-medium font-montserrat hover:text-purple-700 transition-colors duration-300"
                 >
-                  babalolatobi308@gmail.com
+                  Connect with me on LinkedIn
                 </a>
               </div>
             </div>
