@@ -142,13 +142,7 @@ export default function WorkPage() {
       isVideo: true,
       link: "https://dribbble.com/shots/25849166-Greater-Construction-Video-ad",
     },
-    {
-      title: "Web Novel Cover Design",
-      year: "2025",
-      category: "graphic design",
-      imageUrl: "/ccccc.jpeg",
-      link: "https://dribbble.com/shots/25803315-Death-Plus-One-A-Psychological-Thriller",
-    },
+
     {
       title: "Raw Foodstrore Branding",
       year: "2025",

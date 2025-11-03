@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   title: "Tobi Babalola",
   description:
     "Transforming ideas into exceptional digital experiences through innovative web development and thoughtful design.",
-  generator: "v0.dev",
+  generator: "Nextjs",
   icons: {
     icon: "/favicon.ico",
   },

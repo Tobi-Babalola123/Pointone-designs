@@ -112,7 +112,7 @@ export default function TemplatesShowcase() {
               price: "$29.99",
               image: "../hero.png",
               gradient: "from-orange-600 to-pink-600",
-              url: "#",
+              url: "/templates", // internal link
             },
             {
               title: "Design Assets",
@@ -122,31 +122,61 @@ export default function TemplatesShowcase() {
               gradient: "from-teal-600 to-blue-600",
               url: "#",
             },
-          ].map((product, idx) => (
-            <a
-              key={idx}
-              href={product.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block transform transition-transform duration-300 hover:scale-105"
-            >
-              <div
-                className={`rounded-2xl p-6 bg-gradient-to-tr ${product.gradient} shadow-lg`}
+          ].map((product, idx) =>
+            product.url.startsWith("/") ? (
+              // ✅ Internal link using Next.js <Link>
+              <Link
+                key={idx}
+                href={product.url}
+                className="block transform transition-transform duration-300 hover:scale-105"
               >
-                <div className="overflow-hidden rounded-lg bg-black/20">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    width={400}
-                    height={250}
-                    className="object-cover w-full h-48"
-                  />
+                <div
+                  className={`rounded-2xl p-6 bg-gradient-to-tr ${product.gradient} shadow-lg`}
+                >
+                  <div className="overflow-hidden rounded-lg bg-black/20">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      width={400}
+                      height={250}
+                      className="object-cover w-full h-48"
+                    />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold">
+                    {product.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-200">{product.price}</p>
                 </div>
-                <h3 className="mt-4 text-lg font-semibold">{product.title}</h3>
-                <p className="mt-2 text-sm text-gray-200">{product.price}</p>
-              </div>
-            </a>
-          ))}
+              </Link>
+            ) : (
+              // 🌍 External links open in new tab
+              <a
+                key={idx}
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transform transition-transform duration-300 hover:scale-105"
+              >
+                <div
+                  className={`rounded-2xl p-6 bg-gradient-to-tr ${product.gradient} shadow-lg`}
+                >
+                  <div className="overflow-hidden rounded-lg bg-black/20">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      width={400}
+                      height={250}
+                      className="object-cover w-full h-48"
+                    />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold">
+                    {product.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-200">{product.price}</p>
+                </div>
+              </a>
+            )
+          )}
         </div>
 
         {/* Free Mockups Section */}
