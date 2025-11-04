@@ -103,7 +103,7 @@ export default function TemplatesShowcase() {
             {
               title: "Social Media Designs",
               price: "$5.99",
-              image: "../media.jpeg",
+              image: "../socials.webp",
               gradient: "from-blue-600 to-indigo-600",
               url: "https://pointonedesigns.gumroad.com/l/flyerpack-vol1",
             },

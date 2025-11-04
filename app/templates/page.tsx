@@ -1,9 +1,11 @@
 "use client";
+
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react"; // <-- import the icon
 import { TemplateCard } from "@/components/template-card";
 import { Button } from "@/components/ui/button";
 
-// ✅ Dynamically import BuyNowButton (SSG/SSR safe)
 const BuyNowButton = dynamic(() => import("@/components/BuyNowButton"), {
   ssr: false,
 });
@@ -26,7 +28,7 @@ const templates = [
       "Beautiful and modern landing page built with Next.js and TailwindCSS",
     image: "/landing page preview.png",
     tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
-    demoUrl: "https://landing-page-template-u5kx.vercel.app/",
+    demoUrl: "https://landing-page-templates.netlify.app/",
     amount: 15000,
   },
   {
@@ -50,16 +52,26 @@ const templates = [
   },
 ];
 
-// ✅ Main export only
 export default function TemplatesPage() {
   return (
     <div className="min-h-screen bg-[#6A1B9A] text-white relative overflow-hidden">
-      {/* Background glow effect */}
+      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#6A1B9A] via-[#7B1FA2] to-[#4A148C] opacity-95"></div>
 
+      {/* Back Home Icon */}
+      <div className="relative z-20 px-6 pt-6">
+        <Link
+          href="/"
+          className="inline-flex items-center text-[#C6FF00] hover:text-[#D4FF33] font-medium transition-colors duration-300"
+        >
+          <ArrowLeft className="mr-2 h-5 w-5" />
+          Back to Home
+        </Link>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative z-10 border-b border-[#8E24AA]/40">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 text-center">
+      <section className="relative z-10 border-b border-[#8E24AA]/40 text-center">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight">
             <span className="text-[#C6FF00]">Discover</span> Stunning Templates
             <br />
@@ -126,21 +138,22 @@ export default function TemplatesPage() {
 
       {/* CTA Section */}
       <section className="relative z-10 border-t border-[#8E24AA]/40 bg-[#4A148C]/60 backdrop-blur-lg">
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-[#C6FF00]">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 py-16 sm:py-24 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-[#C6FF00]">
             Ready to Build Something Amazing?
           </h2>
-          <p className="text-gray-200 mb-8">
+          <p className="text-gray-200 mb-6 sm:mb-8 text-sm sm:text-base">
             Explore premium templates that help you ship faster and look
             professional — all built with React and TailwindCSS.
           </p>
-          <div className="flex justify-center gap-4">
-            <Button className="bg-[#C6FF00] text-black font-bold px-6 py-3 rounded-full hover:bg-[#D4FF33] hover:scale-105 transition-transform duration-300">
+
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
+            <Button className="w-full sm:w-auto bg-[#C6FF00] text-black font-bold px-6 py-3 rounded-full hover:bg-[#D4FF33] hover:scale-105 transition-transform duration-300">
               Browse All Templates
             </Button>
             <Button
               variant="outline"
-              className="border-[#C6FF00] text-[#C6FF00] font-semibold px-6 py-3 rounded-full hover:bg-[#C6FF00] hover:text-black hover:scale-105 transition-transform duration-300"
+              className="w-full sm:w-auto border-[#C6FF00] text-[#C6FF00] font-semibold px-6 py-3 rounded-full hover:bg-[#C6FF00] hover:text-black hover:scale-105 transition-transform duration-300"
             >
               View Documentation
             </Button>
