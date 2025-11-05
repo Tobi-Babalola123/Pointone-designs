@@ -29,8 +29,8 @@ export default function ContactSection() {
 
     emailjs
       .send(
-        "service_892r8lc",
-        "template_17rhutr",
+        "service_c5cm1hn",
+        "template_faeozwn",
         {
           user_name: formData.name,
           user_email: formData.email,
