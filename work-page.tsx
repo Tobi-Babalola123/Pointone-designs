@@ -25,6 +25,8 @@ export default function WorkPage() {
       category: "websites",
       imageUrl: "/solaris-surge.png",
       link: "https://www.solarissurge.net/",
+      description:
+        "Interactive web application that helps users calculate solar panel requirements and potential energy savings for their homes.",
     },
     {
       title: "Health Monitoring Dashboard",
@@ -32,6 +34,8 @@ export default function WorkPage() {
       category: "websites",
       imageUrl: "/healthsphere.png",
       link: "https://health-monitoring-app2.netlify.app/",
+      description:
+        "Comprehensive health tracking platform featuring real-time vital signs monitoring and personalized health insights.",
     },
     {
       title: "TravelSphere Booking App",
@@ -39,6 +43,8 @@ export default function WorkPage() {
       category: "websites",
       imageUrl: "/Travelsphere.jpg",
       link: "https://bus-booking-system1.netlify.app/",
+      description:
+        "Modern bus booking system with route planning, seat selection, and secure payment integration for seamless travel experiences.",
     },
     {
       title: "Trentrove E-commerce Website",
@@ -46,6 +52,8 @@ export default function WorkPage() {
       category: "websites",
       imageUrl: "/trendtrovy.png",
       link: "https://trendtrovei.netlify.app/",
+      description:
+        "Full-featured online shopping platform with product catalog, cart functionality, and smooth checkout experience.",
     },
     {
       title: "Emergency Toolkit Website",
@@ -53,6 +61,8 @@ export default function WorkPage() {
       category: "websites",
       imageUrl: "/crisisaid.png",
       link: "https://emergency-toolkit.netlify.app/",
+      description:
+        "Essential resource hub providing emergency preparedness guides, tools, and critical information for crisis situations.",
     },
 
     {
@@ -61,6 +71,8 @@ export default function WorkPage() {
       category: "ui",
       imageUrl: "/productdesign.webp",
       link: "https://dribbble.com/shots/25655700-Product-Design-crypto-wallet-design",
+      description:
+        "Sleek and intuitive cryptocurrency wallet interface design focused on security and user-friendly transaction management.",
     },
     {
       title: "Bite Base – Food Truck Logo Design Mockups",
@@ -68,6 +80,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/biebase.webp",
       link: "https://dribbble.com/shots/26269024-Bite-Base-Food-Truck-Logo-Design-Mockups",
+      description:
+        "Bold, appetizing branding for a modern food truck featuring vibrant colors and versatile logo applications.",
     },
     {
       title: "Charcoal Hardwood Branding",
@@ -75,6 +89,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/hardwoodcharcoal.webp",
       link: "https://dribbble.com/shots/25728199-Charcoal-Packaging-and-mockup-professional-export-box",
+      description:
+        "Premium packaging design for hardwood charcoal products with rustic aesthetics and professional export-ready mockups.",
     },
     {
       title: "FD Foodstore Branding",
@@ -82,6 +98,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/FDfoodstore.webp",
       link: "https://dribbble.com/shots/25640394-Branding-Logo-Design-for-FD-Foodstore",
+      description:
+        "Complete brand identity for a local food store featuring fresh, welcoming design elements and cohesive visual language.",
     },
     {
       title: "Jabeam Autos Logo Design",
@@ -89,6 +107,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/jabeam signpost.png",
       link: "https://dribbble.com/shots/26488669-Jabeam-Autos-Automobile-Brand-Logo-Design",
+      description:
+        "Professional automotive brand logo with strong, dynamic lines conveying speed, reliability, and modern engineering excellence.",
     },
 
     {
@@ -97,6 +117,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/blue.webp",
       link: "https://dribbble.com/shots/26257399-Blue-Obsession-Dive-Travel-Logo-Mockup",
+      description:
+        "Ocean-inspired branding for a dive travel company with fluid design elements evoking underwater adventure and exploration.",
     },
 
     {
@@ -105,6 +127,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/musiccover.jpeg",
       link: "https://www.behance.net/gallery/205917009/Album-art",
+      description:
+        "Striking album artwork combining bold typography and artistic visuals to capture the essence of the music.",
     },
     {
       title: "Scent Elixir – Luxury Perfume Brand Flyer Design",
@@ -112,6 +136,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/scentelixirr.png",
       link: "https://dribbble.com/shots/26397584-Scent-Elixir-Luxury-Perfume-Brand-Flyer-Design",
+      description:
+        "Elegant promotional flyer for a premium fragrance line featuring sophisticated layouts and luxurious color palette.",
     },
     {
       title: "Christian Ebook Formatting & Publishing",
@@ -119,6 +145,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/ebook.jpeg",
       link: "https://dribbble.com/shots/26102133-Christian-eBook-Design-Purposeful-Living-Divine-Calling",
+      description:
+        "Professional ebook design and formatting for Christian literature with clean layouts optimized for digital reading.",
     },
     {
       title: "Christian Ebook Cover Design",
@@ -126,6 +154,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/deepthingsofgod.jpeg",
       link: "https://dribbble.com/shots/25848651-E-Book-Cover-design-The-Deep-things-of-God",
+      description:
+        "Inspirational cover design for spiritual content featuring meaningful imagery and thoughtful typography.",
     },
     {
       title: "Kings Night – Premium Club Event Flyer Design",
@@ -133,6 +163,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/kingsnight.png",
       link: "https://dribbble.com/shots/26397965-Kings-Night-Premium-Club-Event-Flyer-Design",
+      description:
+        "High-energy nightclub event flyer with luxurious gold accents and bold design commanding attention.",
     },
     {
       title: "Real Estate Video Ad",
@@ -141,6 +173,8 @@ export default function WorkPage() {
       imageUrl: "/videos/realestate.mp4",
       isVideo: true,
       link: "https://dribbble.com/shots/25849166-Greater-Construction-Video-ad",
+      description:
+        "Dynamic promotional video showcasing construction services with professional motion graphics and compelling narrative.",
     },
 
     {
@@ -149,6 +183,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/33.jpeg",
       link: "https://dribbble.com/shots/25640394-Branding-Logo-Design-for-FD-Foodstore",
+      description:
+        "Organic, natural branding for a raw food store emphasizing health, freshness, and sustainable eating habits.",
     },
     {
       title: "33 Hours Prayer Culture & 5th Year Anniversary Flyer - (THEM)",
@@ -156,13 +192,17 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/theoil.png",
       link: "https://dribbble.com/shots/26397238-33-Hours-Prayer-Culture-5th-Year-Anniversary-Flyer-THEM",
+      description:
+        "Commemorative event flyer celebrating a spiritual milestone with powerful imagery and meaningful symbolism.",
     },
     {
-      title: "Professional eBook Design: “The Basics of an Exit Strategy",
+      title: "Professional eBook Design: The Basics of an Exit Strategy",
       year: "2025",
       category: "graphic design",
       imageUrl: "/mockups.png",
       link: "https://dribbble.com/shots/26159172-Professional-eBook-Design-The-Basics-of-an-Exit-Strategy",
+      description:
+        "Business-focused ebook design with clean layouts and professional formatting for strategic planning content.",
     },
     {
       title: "Logo Design Exploration | Clean Vector Marks",
@@ -170,6 +210,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/logoxx.webp",
       link: "https://dribbble.com/shots/26370914-Logo-Design-Exploration-Clean-Vector-Marks",
+      description:
+        "Collection of minimal, versatile logo concepts with strong geometry and timeless design principles.",
     },
 
     {
@@ -178,6 +220,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/desert.webp",
       link: "https://dribbble.com/shots/26263561-Desert-Sage-Retreat-Glamping-Adventure-Logo",
+      description:
+        "Nature-inspired branding for a luxury camping experience combining outdoor adventure with comfort and style.",
     },
     {
       title: "Organic Skincare poster",
@@ -185,6 +229,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/skincare.jpeg",
       link: "https://dribbble.com/shots/25848733-Skincare-Organics-Flyer-Krina-Organics-Skincare",
+      description:
+        "Clean, natural promotional design for organic skincare products highlighting purity and wellness benefits.",
     },
     {
       title: "Prayer & Fasting Programme Social media Post",
@@ -192,6 +238,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/prayer.png",
       link: "https://www.behance.net/gallery/216059131/Creative-Flyer-for-Prayer-and-Fasting-Program-2025",
+      description:
+        "Spiritual event graphic designed to inspire participation and reflection through thoughtful visual messaging.",
     },
 
     {
@@ -200,6 +248,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/birthday.jpeg",
       link: "https://dribbble.com/shots/25648603-Birthday-design-mockups",
+      description:
+        "Joyful, celebratory birthday design with vibrant colors and festive elements perfect for social sharing.",
     },
     {
       title: "Night Club Events Poster",
@@ -207,6 +257,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/clubflame.webp",
       link: "https://dribbble.com/shots/25046847-Electric-Nights-Club-Vibes",
+      description:
+        "Electric promotional poster for nightclub events with neon aesthetics and high-energy visual impact.",
     },
     {
       title: "Crypto Wallet Logo Design",
@@ -214,6 +266,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/pointone.jpg",
       link: "https://dribbble.com/shots/25655684-Logo-Design-crypto-wallet-product-design",
+      description:
+        "Modern, secure logo for cryptocurrency wallet app emphasizing trust, technology, and digital innovation.",
     },
     {
       title: "Gospel Campaign Banner Design",
@@ -221,6 +275,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/fire.jpeg",
       link: "https://dribbble.com/shots/25928478-Ignite-the-Fire-Gospel-Campaign-The-Hill-Evangelical-Ministry",
+      description:
+        "Powerful campaign banner with fiery imagery designed to inspire spiritual renewal and community engagement.",
     },
     {
       title: "Fasting & Prayer Poster Design",
@@ -228,20 +284,17 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/rrrr.jpeg",
       link: "https://dribbble.com/shots/25848746-Fasting-Prayers-Flier-design-Thehillevangelicalministry",
+      description:
+        "Serene and inviting design for spiritual retreat event emphasizing peace, reflection, and devotion.",
     },
-    // {
-    //   title: "To-do Webapp",
-    //   year: "2025",
-    //   category: "websites",
-    //   imageUrl: "/todowebapp2.png",
-    //   link: "",
-    // },
     {
       title: "Night Club Events Poster",
       year: "2025",
       category: "graphic design",
       imageUrl: "/flame.jpeg",
       link: "https://dribbble.com/shots/25046865-Pulse-Party-Where-Music-Meets-Fun",
+      description:
+        "Vibrant party flyer with bold typography and energetic design perfect for promoting nightlife events.",
     },
     {
       title: "Health Supplement Video Ad",
@@ -250,6 +303,8 @@ export default function WorkPage() {
       imageUrl: "/videos/pileridvideo.mp4",
       isVideo: true,
       link: "https://dribbble.com/shots/25497685-Advertising-Video-for-Natural-Pile-Relief-Product",
+      description:
+        "Professional product video highlighting natural health benefits with clear messaging and engaging visuals.",
     },
 
     {
@@ -258,6 +313,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/nigeria.jpeg",
       link: "https://dribbble.com/shots/25634163-Celebrating-Nigeria-Visual-tribute-to-heritage-and-culture",
+      description:
+        "Vibrant cultural celebration design showcasing Nigerian heritage through colors, patterns, and traditional symbolism.",
     },
     {
       title: "Fresh eggs Label Design",
@@ -265,6 +322,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/histokem.webp",
       link: "https://dribbble.com/shots/25634173-Branding-Sticker-Design",
+      description:
+        "Farm-fresh product label design emphasizing quality, natural sourcing, and brand authenticity.",
     },
     {
       title: "Hospitality Industry Video Ad",
@@ -273,6 +332,8 @@ export default function WorkPage() {
       imageUrl: "/videos/mipconsultant.mp4",
       isVideo: true,
       link: "https://dribbble.com/shots/25640422-Motion-Design-for-hospitality-industry",
+      description:
+        "Professional service video showcasing hospitality consulting expertise with sophisticated motion design.",
     },
     {
       title: "Real Estate Video Ad",
@@ -281,6 +342,8 @@ export default function WorkPage() {
       imageUrl: "/videos/planetspace.mp4",
       isVideo: true,
       link: "https://dribbble.com/shots/25047169-Discover-Your-Dream-Home-Real-Estate-Showcase",
+      description:
+        "Captivating property showcase video featuring stunning visuals and compelling storytelling to attract buyers.",
     },
     {
       title: "Bottle Water Label design",
@@ -288,6 +351,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/kingbirthday.webp",
       link: "https://dribbble.com/shots/25046947-Noble-Wishes-A-Royal-Birthday-Card",
+      description:
+        "Premium bottled water label with clean, refreshing design emphasizing purity and quality.",
     },
     {
       title: "Real Estate Video Ad",
@@ -296,6 +361,8 @@ export default function WorkPage() {
       imageUrl: "/videos/cornerstone.mp4",
       isVideo: true,
       link: "https://dribbble.com/shots/25790090-Cornerstone-Building-Construction-Company-Video-Presentation",
+      description:
+        "Corporate video presentation highlighting construction expertise with professional production and clear messaging.",
     },
     {
       title: "Church Graphics",
@@ -303,6 +370,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/THEM..webp",
       link: "https://dribbble.com/shots/25046947-Noble-Wishes-A-Royal-Birthday-Card",
+      description:
+        "Faith-based graphics for church events and communications with uplifting design and meaningful imagery.",
     },
     {
       title: "Real Estate Video Ad",
@@ -311,6 +380,8 @@ export default function WorkPage() {
       imageUrl: "/videos/CAPconstruction.mp4",
       isVideo: true,
       link: "https://dribbble.com/shots/25848894-CAP-Construction-Video-Ad",
+      description:
+        "Construction company promotional video demonstrating capabilities and completed projects with cinematic quality.",
     },
     {
       title: "SPA Video Ad",
@@ -319,6 +390,8 @@ export default function WorkPage() {
       imageUrl: "/videos/DDAspa.mp4",
       isVideo: true,
       link: "https://dribbble.com/shots/25849130-DDA-SPA-video-ad",
+      description:
+        "Relaxing spa promotional video with serene visuals and calming aesthetics to attract wellness clients.",
     },
     {
       title: "Scent Elixir Poster Design",
@@ -326,6 +399,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/scent.webp",
       link: "https://dribbble.com/shots/25046774-T",
+      description:
+        "Luxurious perfume promotion featuring elegant typography and sophisticated color schemes.",
     },
     {
       title: "Bakery Label design",
@@ -333,6 +408,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/bakery.webp",
       link: "https://dribbble.com/shots/25046991-Artisan-Loaves-Crafted-with-Love",
+      description:
+        "Warm, artisanal bakery branding with handcrafted feel emphasizing quality ingredients and traditional methods.",
     },
     {
       title: "Shredded Beef Label design",
@@ -340,6 +417,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/shreddedbeef.webp",
       link: "https://dribbble.com/shots/25697673-Premium-Shredded-Beef-Packaging-Design-Ransomed2foods",
+      description:
+        "Premium meat product packaging with bold, appetizing visuals and clear brand identity.",
     },
     {
       title: "CAP Building Construction Company Logo Design",
@@ -347,6 +426,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/cap.jpeg",
       link: "https://dribbble.com/shots/25848729-CAP-Construction-Logo-Design",
+      description:
+        "Strong, reliable construction company logo conveying stability, professionalism, and building expertise.",
     },
     {
       title: "Handbills Design",
@@ -354,6 +435,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/handbills.png",
       link: "https://dribbble.com/shots/25926724-Gospel-Campaign-Flyer-design-The-Hill-Evangelical-Ministry",
+      description:
+        "Evangelistic outreach materials with compelling design to engage and invite community participation.",
     },
     {
       title: "Marksmen Construction Company Logo",
@@ -361,6 +444,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/1.png",
       link: "https://dribbble.com/shots/25848675-Marks-Men-Construction-Logo-design",
+      description:
+        "Professional construction brand identity with precise, geometric design elements reflecting accuracy and craftsmanship.",
     },
     {
       title: "Corporate Investment Errands Logo",
@@ -368,6 +453,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/dirt.jpg",
       link: "https://dribbble.com/shots/25848708-Logo-Design-Corporate-Investment-Errands",
+      description:
+        "Corporate logo design for investment services with trustworthy, professional aesthetic and modern sensibility.",
     },
     {
       title: "Gospel Campaign Poster Design",
@@ -375,6 +462,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/gospel.jpeg",
       link: "https://dribbble.com/shots/25926705-Gospel-Campaign-Flyer-The-Hill-Evangelical-Ministry",
+      description:
+        "Inspirational campaign graphics with uplifting imagery designed to motivate and encourage spiritual growth.",
     },
     {
       title: "FD Foodstore Logo",
@@ -382,6 +471,8 @@ export default function WorkPage() {
       category: "graphic design",
       imageUrl: "/fd.jpg",
       link: "https://www.behance.net/gallery/219117103/Branding-(Logo-design)-for-FD-Foodstore",
+      description:
+        "Fresh, approachable food retail branding with welcoming design that appeals to everyday shoppers.",
     },
   ];
 
@@ -466,7 +557,7 @@ export default function WorkPage() {
                       />
                     ) : (
                       <img
-                        src={project.imageUrl}
+                        src={project.imageUrl || "/placeholder.svg"}
                         alt={project.title}
                         className="w-full h-full object-cover"
                         loading="lazy"
@@ -480,6 +571,9 @@ export default function WorkPage() {
                     <p className="text-gray-500 text-xs lg:text-sm font-montserrat mb-3 lg:mb-4 uppercase tracking-wide">
                       {project.year} &nbsp;|&nbsp;{" "}
                       {project.category.toUpperCase()}
+                    </p>
+                    <p className="text-gray-600 text-sm font-montserrat leading-relaxed">
+                      {project.description}
                     </p>
                   </div>
                 </a>
