@@ -11,6 +11,7 @@ import FooterSection from "../footer-section";
 import FloatingMenuButton from "../floating-menu-button";
 import MobileMenu from "../mobile-menu";
 import MouseFollower from "../mouse-follower";
+import PricingSection from "../components/PricingSection";
 
 export default function Page() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,6 +23,7 @@ export default function Page() {
       <WorkExperienceSection />
       <PortfolioBlogSection />
       <TemplatesShowcase />
+      <PricingSection />
       <ContactSection />
       <FooterSection />
 

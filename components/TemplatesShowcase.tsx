@@ -83,7 +83,7 @@ export default function TemplatesShowcase() {
           <div className="mt-6">
             <Link
               href="/templates"
-              className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold shadow hover:bg-blue-500"
+              className="inline-flex items-center rounded-lg bg-purple-600 px-6 py-3 text-sm font-semibold shadow hover:bg-purple-500"
             >
               Browse Templates
             </Link>
@@ -220,7 +220,7 @@ export default function TemplatesShowcase() {
                     </h3>
                     <button
                       onClick={() => setSelectedMockup(mockup)}
-                      className="mt-3 inline-block rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 text-sm font-medium transition w-fit"
+                      className="mt-3 inline-block rounded-lg bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 text-sm font-medium transition w-fit"
                     >
                       Download
                     </button>
@@ -267,7 +267,7 @@ export default function TemplatesShowcase() {
           <div className="mt-6">
             <Link
               href="/templates"
-              className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold shadow hover:bg-blue-500"
+              className="inline-flex items-center rounded-lg bg-purple-600 px-6 py-3 text-sm font-semibold shadow hover:bg-purple-500"
             >
               Get Started
             </Link>
@@ -311,7 +311,7 @@ export default function TemplatesShowcase() {
                 href={selectedMockup.downloadUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-sm font-medium"
+                className="block text-center rounded-lg bg-purple-600 hover:bg-purple-700 px-4 py-2 text-sm font-medium"
               >
                 Confirm & Download
               </a>

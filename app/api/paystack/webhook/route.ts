@@ -31,8 +31,9 @@ export async function POST(req: Request) {
             template_id: process.env.EMAILJS_TEMPLATE_ID,
             user_id: process.env.EMAILJS_PUBLIC_KEY,
             template_params: {
-              to_email: email,
-              amount: amount,
+              user_name: event.data.customer.first_name || "Customer",
+              template_name: event.data.metadata?.template_name,
+              download_link: event.data.metadata?.download_link,
             },
           }),
         }

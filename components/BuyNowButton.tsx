@@ -29,8 +29,14 @@ export default function BuyNowButton({
 
   const componentProps = {
     email,
-    amount: amount * 100,
-    metadata: { name: "Template Purchase", template: templateName },
+    amount: amount * 100, // convert to kobo
+
+    // ✅ Correct metadata format for webhook + EmailJS
+    metadata: {
+      template_name: templateName,
+      download_link: `https://your-domain.com/templates/${templateName}.zip`,
+    },
+
     publicKey,
     text: "Buy Now",
     currency: "NGN",
