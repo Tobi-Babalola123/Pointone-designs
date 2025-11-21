@@ -29,6 +29,25 @@ export default function WorkPage() {
         "Interactive web application that helps users calculate solar panel requirements and potential energy savings for their homes.",
     },
     {
+      title: "Landing Page",
+      year: "2025",
+      category: "websites",
+      imageUrl: "/landing page.png",
+      link: "https://landing-page-templates.netlify.app/",
+      description:
+        "A sleek and modern landing page template designed in 2025, featuring a clean layout, smooth interactions, and a strong visual hierarchy.",
+    },
+    {
+      title: "SaaS Dashboard Pro",
+      year: "2025",
+      category: "websites",
+      imageUrl: "/dashboard pro.png",
+      link: "https://ai-dashboard-template.vercel.app/",
+      description:
+        "A professional SaaS dashboard interface built in 2025, featuring a clean and intuitive layout designed for modern web applications.",
+    },
+
+    {
       title: "Health Monitoring Dashboard",
       year: "2024",
       category: "websites",
