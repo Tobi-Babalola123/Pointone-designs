@@ -83,7 +83,7 @@ export default function FooterSection() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <p className="text-lime-400 text-sm font-medium font-montserrat">
-              © Tobi Babalola 2025
+              © Tobi Babalola 2026
             </p>
 
             {/* Social links with icons */}

@@ -6,14 +6,23 @@ import { useState } from "react";
 import FooterSection from "./footer-section";
 import MobileMenu from "./mobile-menu";
 import MouseFollower from "./mouse-follower";
+import GraphicDesignModal from "./components/graphic-design-modal";
 
-const categories = ["All", "websites", "ui", "video", "graphic design"];
+const categories = [
+  "All",
+  "websites",
+  "ui",
+  "video",
+  "graphic design",
+  "branding",
+];
 
 const categoryLabels = {
   All: "All",
   website: "website",
   ui: "UI Design",
   video: "Video Project",
+  branding: "branding",
   "social media design": "Social Media Design",
 };
 
@@ -93,6 +102,34 @@ export default function WorkPage() {
       description:
         "Sleek and intuitive cryptocurrency wallet interface design focused on security and user-friendly transaction management.",
     },
+    {
+      title: "WhatsApp Skincare Business Template Kit",
+      year: "2024",
+      category: "branding",
+      imageUrl: "/skincare.png",
+      link: "",
+      description:
+        "A mobile-first WhatsApp business template kit designed for African skincare and beauty entrepreneurs. The kit includes a product menu, catalogue layout, promotional sale flyer, and a mini brand kit to help small businesses present their products professionally, build brand consistency, and drive sales using platforms they already rely on.",
+    },
+    {
+      title: "WhatsApp Skincare Business Template Kit",
+      year: "2024",
+      category: "branding",
+      imageUrl: "/skicare2.png",
+      link: "",
+      description:
+        "A mobile-first WhatsApp business template kit designed for African skincare and beauty entrepreneurs. The kit includes a product menu, catalogue layout, promotional sale flyer, and a mini brand kit to help small businesses present their products professionally, build brand consistency, and drive sales using platforms they already rely on.",
+    },
+    {
+      title: "WhatsApp Skincare Business Template Kit",
+      year: "2024",
+      category: "branding",
+      imageUrl: "/skincare3.png",
+      link: "",
+      description:
+        "A mobile-first WhatsApp business template kit designed for African skincare and beauty entrepreneurs. The kit includes a product menu, catalogue layout, promotional sale flyer, and a mini brand kit to help small businesses present their products professionally, build brand consistency, and drive sales using platforms they already rely on.",
+    },
+
     {
       title: "Bite Base – Food Truck Logo Design Mockups",
       year: "2025",
@@ -497,6 +534,11 @@ export default function WorkPage() {
 
   const [activeCategory, setActiveCategory] = useState("All");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [selectedGraphicDesign, setSelectedGraphicDesign] = useState<
+    (typeof projects)[0] | null
+  >(null);
+  const [isGraphicDesignModalOpen, setIsGraphicDesignModalOpen] =
+    useState(false);
 
   const filteredProjects =
     activeCategory === "All"
@@ -505,6 +547,13 @@ export default function WorkPage() {
           (project) =>
             project.category.toLowerCase() === activeCategory.toLowerCase()
         );
+
+  const handleGraphicDesignClick = (project: (typeof projects)[0]) => {
+    if (project.category === "graphic design") {
+      setSelectedGraphicDesign(project);
+      setIsGraphicDesignModalOpen(true);
+    }
+  };
 
   return (
     <>
@@ -559,43 +608,84 @@ export default function WorkPage() {
             {/* Projects grid - responsive */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
               {filteredProjects.map((project, index) => (
-                <a
+                <div
                   key={index}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group hover-target"
+                  onClick={() => handleGraphicDesignClick(project)}
+                  className={`bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group hover-target ${
+                    project.category === "graphic design"
+                      ? "cursor-pointer"
+                      : ""
+                  }`}
                 >
-                  <div className="relative h-48 lg:h-64 bg-gradient-to-br from-purple-100 to-purple-200 overflow-hidden">
-                    {project.isVideo ? (
-                      <video
-                        src={project.imageUrl}
-                        controls
-                        className="w-full h-full object-cover"
-                        preload="metadata"
-                      />
-                    ) : (
-                      <img
-                        src={project.imageUrl || "/placeholder.svg"}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    )}
-                  </div>
-                  <div className="p-4 lg:p-6">
-                    <h3 className="text-lg lg:text-xl font-semibold font-poppins text-gray-800 mb-2 group-hover:text-purple-600 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-500 text-xs lg:text-sm font-montserrat mb-3 lg:mb-4 uppercase tracking-wide">
-                      {project.year} &nbsp;|&nbsp;{" "}
-                      {project.category.toUpperCase()}
-                    </p>
-                    <p className="text-gray-600 text-sm font-montserrat leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-                </a>
+                  {project.category !== "graphic design" ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <div className="relative h-48 lg:h-64 bg-gradient-to-br from-purple-100 to-purple-200 overflow-hidden">
+                        {project.isVideo ? (
+                          <video
+                            src={project.imageUrl}
+                            controls
+                            className="w-full h-full object-cover"
+                            preload="metadata"
+                          />
+                        ) : (
+                          <img
+                            src={project.imageUrl || "/placeholder.svg"}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        )}
+                      </div>
+                      <div className="p-4 lg:p-6">
+                        <h3 className="text-lg lg:text-xl font-semibold font-poppins text-gray-800 mb-2 group-hover:text-purple-600 transition-colors duration-300">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-500 text-xs lg:text-sm font-montserrat mb-3 lg:mb-4 uppercase tracking-wide">
+                          {project.year} &nbsp;|&nbsp;{" "}
+                          {project.category.toUpperCase()}
+                        </p>
+                        <p className="text-gray-600 text-sm font-montserrat leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+                    </a>
+                  ) : (
+                    <>
+                      <div className="relative h-48 lg:h-64 bg-gradient-to-br from-purple-100 to-purple-200 overflow-hidden">
+                        <img
+                          src={project.imageUrl || "/placeholder.svg"}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="text-center">
+                            <p className="text-white font-semibold">
+                              View Full Size
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-4 lg:p-6">
+                        <h3 className="text-lg lg:text-xl font-semibold font-poppins text-gray-800 mb-2 group-hover:text-purple-600 transition-colors duration-300">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-500 text-xs lg:text-sm font-montserrat mb-3 lg:mb-4 uppercase tracking-wide">
+                          {project.year} &nbsp;|&nbsp;{" "}
+                          {project.category.toUpperCase()}
+                        </p>
+                        <p className="text-gray-600 text-sm font-montserrat leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+                    </>
+                  )}
+                </div>
               ))}
             </div>
           </div>
@@ -608,6 +698,11 @@ export default function WorkPage() {
         onClose={() => setIsMobileMenuOpen(false)}
       />
       <MouseFollower />
+      <GraphicDesignModal
+        isOpen={isGraphicDesignModalOpen}
+        onClose={() => setIsGraphicDesignModalOpen(false)}
+        project={selectedGraphicDesign}
+      />
     </>
   );
 }
