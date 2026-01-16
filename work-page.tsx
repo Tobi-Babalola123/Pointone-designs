@@ -105,9 +105,45 @@ export default function WorkPage() {
       year: "2026",
       category: "landing page",
       imageUrl: "/nexasite.png",
-      link: "https://saas-landingpage1.netlify.app/",
+      link: "https://saas-tech-landingpage.netlify.app/",
       description:
         "A clean, conversion-focused SaaS tech landing page designed to communicate product capabilities, support user onboarding, and drive engagement through a structured, performance-focused layout",
+    },
+    {
+      title: "HR Software Landing Page",
+      year: "2026",
+      category: "landing page",
+      imageUrl: "/HR.png",
+      link: "https://hr-software-landing-page.netlify.app/",
+      description:
+        "A clean, conversion-focused HR software landing page designed to communicate product value, streamline information flow, and support user onboarding through a structured, professional layout.",
+    },
+    {
+      title: "HR Software Landing Page",
+      year: "2026",
+      category: "landing page",
+      imageUrl: "/workflow.png",
+      link: "https://workflowhr-landingpage.netlify.app/",
+      description:
+        "A clean, conversion-focused HR software landing page designed to communicate product value, streamline information flow, and support user onboarding through a structured, professional layout.",
+    },
+    {
+      title: "Saas AI Powered Landing Page",
+      year: "2026",
+      category: "landing page",
+      imageUrl: "/productflow.png",
+      link: "https://productflow-landing-page.netlify.app/",
+      description:
+        "A modern product landing page designed to highlight AI-powered roadmapping, customer insights, and collaborative workflows through a clean, conversion-focused layout.",
+    },
+    {
+      title: "Saas HR Landing Page",
+      year: "2026",
+      category: "landing page",
+      imageUrl: "/talentio.png",
+      link: "https://talentio-hr.netlify.app/",
+      description:
+        "A clean, conversion-focused HR landing page designed to communicate workforce solutions with clarity, trust, and usability.",
     },
     // {
     //   title: "PointOne Crypto Wallet design",
