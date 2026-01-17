@@ -28,6 +28,24 @@ export default function WorkPage() {
         "Interactive web application that helps users calculate solar panel requirements and potential energy savings for their homes.",
     },
     {
+      title: "Flowpay Fintech Landing Page",
+      year: "2026",
+      category: "landing page",
+      imageUrl: "/flowpay.png",
+      link: "https://flowpay-fintech.netlify.app/",
+      description:
+        "A sleek and modern landing page template designed in 2025, featuring a clean layout, smooth interactions, and a strong visual hierarchy.",
+    },
+    {
+      title: "Nexus Consulting Landing Page",
+      year: "2026",
+      category: "landing page",
+      imageUrl: "/nexus.png",
+      link: "https://nexus-consulting-landingpage.netlify.app/",
+      description:
+        "A clean, conversion-focused corporate consulting landing page designed to communicate expertise, credibility, and strategic value.",
+    },
+    {
       title: "Landing Page",
       year: "2025",
       category: "landing page",
@@ -37,6 +55,15 @@ export default function WorkPage() {
         "A sleek and modern landing page template designed in 2025, featuring a clean layout, smooth interactions, and a strong visual hierarchy.",
     },
     {
+      title: "Medicore Landing Page",
+      year: "2026",
+      category: "landing page",
+      imageUrl: "/medicore.png",
+      link: "https://medicore-landing-page.netlify.app/",
+      description:
+        "A clean, conversion-focused medical landing page designed to communicate healthcare services with clarity, trust, and professionalism.",
+    },
+    {
       title: "SaaS Dashboard Pro",
       year: "2025",
       category: "websites",
@@ -44,6 +71,15 @@ export default function WorkPage() {
       link: "https://ai-dashboard-template.vercel.app/",
       description:
         "A professional SaaS dashboard interface built in 2025, featuring a clean and intuitive layout designed for modern web applications.",
+    },
+    {
+      title: "Legaledge landing page",
+      year: "2026",
+      category: "landing page",
+      imageUrl: "/legaledge.png",
+      link: "https://legaledge-landingpage.netlify.app/",
+      description:
+        "A clean, conversion-focused legal services landing page designed to communicate trust, expertise, and professional credibility.",
     },
 
     {
