@@ -127,15 +127,15 @@ export default function WorkPage() {
       description:
         "A clean, conversion-focused real estate landing page designed to showcase property investment offerings with clarity, trust, and visual hierarchy. Built with a minimal, corporate layout optimized for lead generation",
     },
-    {
-      title: "Saas Landing Page",
-      year: "2026",
-      category: "landing page",
-      imageUrl: "/nova.png",
-      link: "https://saas-landingpage1.netlify.app/",
-      description:
-        "A clean, conversion-focused SaaS landing page designed to clearly communicate product value, guide user engagement, and support lead generation through a structured, minimal layout",
-    },
+    // {
+    //   title: "Saas Landing Page",
+    //   year: "2026",
+    //   category: "landing page",
+    //   imageUrl: "/nova.png",
+    //   link: "https://saas-landingpage1.netlify.app/",
+    //   description:
+    //     "A clean, conversion-focused SaaS landing page designed to clearly communicate product value, guide user engagement, and support lead generation through a structured, minimal layout",
+    // },
     {
       title: "Saas Tech Landing Page",
       year: "2026",
@@ -633,7 +633,7 @@ export default function WorkPage() {
       ? projects
       : projects.filter(
           (project) =>
-            project.category.toLowerCase() === activeCategory.toLowerCase()
+            project.category.toLowerCase() === activeCategory.toLowerCase(),
         );
 
   const handleGraphicDesignClick = (project: (typeof projects)[0]) => {
