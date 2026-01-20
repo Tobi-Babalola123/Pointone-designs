@@ -23,16 +23,76 @@ const templates = [
   },
   {
     id: 2,
-    name: "Landing Page",
+    name: "Real Estate Landing Page",
     description:
-      "Beautiful and modern landing page built with Next.js and TailwindCSS",
-    image: "/landing page preview.png",
+      "A clean, conversion-focused real estate landing page designed to showcase property investment offerings with clarity, trust, and visual hierarchy. Built with a minimal, corporate layout optimized for lead generation",
+    image: "/Haven real estate.png",
     tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
-    demoUrl: "https://landing-page-templates.netlify.app/",
-    amount: 15000,
+    demoUrl: "https://haven-real-estate-landing-page.netlify.app/",
+    amount: 20000,
   },
   {
     id: 3,
+    name: "Nexus consulting Landing Page",
+    description:
+      "A clean, conversion-focused corporate consulting landing page designed to communicate expertise, credibility, and strategic value",
+    image: "/nexus.png",
+    tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
+    demoUrl: "https://nexus-consulting-landingpage.netlify.app/",
+    amount: 15000,
+  },
+  {
+    id: 4,
+    name: "Flowpay Fintech Landing Page",
+    description:
+      "A modern fintech landing page designed to showcase secure digital payments, financial transparency, and seamless user experience.",
+    image: "/flowpay.png",
+    tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
+    demoUrl: "https://flowpay-fintech.netlify.app/",
+    amount: 25000,
+  },
+  {
+    id: 5,
+    name: "Medicore Landing Page",
+    description:
+      "A clean, conversion-focused medical landing page designed to communicate healthcare services with clarity, trust, and professionalism",
+    image: "/medicore.png",
+    tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
+    demoUrl: "https://medicore-landing-page.netlify.app/",
+    amount: 20000,
+  },
+  {
+    id: 6,
+    name: "Legaledge landing page",
+    description:
+      "A clean, conversion-focused legal services landing page designed to communicate trust, expertise, and professional credibility",
+    image: "/legaledge.png",
+    tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
+    demoUrl: "https://legaledge-landingpage.netlify.app/",
+    amount: 20000,
+  },
+  {
+    id: 7,
+    name: "HR Software Landing Page",
+    description:
+      "A clean, conversion-focused HR software landing page designed to communicate product value, streamline information flow, and support user onboarding through a structured, professional layout",
+    image: "/HR.png",
+    tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
+    demoUrl: "https://hr-software-landing-page.netlify.app/",
+    amount: 20000,
+  },
+  {
+    id: 8,
+    name: "Saas AI Powered Landing Page",
+    description:
+      "A modern product landing page designed to highlight AI-powered roadmapping, customer insights, and collaborative workflows through a clean, conversion-focused layout",
+    image: "/productflow.png",
+    tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
+    demoUrl: "https://productflow-landing-page.netlify.app/",
+    amount: 20000,
+  },
+  {
+    id: 9,
     name: "Portfolio Minimal",
     description:
       "Clean and elegant portfolio template for designers and developers",
@@ -42,7 +102,7 @@ const templates = [
     amount: 18000,
   },
   {
-    id: 4,
+    id: 10,
     name: "Car Gallery App",
     description: "Modern gallery UI with smooth animations and image previews",
     image: "/car.webp",

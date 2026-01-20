@@ -34,7 +34,7 @@ export default function WorkPage() {
       imageUrl: "/flowpay.png",
       link: "https://flowpay-fintech.netlify.app/",
       description:
-        "A sleek and modern landing page template designed in 2025, featuring a clean layout, smooth interactions, and a strong visual hierarchy.",
+        "A modern fintech landing page designed to showcase secure digital payments, financial transparency, and seamless user experience..",
     },
     {
       title: "Nexus Consulting Landing Page",
