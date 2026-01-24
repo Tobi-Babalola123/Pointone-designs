@@ -28,6 +28,15 @@ export default function WorkPage() {
         "Interactive web application that helps users calculate solar panel requirements and potential energy savings for their homes.",
     },
     {
+      title: "Slice & Co - Modern Pizza Delivery & Ordering Web App",
+      year: "2026",
+      category: "websites",
+      imageUrl: "/slice1.png",
+      link: "https://slice-and-co.vercel.app/",
+      description:
+        "A modern pizza delivery web app built with Next.js featuring a custom pizza builder, dynamic cart system, and responsive UI. Designed for fast performance, seamless ordering, and an engaging user experience.",
+    },
+    {
       title: "Flowpay Fintech Landing Page",
       year: "2026",
       category: "landing page",

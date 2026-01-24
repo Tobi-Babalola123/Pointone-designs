@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import gsap from "gsap";
 import MobileMenu from "./mobile-menu";
 import FloatingMenuButton from "./floating-menu-button";
 
@@ -44,6 +45,11 @@ export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false); // ✅ renamed no longer conflicts
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const heroRef = useRef<HTMLDivElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const paragraphRef = useRef<HTMLParagraphElement | null>(null);
+  const featuresRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLDivElement | null>(null);
 
   // Detect mobile screen
   useEffect(() => {
@@ -70,6 +76,52 @@ export default function HeroSection() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!heroRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+          duration: 0.9,
+        },
+      });
+
+      tl.from(headingRef.current, {
+        y: 40,
+        opacity: 0,
+      })
+        .from(
+          paragraphRef.current,
+          {
+            y: 30,
+            opacity: 0,
+          },
+          "-=0.4",
+        )
+        .from(
+          featuresRef.current?.children || [],
+          {
+            y: 30,
+            opacity: 0,
+            stagger: 0.15,
+          },
+          "-=0.3",
+        )
+        .from(
+          imageRef.current,
+          {
+            y: 40,
+            opacity: 0,
+            scale: 0.95,
+          },
+          "-=0.4",
+        );
+    }, heroRef);
+
+    return () => ctx.revert();
   }, []);
 
   // Decide number of dots based on width (default 96 if unknown)
@@ -237,7 +289,10 @@ export default function HeroSection() {
 
       {/* Main content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-4 lg:pt-8">
-        <div className="grid lg:grid-cols-12 gap-8 items-center justify-items-center text-center lg:text-left min-h-[80vh] lg:min-h-[90vh]">
+        <div
+          ref={heroRef}
+          className="grid lg:grid-cols-12 gap-8 items-center justify-items-center text-center lg:text-left min-h-[80vh] lg:min-h-[90vh]"
+        >
           {/* Left content - centralized on small screens, 6 columns on desktop */}
           <div
             className={`col-span-full lg:col-span-6 space-y-6 lg:space-y-8 transition-all duration-1000 delay-200 ${
@@ -251,7 +306,10 @@ export default function HeroSection() {
                 isMobile ? "ml-8" : ""
               }`}
             >
-              <h1 className="text-5xl sm:text-4xl lg:ml-20 lg:text-5xl xl:text-6xl font-bold font-poppins text-lime-400 leading-tight text-left lg:text-left lg:ml-20">
+              <h1
+                ref={headingRef}
+                className="text-5xl sm:text-4xl lg:ml-20 lg:text-5xl xl:text-6xl font-bold font-poppins text-lime-400 leading-tight text-left lg:text-left lg:ml-20"
+              >
                 <span className="inline-block hover:scale-105 transition-transform duration-300">
                   Frontend
                 </span>
@@ -262,6 +320,7 @@ export default function HeroSection() {
               </h1>
 
               <p
+                ref={paragraphRef}
                 className={`text-white text-sm lg:text-base font-montserrat font-medium mt-4 lg:mt-6 max-w-lg mx-auto lg:mx-0 text-left lg:text-left lg:ml-20 transition-all duration-1000 delay-400 ${
                   isLoaded
                     ? "translate-y-0 opacity-100"
@@ -284,7 +343,10 @@ export default function HeroSection() {
             </div>
 
             {/* Feature boxes */}
-            <div className="-mb-12 grid grid-cols-2 gap-4 lg:gap-8 pt-4 lg:pt-8 px-4 sm:px-6 lg:px-0">
+            <div
+              ref={featuresRef}
+              className="-mb-12 grid grid-cols-2 gap-4 lg:gap-8 pt-4 lg:pt-8 px-4 sm:px-6 lg:px-0"
+            >
               <div
                 className={`space-y-2 lg:ml-20 transition-all duration-1000 delay-500 hover:scale-105 ${
                   isLoaded
@@ -315,7 +377,10 @@ export default function HeroSection() {
 
           {/* Right content - Profile image */}
           <div className="col-span-full lg:col-span-6 flex justify-center mt-16 lg:mt-0">
-            <div className="relative group w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 lg:translate-y-[-6rem] lg:-ml-40">
+            <div
+              ref={imageRef}
+              className="relative group w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 lg:translate-y-[-6rem] lg:-ml-40"
+            >
               {/* Elegant glassmorphic frame with animation */}
               <div className="absolute inset-0 rounded-xl border border-lime-400/40 bg-lime-400/20 backdrop-blur-md shadow-lg shadow-lime-500/40 transition-all duration-500 group-hover:scale-105 group-hover:rotate-1" />
 

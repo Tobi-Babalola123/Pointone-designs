@@ -1,11 +1,19 @@
 "use client";
 
 import { MapPin } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 import { useScrollAnimation } from "./use-scroll-animation";
 
 export default function SkillsSection() {
   const { ref, isVisible } = useScrollAnimation(0.2);
+
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const designRef = useRef<HTMLDivElement | null>(null);
+  const engineeringRef = useRef<HTMLDivElement | null>(null);
+  const bgRef = useRef<HTMLDivElement | null>(null);
+
   const [dotCount, setDotCount] = useState(64);
 
   useEffect(() => {
@@ -14,20 +22,67 @@ export default function SkillsSection() {
         setDotCount(window.innerWidth < 1024 ? 36 : 64);
       };
 
-      handleResize(); // initialize on mount
+      handleResize();
       window.addEventListener("resize", handleResize);
 
       return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 0.9,
+          ease: "power3.out",
+          immediateRender: false,
+        },
+      });
+
+      tl.from(headerRef.current, {
+        y: -20,
+        autoAlpha: 0,
+      })
+        .from(
+          designRef.current,
+          {
+            x: -40,
+            autoAlpha: 0,
+          },
+          "-=0.4",
+        )
+        .from(
+          engineeringRef.current,
+          {
+            x: 40,
+            autoAlpha: 0,
+          },
+          "-=0.5",
+        )
+        .from(
+          bgRef.current,
+          {
+            autoAlpha: 0,
+          },
+          "-=0.8",
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [isVisible]);
+
   return (
     <section
-      ref={ref}
+      ref={(el) => {
+        ref.current = el;
+        sectionRef.current = el;
+      }}
       className="min-h-[50vh] lg:min-h-screen bg-gray-50 relative overflow-hidden"
     >
       {/* Background decorative elements - responsive */}
-      <div className="absolute inset-0 hidden lg:block">
+      <div ref={bgRef} className="absolute inset-0 hidden lg:block">
         {/* Dotted pattern */}
         <div
           style={{ right: "24rem" }}
@@ -134,6 +189,7 @@ export default function SkillsSection() {
 
       {/* Header */}
       <header
+        ref={headerRef}
         className={`relative z-10 flex justify-between items-center p-4 lg:p-8 transition-all duration-1000 ${
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0"
         }`}
@@ -148,6 +204,7 @@ export default function SkillsSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 max-w-7xl mx-auto">
           {/* Design section */}
           <div
+            ref={designRef}
             className={`space-y-6 lg:space-y-10 text-left lg:text-left transition-all duration-1000 delay-200 ml-8 -mt-20 ${
               isVisible
                 ? "translate-x-0 opacity-100"
@@ -175,6 +232,7 @@ export default function SkillsSection() {
 
           {/* Engineering section */}
           <div
+            ref={engineeringRef}
             className={`flex flex-col justify-center space-y-6 lg:space-y-10 mt-12 lg:mt-48 text-left lg:text-left ml-8 lg:ml-0 transition-all duration-1000 delay-300 ${
               isVisible
                 ? "translate-x-0 opacity-100"
