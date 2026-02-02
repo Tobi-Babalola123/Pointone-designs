@@ -32,7 +32,7 @@ export default function WorkPage() {
       year: "2026",
       category: "websites",
       imageUrl: "/slice1.png",
-      link: "https://slice-and-co.vercel.app/",
+      link: "https://slicefoodx.vercel.app/",
       description:
         "A modern pizza delivery web app built with Next.js featuring a custom pizza builder, dynamic cart system, and responsive UI. Designed for fast performance, seamless ordering, and an engaging user experience.",
     },
