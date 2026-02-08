@@ -203,17 +203,18 @@ export default function SkillsSection() {
           {/* Design section */}
           <div
             ref={designRef}
-            className={`space-y-6 lg:space-y-10 text-left transition-all duration-1000 delay-200 ml-8 -mt-20 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-20 opacity-0"
-            }`}
+            className={`space-y-6 lg:space-y-10 text-left transition-all duration-1000 delay-200
+              mt-0 lg:-mt-20
+              lg:ml-8
+              
+    
+              `}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
+            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
               Design
             </h2>
             <p
-              className={`text-gray-700 text-xs lg:text-sm font-montserrat leading-relaxed max-w-lg mx-auto lg:mx-0 transition-all duration-1000 delay-400 ${
+              className={`text-gray-700 text-xs sm:text-sm lg:text-sm font-montserrat leading-relaxed max-w-full sm:max-w-md lg:max-w-lg mx-auto lg:mx-0 transition-all duration-1000 delay-400 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
@@ -231,17 +232,17 @@ export default function SkillsSection() {
           {/* Engineering section */}
           <div
             ref={engineeringRef}
-            className={`flex flex-col justify-center space-y-6 lg:space-y-10 mt-12 lg:mt-48 text-left ml-8 lg:ml-0 transition-all duration-1000 delay-300 ${
+            className={`flex flex-col justify-center space-y-6 lg:space-y-10 mt-8 sm:mt-12 lg:mt-48 text-left ml-2 sm:ml-4 lg:ml-0 transition-all duration-1000 delay-300 ${
               isVisible
                 ? "translate-x-0 opacity-100"
                 : "translate-x-20 opacity-0"
             }`}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
+            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
               Engineering
             </h2>
             <p
-              className={`text-gray-700 text-xs lg:text-sm font-montserrat leading-relaxed max-w-lg mx-auto lg:mx-0 transition-all duration-1000 delay-400 ${
+              className={`text-gray-700 text-xs sm:text-sm lg:text-sm font-montserrat leading-relaxed max-w-full sm:max-w-md lg:max-w-lg mx-2 sm:mx-4 lg:mx-0 transition-all duration-1000 delay-400 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"

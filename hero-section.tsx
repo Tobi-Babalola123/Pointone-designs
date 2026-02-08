@@ -348,12 +348,14 @@ export default function HeroSection() {
           <div className="col-span-full lg:col-span-6 flex justify-center mt-16 lg:mt-0">
             <div
               ref={imageRef}
-              className="relative group w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 lg:translate-y-[-6rem] lg:-ml-40"
+              className="relative group w-56 h-64 sm:w-64 sm:h-72 
+               -translate-y-24 sm:-translate-y-28 
+               lg:w-72 lg:h-80 lg:translate-y-[-6rem] lg:-ml-40"
             >
-              {/* Elegant glassmorphic frame with animation */}
+              {/* Elegant glassmorphic frame */}
               <div className="absolute inset-0 rounded-xl border border-lime-400/40 bg-lime-400/20 backdrop-blur-md shadow-lg shadow-lime-500/40 transition-all duration-500 group-hover:scale-105 group-hover:rotate-1" />
 
-              {/* Profile Image with hover pulse effect */}
+              {/* Profile Image */}
               <Image
                 src="/tobi.jpeg"
                 alt="Portrait of Tobi Babalola"
@@ -362,7 +364,7 @@ export default function HeroSection() {
                 fill
                 className="object-cover rounded-xl relative z-10 shadow-lg shadow-lime-500/60 transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-lime-400/80"
                 priority
-                sizes="(max-width: 1024px) 20rem, 24rem"
+                sizes="(max-width: 640px) 14rem, (max-width: 768px) 16rem, 24rem"
               />
             </div>
           </div>
