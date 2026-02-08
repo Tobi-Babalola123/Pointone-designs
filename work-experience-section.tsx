@@ -122,11 +122,11 @@ export default function WorkExperienceSection() {
 
             <div className="space-y-4 lg:space-y-6 text-white text-xs lg:text-base font-montserrat leading-relaxed ml-8">
               {[
-                "As a frontend developer, I've collaborated with cross-functional teams <br /> to build user-centric digital experiences that solve real-world problems <br /> across different industries.",
-                "I'm currently focused on building responsive and interactive web applications <br /> using modern technologies like React and Tailwind CSS.",
-                "In past roles, I’ve contributed to projects ranging from solar estimate platforms <br /> to transport booking systems, consistently translating design visions <br /> into functional, scalable interfaces.",
-                "My strength lies in crafting clean, accessible, and pixel-perfect UIs <br /> while ensuring performance and responsiveness across devices.",
-                "I'm committed to continuous growth and enjoy sharing insights <br /> through collaboration, design feedback, and helping others <br /> grow in the developer space.",
+                "Delivering user-centric web solutions that <strong>drive measurable business results</strong> across multiple industries, from transport systems to renewable energy platforms.",
+                "Specializing in responsive, interactive web applications using React and Tailwind CSS to <strong>enhance user engagement and retention</strong>.",
+                "Successfully translated complex design visions into <strong>scalable, high-performance interfaces</strong> for projects with tangible business outcomes.",
+                "Focus on clean, accessible, and pixel-perfect UIs that <strong>improve conversion rates and user satisfaction</strong> across devices.",
+                "Committed to continuous growth and sharing insights to <strong>help teams improve processes, efficiency, and product quality</strong>.",
               ].map((text, i) => (
                 <p
                   key={i}

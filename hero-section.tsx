@@ -84,13 +84,13 @@ export default function HeroSection() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         defaults: {
-          ease: "power3.out",
-          duration: 0.9,
+          ease: "power4.out",
+          duration: 0.8,
         },
       });
 
       tl.from(headingRef.current, {
-        y: 40,
+        y: 50,
         opacity: 0,
       })
         .from(
@@ -99,23 +99,23 @@ export default function HeroSection() {
             y: 30,
             opacity: 0,
           },
-          "-=0.4",
+          "-=0.3",
         )
         .from(
           featuresRef.current?.children || [],
           {
-            y: 30,
+            y: 20,
             opacity: 0,
-            stagger: 0.15,
+            stagger: 0.12,
           },
-          "-=0.3",
+          "-=0.25",
         )
         .from(
           imageRef.current,
           {
+            scale: 0.92,
             y: 40,
             opacity: 0,
-            scale: 0.95,
           },
           "-=0.4",
         );
@@ -308,68 +308,37 @@ export default function HeroSection() {
             >
               <h1
                 ref={headingRef}
-                className="text-5xl sm:text-4xl lg:ml-20 lg:text-5xl xl:text-6xl font-bold font-poppins text-lime-400 leading-tight text-left lg:text-left lg:ml-20"
+                className="text-5xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-poppins text-lime-400 leading-tight text-left lg:ml-20"
               >
-                <span className="inline-block hover:scale-105 transition-transform duration-300">
-                  Frontend
-                </span>
-                <br />
-                <span className="inline-block hover:scale-105 transition-transform duration-300">
-                  Developer<span className="text-white">.</span>
-                </span>
+                Websites that <br />
+                <span className="text-white">convert visitors</span> <br />
+                into customers<span className="text-white">.</span>
               </h1>
 
               <p
                 ref={paragraphRef}
-                className={`text-white text-sm lg:text-base font-montserrat font-medium mt-4 lg:mt-6 max-w-lg mx-auto lg:mx-0 text-left lg:text-left lg:ml-20 transition-all duration-1000 delay-400 ${
-                  isLoaded
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className="text-white text-sm lg:text-base font-montserrat font-medium mt-4 lg:mt-6 max-w-lg text-left lg:ml-20"
               >
-                {isMobile ? (
-                  <>
-                    Transforming ideas into exceptional <br />
-                    digital experiences through innovative <br />
-                    web development and thoughtful design.
-                  </>
-                ) : (
-                  <>
-                    Transforming ideas into exceptional digital experiences
-                    through innovative web development and thoughtful design.
-                  </>
-                )}
+                I help startups and growing businesses build fast, reliable
+                websites that generate leads, build credibility, and support
+                real revenue growth.
               </p>
             </div>
 
             {/* Feature boxes */}
             <div
               ref={featuresRef}
-              className="-mb-12 grid grid-cols-2 gap-4 lg:gap-8 pt-4 lg:pt-8 px-4 sm:px-6 lg:px-0"
+              className="grid grid-cols-2 gap-4 lg:gap-8 pt-4 lg:pt-8"
             >
-              <div
-                className={`space-y-2 lg:ml-20 transition-all duration-1000 delay-500 hover:scale-105 ${
-                  isLoaded
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-10 opacity-0"
-                }`}
-              >
-                <h3 className="text-lime-400 font-montserrat text-[11px] lg:text-sm leading-relaxed text-left lg:text-left ml-8 lg:ml-0 ">
-                  Specialized in modern web technologies, responsive design, and
-                  creating seamless user interfaces.
+              <div className="space-y-2 lg:ml-20">
+                <h3 className="text-lime-400 font-montserrat text-[11px] lg:text-sm text-left">
+                  ⚡ Fast, conversion-focused React & Next.js websites
                 </h3>
               </div>
-              <div
-                className={`space-y-2 transition-all duration-1000 delay-600 hover:scale-105 ${
-                  isLoaded
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-10 opacity-0"
-                }`}
-              >
-                <h3 className="text-lime-400 font-montserrat text-[11px] lg:text-sm leading-relaxed text-left lg:text-center">
-                  Passionate about delivering <br /> high-quality solutions that
-                  <br /> drive business growth and <br />
-                  user satisfaction.
+
+              <div className="space-y-2">
+                <h3 className="text-lime-400 font-montserrat text-[11px] lg:text-sm text-left">
+                  🌍 Powering real businesses operating across 50+ countries
                 </h3>
               </div>
             </div>

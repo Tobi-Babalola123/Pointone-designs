@@ -81,7 +81,7 @@ export default function SkillsSection() {
       }}
       className="min-h-[50vh] lg:min-h-screen bg-gray-50 relative overflow-hidden"
     >
-      {/* Background decorative elements - responsive */}
+      {/* Background decorative elements */}
       <div ref={bgRef} className="absolute inset-0 hidden lg:block">
         {/* Dotted pattern */}
         <div
@@ -134,9 +134,8 @@ export default function SkillsSection() {
           ))}
         </div>
 
-        {/* Decorative elements - already hidden on small screens */}
+        {/* Decorative elements */}
         <div className="block">
-          {/* Stepped line graphic */}
           <div
             className={`absolute bottom-1/3 left-1/3 w-16 h-16 opacity-40 transition-all duration-1000 delay-500 ${
               isVisible ? "scale-100 rotate-0" : "scale-0 rotate-45"
@@ -154,7 +153,6 @@ export default function SkillsSection() {
             </svg>
           </div>
 
-          {/* Diamond shapes */}
           <div
             className={`absolute right-8 top-1/2 space-y-4 transition-all duration-1000 delay-700 ${
               isVisible
@@ -187,7 +185,7 @@ export default function SkillsSection() {
         />
       </div>
 
-      {/* Header */}
+      {/* Header icon */}
       <header
         ref={headerRef}
         className={`relative z-10 flex justify-between items-center p-4 lg:p-8 transition-all duration-1000 ${
@@ -205,7 +203,7 @@ export default function SkillsSection() {
           {/* Design section */}
           <div
             ref={designRef}
-            className={`space-y-6 lg:space-y-10 text-left lg:text-left transition-all duration-1000 delay-200 ml-8 -mt-20 ${
+            className={`space-y-6 lg:space-y-10 text-left transition-all duration-1000 delay-200 ml-8 -mt-20 ${
               isVisible
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-20 opacity-0"
@@ -214,7 +212,6 @@ export default function SkillsSection() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
               Design
             </h2>
-
             <p
               className={`text-gray-700 text-xs lg:text-sm font-montserrat leading-relaxed max-w-lg mx-auto lg:mx-0 transition-all duration-1000 delay-400 ${
                 isVisible
@@ -222,18 +219,19 @@ export default function SkillsSection() {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              Creating visually stunning and intuitive interfaces
-              <br /> that captivate users. My design philosophy centers on
-              <br /> clean aesthetics, purposeful layouts, and meaningful
-              <br />
-              interactions that enhance the overall user journey.
+              Crafting interfaces that{" "}
+              <strong>convert visitors into customers</strong>. I focus on{" "}
+              <strong>user journeys that drive engagement</strong>, with layouts
+              and visuals that{" "}
+              <strong>increase trust, retention, and sales</strong> for your
+              business.
             </p>
           </div>
 
           {/* Engineering section */}
           <div
             ref={engineeringRef}
-            className={`flex flex-col justify-center space-y-6 lg:space-y-10 mt-12 lg:mt-48 text-left lg:text-left ml-8 lg:ml-0 transition-all duration-1000 delay-300 ${
+            className={`flex flex-col justify-center space-y-6 lg:space-y-10 mt-12 lg:mt-48 text-left ml-8 lg:ml-0 transition-all duration-1000 delay-300 ${
               isVisible
                 ? "translate-x-0 opacity-100"
                 : "translate-x-20 opacity-0"
@@ -249,10 +247,13 @@ export default function SkillsSection() {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              Building robust, scalable applications with cutting-edge
-              technologies. I focus on writing clean, maintainable code that
-              performs exceptionally well and adapts seamlessly to evolving
-              business needs.
+              Building robust, scalable applications that{" "}
+              <strong>accelerate business growth</strong>. My code ensures{" "}
+              <strong>
+                fast performance, seamless integrations, and reliable user
+                experiences
+              </strong>{" "}
+              so your products can scale without friction.
             </p>
           </div>
         </div>
