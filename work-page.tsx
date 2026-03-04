@@ -100,7 +100,7 @@ export default function WorkPage() {
       year: "2024",
       category: "Business Websites",
       imageUrl: "/healthsphere.png",
-      link: "https://health-monitoring-app2.netlify.app/",
+      link: "https://healthmonitoring-apps.netlify.app/",
       outcome: "Data-driven web dashboard • Real-time monitoring concept",
       description:
         "Comprehensive health tracking platform featuring real-time vital signs monitoring and personalized health insights.",
