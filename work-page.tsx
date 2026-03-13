@@ -85,11 +85,11 @@ export default function WorkPage() {
         "A professional SaaS dashboard interface built in 2025, featuring a clean and intuitive layout designed for modern web applications.",
     },
     {
-      title: "Legaledge landing page",
+      title: "Sterling & Associates landing page",
       year: "2026",
       category: "Lead-Generation Pages",
-      imageUrl: "/legaledge.png",
-      link: "https://legaledge-landingpage.netlify.app/",
+      imageUrl: "/sterling.png",
+      link: "https://sterlingandassociateslegal.netlify.app/",
       outcome:
         "Legal services landing page • Built to establish trust & authority",
       description:
