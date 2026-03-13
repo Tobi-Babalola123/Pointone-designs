@@ -146,6 +146,17 @@ export default function WorkPage() {
         "A clean, conversion-focused real estate landing page designed to showcase property investment offerings with clarity, trust, and visual hierarchy. Built with a minimal, corporate layout optimized for lead generation",
     },
     {
+      title: "Aureum Restaurant Landing Page",
+      year: "2026",
+      category: "Lead-Generation Pages",
+      imageUrl: "/restaurant.png",
+      link: "https://aureumrestaurantlandingpage.netlify.app/",
+      outcome:
+        "Restaurant landing page • Built to attract diners and drive reservations",
+      description:
+        "A modern, visually engaging restaurant landing page designed to showcase signature dishes, atmosphere, and dining experience with clarity and strong visual appeal. Built with a clean layout and strategic content sections to highlight the menu, encourage reservations, and guide visitors toward making a booking or visiting the location",
+    },
+    {
       title: "Saas Tech Landing Page",
       year: "2026",
       category: "Lead-Generation Pages",
