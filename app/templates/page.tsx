@@ -19,7 +19,7 @@ const templates = [
     image: "/modern-saas-dashboard-interface-dark-theme.jpg",
     tags: ["Next.js", "React", "TailwindCSS", "TypeScript"],
     demoUrl: "https://ai-dashboard-template.vercel.app/",
-    amount: 25000,
+    amount: 15000,
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const templates = [
     image: "/Haven real estate.png",
     tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
     demoUrl: "https://haven-real-estate-landing-page.netlify.app/",
-    amount: 20000,
+    amount: 15000,
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const templates = [
     image: "/flowpay.png",
     tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
     demoUrl: "https://flowpay-fintech.netlify.app/",
-    amount: 25000,
+    amount: 15000,
   },
   {
     id: 5,
@@ -59,17 +59,17 @@ const templates = [
     image: "/medicore.png",
     tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
     demoUrl: "https://medicore-landing-page.netlify.app/",
-    amount: 20000,
+    amount: 15000,
   },
   {
     id: 6,
-    name: "Legaledge landing page",
+    name: "Sterling & Associates landing page",
     description:
       "A clean, conversion-focused legal services landing page designed to communicate trust, expertise, and professional credibility",
-    image: "/legaledge.png",
+    image: "/sterling.png",
     tags: ["Next.js", "Stripe", "TailwindCSS", "Prisma"],
-    demoUrl: "https://legaledge-landingpage.netlify.app/",
-    amount: 20000,
+    demoUrl: "https://sterlingandassociateslegal.netlify.app/",
+    amount: 15000,
   },
   {
     id: 7,
@@ -93,23 +93,26 @@ const templates = [
   },
   {
     id: 9,
-    name: "Portfolio Minimal",
+    name: "Aureum Restaurant Landing Page",
     description:
-      "Clean and elegant portfolio template for designers and developers",
-    image: "/minimal-portfolio-website-dark-theme.jpg",
-    tags: ["Next.js", "Framer Motion", "TailwindCSS"],
-    demoUrl: "#",
-    amount: 18000,
+      "A modern restaurant landing page designed to showcase signature dishes, menu highlights, and seamless ordering through a clean, conversion-focused layout.",
+    image: "/restaurant.png",
+    tags: ["Next.js", "TailwindCSS",],
+    demoUrl: "https://aureumrestaurantlandingpage.netlify.app/",
+    amount: 15000,
   },
   {
     id: 10,
-    name: "Car Gallery App",
-    description: "Modern gallery UI with smooth animations and image previews",
-    image: "/car.webp",
-    tags: ["Next.js", "TailwindCSS", "Vercel"],
-    demoUrl: "https://car-gallery-app-six.vercel.app/",
-    amount: 20000,
+    name: "Slice&Co Pizza Landing Page",
+    description:
+      "A modern pizza ordering app landing page designed to showcase menu options, highlight deals, and drive seamless online orders through a clean, conversion-focused layout.",
+    image: "/slice1.png",
+    tags: ["Next.js", "TailwindCSS",],
+    demoUrl: "https://slicefoodx.vercel.app/",
+    amount: 15000,
   },
+
+  
 ];
 
 export default function TemplatesPage() {
