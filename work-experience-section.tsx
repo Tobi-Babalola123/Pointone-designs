@@ -128,7 +128,7 @@ export default function SpatialOS() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="font-semibold text-white/80 hover:text-lime-300 transition"
         >
-          Your Brand
+          Tobi Babalola
         </button>
 
         <Menu className="text-white/70" />
