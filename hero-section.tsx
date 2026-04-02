@@ -1,382 +1,273 @@
 "use client";
 
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import gsap from "gsap";
+import { motion, useScroll, useTransform } from "framer-motion";
 import MobileMenu from "./mobile-menu";
 import FloatingMenuButton from "./floating-menu-button";
 
-const bounceVariants = {
-  hidden: { y: -20, opacity: 0 },
-  visible: (i: number) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: i * 0.05,
-      type: "spring",
-      stiffness: 500,
-      damping: 15,
-    },
-  }),
-};
-
-const text = "Tobi Babalola";
-
-const name = "Tobi Babalola";
-
-const letterAnimation = {
-  hidden: { opacity: 0, y: 20, rotateX: -90 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  }),
-};
-
 export default function HeroSection() {
-  const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false); // ✅ renamed no longer conflicts
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
   const heroRef = useRef<HTMLDivElement | null>(null);
-  const headingRef = useRef<HTMLHeadingElement | null>(null);
-  const paragraphRef = useRef<HTMLParagraphElement | null>(null);
-  const featuresRef = useRef<HTMLDivElement | null>(null);
-  const imageRef = useRef<HTMLDivElement | null>(null);
+  const fullText = "Websites that convert visitors into revenue.";
+  const [text, setText] = useState("");
 
-  // Detect mobile screen
   useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth < 768);
-    }
+    let i = 0;
 
-    handleResize(); // initial check
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, i));
+      i++;
+
+      if (i > fullText.length) clearInterval(interval);
+    }, 35);
+
+    return () => clearInterval(interval);
   }, []);
 
-  // Handle windowWidth and loaded state
-  useEffect(() => {
-    setIsLoaded(true);
+  const useMagneticEffect = () => {
+    const ref = useRef<HTMLButtonElement | null>(null);
 
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
+    const handleMouseMove = (e: React.MouseEvent) => {
+      const el = ref.current;
+      if (!el) return;
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
+      el.style.transform = `translate(${x * 0.12}px, ${y * 0.18}px) scale(1.04)`;
     };
+
+    const handleMouseLeave = () => {
+      const el = ref.current;
+      if (!el) return;
+
+      el.style.transform = `translate(0px, 0px) scale(1)`;
+    };
+
+    return { ref, handleMouseMove, handleMouseLeave };
+  };
+
+  // ================= KEYNOTE CAMERA MOTION =================
+  const { scrollY } = useScroll();
+
+  const heroScale = useTransform(scrollY, [0, 600], [1, 0.92]);
+  const heroY = useTransform(scrollY, [0, 600], [0, -140]);
+  const imageY = useTransform(scrollY, [0, 600], [0, 100]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0.7]);
+
+  // ================= MOBILE DETECTION =================
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  useLayoutEffect(() => {
-    if (!heroRef.current) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        defaults: {
-          ease: "power4.out",
-          duration: 0.8,
-        },
-      });
-
-      tl.from(headingRef.current, {
-        y: 50,
-        opacity: 0,
-      })
-        .from(
-          paragraphRef.current,
-          {
-            y: 30,
-            opacity: 0,
-          },
-          "-=0.3",
-        )
-        .from(
-          featuresRef.current?.children || [],
-          {
-            y: 20,
-            opacity: 0,
-            stagger: 0.12,
-          },
-          "-=0.25",
-        )
-        .from(
-          imageRef.current,
-          {
-            scale: 0.92,
-            y: 40,
-            opacity: 0,
-          },
-          "-=0.4",
-        );
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  // Decide number of dots based on width (default 96 if unknown)
-  const dotCount = windowWidth && windowWidth < 1024 ? 32 : 96;
+  const primaryBtn = useMagneticEffect();
+  const secondaryBtn = useMagneticEffect();
 
   return (
-    <section className="min-h-screen lg:min-h-[120vh] relative overflow-hidden">
-      {/* Split background */}
-      <div className="absolute inset-0 flex flex-col lg:flex-row">
-        {/* Purple background: 70% height on mobile, 70% width on desktop */}
-        <div className="w-full h-[60%] lg:w-2/3 lg:h-full bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500" />
-
-        {/* Lime green background: 30% height on mobile, 30% width on desktop */}
-        <div className="w-full h-[38%] lg:w-1/3 lg:h-full bg-lime-400" />
-      </div>
-
-      {/* Background decorative elements - reduced on mobile */}
+    <motion.section
+      ref={heroRef}
+      style={{ scale: heroScale, opacity }}
+      className="min-h-screen relative overflow-hidden bg-black"
+    >
+      {/* ================= CINEMATIC BACKGROUND LAYERS ================= */}
       <div className="absolute inset-0">
-        {/* Dotted grid pattern - smaller on mobile */}
-        <div
-          className={`absolute grid grid-cols-8 lg:grid-cols-12 gap-1 opacity-30 lg:opacity-50 transition-all duration-1000 delay-300 ${
-            isLoaded
-              ? "translate-x-0 opacity-30 lg:opacity-50"
-              : "translate-x-4 lg:translate-x-24 opacity-0"
-          }`}
-          style={{
-            top: "8rem", // equivalent to top-40
-            right: "31.5rem", // adjusted from right-4
-          }}
-        >
-          {Array.from({ length: dotCount }).map((_, i) => (
-            <div
-              key={`dot-${i}`}
-              className="w-1 h-1 bg-white rounded-full"
-              style={{
-                animationDelay: `${i * 20}ms`,
-                animation: isLoaded ? "pulse 3s infinite" : "none",
-              }}
-            />
-          ))}
-        </div>
+        {/* Base gradient (Apple keynote dark stage) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05010a] via-[#120a1f] to-black" />
 
-        {/* Crystal/Diamond pattern */}
-        <div
-          className={`absolute transition-all duration-1000 delay-600 ${
-            isLoaded ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
-          }`}
-          style={{
-            top: "65%", // moves it further down
-            right: "1.5rem", // moves it further right
-            transform: "translateY(-50%) translateX(1rem)", // additional nudge
-          }}
-        >
-          <div className="relative scale-75 lg:scale-100">
-            <div className="flex justify-center mb-1">
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-            </div>
-            <div className="flex justify-center space-x-1 mb-1">
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-            </div>
-            <div className="flex justify-center space-x-1 mb-1">
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-            </div>
-            <div className="hidden lg:flex justify-center space-x-1 mb-1">
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-            </div>
-            <div className="flex justify-center space-x-1 mb-1">
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-            </div>
-            <div className="flex justify-center space-x-1 mb-1">
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-            </div>
-            <div className="flex justify-center">
-              <div className="w-2 h-2 bg-purple-600 rounded-full" />
-            </div>
-          </div>
-        </div>
+        {/* Stage light bloom */}
+        <div className="absolute top-[-20%] left-[10%] w-[700px] h-[700px] bg-lime-400/10 blur-[200px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[-25%] right-[5%] w-[700px] h-[700px] bg-purple-500/10 blur-[220px] rounded-full animate-pulse" />
 
-        {/* Decorative elements - hidden on small screens */}
-        <div className="hidden md:block">
-          {/* Small dotted pattern */}
-          <div
-            className={`absolute grid grid-cols-4 gap-1 opacity-70 transition-all duration-1000 delay-500 ${
-              isLoaded ? "translate-y-0 opacity-70" : "translate-y-8 opacity-0"
-            }`}
-            style={{
-              bottom: "1.5rem", // equivalent to bottom-6
-              right: "2rem", // adjusted from right-12
-            }}
-          >
-            {Array.from({ length: 16 }).map((_, i) => (
-              <div
-                key={`small-dot-${i}`}
-                className="w-1 h-1 bg-purple-600 rounded-full"
-                style={{
-                  animationDelay: `${i * 40}ms`,
-                  animation: isLoaded ? "pulse 2.5s infinite" : "none",
-                }}
-              />
-            ))}
-          </div>
-
-          {/* Stepped line graphics */}
-          <div
-            className={`absolute w-16 lg:w-20 h-12 lg:h-16 opacity-60 transition-all duration-1000 delay-400 ${
-              isLoaded ? "scale-100 rotate-0" : "scale-0 rotate-45"
-            }`}
-            style={{
-              bottom: "20%", // was bottom-1/3
-              left: "60%", // was left-1/3
-            }}
-          >
-            <svg
-              viewBox="0 0 80 64"
-              className="w-full h-full stroke-lime-400 fill-none stroke-2"
-            >
-              <path
-                d="M0 48 L12 48 L12 36 L24 36 L24 24 L36 24 L36 12 L48 12 L48 0"
-                className="animate-pulse"
-                style={{ animationDuration: "3s" }}
-              />
-            </svg>
-          </div>
-        </div>
+        {/* Center cinematic spotlight */}
+        <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[600px] h-[600px] bg-white/5 blur-[240px] rounded-full" />
       </div>
 
-      {/* Header */}
-      <header
-        className={`relative z-10 flex justify-between items-center p-4 lg:p-8 transition-all duration-1000 ${
-          isLoaded ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
-        }`}
-      >
+      {/* ================= HEADER (MINIMAL KEYNOTE STYLE) ================= */}
+      <header className="relative z-10 flex justify-between items-center px-6 lg:px-12 py-6">
         <Link href="/">
-          <motion.div
-            initial={{ x: "-100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="ml-6 mt-6 overflow-hidden text-lime-400 text-xl lg:text-2xl font-bold font-poppins cursor-pointer hover:scale-110 transition-transform duration-300"
-          >
-            <span className="inline-block">Tobi Babalola</span>
-          </motion.div>
+          <div className="text-lime-400 font-medium tracking-tight text-lg">
+            Tobi Babalola
+          </div>
         </Link>
 
         <button
           onClick={() => setIsMobileMenuOpen(true)}
-          className="text-lime-400 p-2 hover:scale-110 transition-transform duration-300"
-          aria-label="Open mobile menu"
+          className="text-white/60 hover:text-white transition"
         >
-          <div className="space-y-1">
-            <div className="w-5 lg:w-6 h-0.5 bg-lime-400"></div>
-            <div className="w-5 lg:w-6 h-0.5 bg-lime-400"></div>
-            <div className="w-5 lg:w-6 h-0.5 bg-lime-400"></div>
-          </div>
+          Menu
         </button>
       </header>
 
-      {/* Main content */}
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-4 lg:pt-8">
-        <div
-          ref={heroRef}
-          className="grid lg:grid-cols-12 gap-8 items-center justify-items-center text-center lg:text-left min-h-[80vh] lg:min-h-[90vh]"
-        >
-          {/* Left content - centralized on small screens, 6 columns on desktop */}
-          <div
-            className={`col-span-full lg:col-span-6 space-y-6 lg:space-y-8 transition-all duration-1000 delay-200 ${
-              isLoaded
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-20 opacity-0"
-            }`}
+      {/* ================= HERO STAGE ================= */}
+      <div className="relative z-10 container mx-auto px-6 lg:px-12 pt-10">
+        <div className="grid lg:grid-cols-12 items-center min-h-[85vh] gap-12">
+          {/* ================= LEFT (KEYNOTE TEXT STAGE) ================= */}
+          <motion.div
+            style={{ y: heroY }}
+            className="col-span-full lg:col-span-6 space-y-6"
           >
-            <div
-              className={`mt-8 mb-12 px-4 sm:px-6 lg:px-0 max-w-md mx-auto lg:mx-0 lg:max-w-none ${
-                isMobile ? "ml-8" : ""
-              }`}
+            {/* SMALL LABEL (APPLE EVENT STYLE) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-white/40 tracking-[0.2em] uppercase text-xs"
             >
-              <h1
-                ref={headingRef}
-                className="text-5xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-poppins text-lime-400 leading-tight text-left lg:ml-20"
+              Introducing Premium Web Experiences
+            </motion.div>
+
+            {/* MAIN HEADLINE (KEYNOTE REVEAL) */}
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              className="text-5xl lg:text-6xl font-semibold leading-tight text-white"
+            >
+              {text}
+              <span className="inline-block w-[2px] h-10 bg-lime-400 ml-2 animate-pulse align-middle" />
+            </motion.h1>
+
+            {/* SUBTITLE (SOFT FADE-IN) */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="text-white/70 max-w-lg text-lg leading-relaxed"
+            >
+              I design and build high-performance SaaS-grade websites that feel
+              like Apple products — fast, premium, and engineered for
+              conversion.
+            </motion.p>
+
+            {/* CTA (KEYNOTE BUTTON REVEAL) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              className="flex flex-wrap gap-5 pt-6"
+            >
+              {/* ================= PRIMARY CTA ================= */}
+              <motion.button
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/2348105333852?text=Hi%20I%20am%20interested%20in%20getting%20a%20premium%20website%20for%20my%20business",
+                    "_blank",
+                  )
+                }
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                className="relative px-8 py-3 rounded-full font-medium text-white overflow-hidden group"
               >
-                Websites that <br />
-                <span className="text-white">convert visitors</span> <br />
-                into customers<span className="text-white">.</span>
-              </h1>
+                {/* ================= BASE GLASS ================= */}
+                <span className="absolute inset-0 bg-[#0b0f1a] border border-white/10 rounded-full" />
 
-              <p
-                ref={paragraphRef}
-                className="text-white text-sm lg:text-base font-montserrat font-medium mt-4 lg:mt-6 max-w-lg text-left lg:ml-20"
+                {/* ================= LIQUID HOVER COLOR ================= */}
+                <span className="absolute inset-0 rounded-full overflow-hidden">
+                  <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </span>
+
+                {/* ================= GLASS REFRACTION LAYER ================= */}
+                <span className="absolute inset-0 backdrop-blur-xl opacity-60" />
+
+                {/* ================= WATER SPLASH CORE ================= */}
+                <span className="absolute top-1/2 left-1/2 w-2 h-2 bg-white/60 rounded-full opacity-0 group-hover:animate-splash" />
+
+                {/* ================= RIPPLE WAVES ================= */}
+                <span className="absolute top-1/2 left-1/2 w-10 h-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/20 opacity-0 group-hover:animate-ripple" />
+                <span className="absolute top-1/2 left-1/2 w-10 h-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 opacity-0 group-hover:animate-rippleDelay" />
+
+                {/* ================= SHINE SWEEP ================= */}
+                <span className="absolute inset-0 overflow-hidden rounded-full">
+                  <span className="absolute -left-1/2 top-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-12 opacity-0 group-hover:opacity-100 animate-[shine_1.4s_ease-in-out]" />
+                </span>
+
+                {/* ================= TEXT ================= */}
+                <span className="relative z-10">Talk to Expert</span>
+
+                {/* ================= GLOW FIELD ================= */}
+                <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 shadow-[0_0_40px_rgba(34,211,238,0.25)] transition" />
+              </motion.button>
+
+              {/* ================= SECONDARY CTA ================= */}
+              <motion.button
+                ref={secondaryBtn.ref}
+                onMouseMove={secondaryBtn.handleMouseMove}
+                onMouseLeave={secondaryBtn.handleMouseLeave}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 240, damping: 16 }}
+                className="relative px-8 py-3 rounded-full text-white border border-white/15 overflow-hidden"
               >
-                I help startups and growing businesses build fast, reliable
-                websites that generate leads, build credibility, and support
-                real revenue growth.
-              </p>
-            </div>
+                {/* glass morph background */}
+                <span className="absolute inset-0 bg-white/5 backdrop-blur-xl opacity-0 hover:opacity-100 transition" />
 
-            {/* Feature boxes */}
-            <div
-              ref={featuresRef}
-              className="grid grid-cols-2 gap-4 lg:gap-8 pt-4 lg:pt-8"
+                {/* soft ring glow */}
+                <span className="absolute inset-0 rounded-full border border-white/10 scale-95 opacity-0 hover:opacity-100 transition-all duration-300" />
+
+                <span className="relative z-10">View Work</span>
+              </motion.button>
+            </motion.div>
+
+            {/* MICRO TRUST */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="text-white/30 text-sm pt-4"
             >
-              <div className="space-y-2 lg:ml-20">
-                <h3 className="text-lime-400 font-montserrat text-[11px] lg:text-sm text-left">
-                  ⚡ Fast, conversion-focused React & Next.js websites
-                </h3>
-              </div>
+              Built with Apple-level attention to detail • Stripe-level
+              conversion systems
+            </motion.p>
+          </motion.div>
 
-              <div className="space-y-2">
-                <h3 className="text-lime-400 font-montserrat text-[11px] lg:text-sm text-left">
-                  🌍 Powering real businesses operating across 50+ countries
-                </h3>
+          {/* ================= RIGHT IMAGE (FLOATING KEYNOTE OBJECT) ================= */}
+          <motion.div
+            style={{ y: imageY }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="col-span-full lg:col-span-6 flex justify-center"
+          >
+            <div className="relative w-72 h-80 lg:w-80 lg:h-96">
+              {/* OUTER CINEMATIC GLOW FIELD */}
+              <div className="absolute inset-[-20px] bg-gradient-to-tr from-lime-400/10 via-purple-500/10 to-transparent blur-2xl rounded-3xl animate-pulse" />
+
+              {/* GLASS KEYNOTE FRAME */}
+              <div className="absolute inset-0 rounded-3xl border border-white/10 backdrop-blur-2xl bg-white/5 shadow-2xl" />
+
+              {/* FLOATING ENERGY RING */}
+              <div className="absolute -inset-2 rounded-3xl border border-lime-400/20 animate-pulse" />
+
+              {/* IMAGE */}
+              <div className="relative w-full h-full rounded-3xl overflow-hidden">
+                <Image
+                  src="/tobi.jpeg"
+                  alt="Tobi Babalola"
+                  fill
+                  className="object-cover scale-105 hover:scale-110 transition-transform duration-700"
+                  priority
+                />
               </div>
             </div>
-          </div>
-
-          {/* Right content - Profile image */}
-          <div className="col-span-full lg:col-span-6 flex justify-center mt-16 lg:mt-0">
-            <div
-              ref={imageRef}
-              className="relative group w-56 h-64 sm:w-64 sm:h-72 
-               -translate-y-24 sm:-translate-y-28 
-               lg:w-72 lg:h-80 lg:translate-y-[-6rem] lg:-ml-40"
-            >
-              {/* Elegant glassmorphic frame */}
-              <div className="absolute inset-0 rounded-xl border border-lime-400/40 bg-lime-400/20 backdrop-blur-md shadow-lg shadow-lime-500/40 transition-all duration-500 group-hover:scale-105 group-hover:rotate-1" />
-
-              {/* Profile Image */}
-              <Image
-                src="/tobi.jpeg"
-                alt="Portrait of Tobi Babalola"
-                title="Tobi Babalola"
-                aria-label="Tobi Babalola profile picture"
-                fill
-                className="object-cover rounded-xl relative z-10 shadow-lg shadow-lime-500/60 transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-lime-400/80"
-                priority
-                sizes="(max-width: 640px) 14rem, (max-width: 768px) 16rem, 24rem"
-              />
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Floating menu button and mobile menu */}
+      {/* ================= MOBILE MENU ================= */}
       <FloatingMenuButton onMenuToggle={() => setIsMobileMenuOpen(true)} />
+
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       />
-    </section>
+    </motion.section>
   );
 }

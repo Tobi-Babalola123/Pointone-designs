@@ -12,10 +12,12 @@ export default function ContactSection() {
     email: "",
     message: "",
   });
-  const { ref, isVisible } = useScrollAnimation(0.2);
 
+  const { ref, isVisible } = useScrollAnimation(0.2);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -24,11 +26,20 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    emailjs
-      .send(
+    // ✅ Validation FIRST
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus("error");
+      return;
+    }
+
+    setLoading(true);
+    setStatus("idle");
+
+    try {
+      await emailjs.send(
         "service_c5cm1hn",
         "template_faeozwn",
         {
@@ -36,16 +47,36 @@ export default function ContactSection() {
           user_email: formData.email,
           message: formData.message,
         },
-        "PZr-nn48BM-uNPTJg"
-      )
-      .then((result) => {
-        console.log("Email sent successfully:", result.text);
-        alert("Message sent!");
-      })
-      .catch((error) => {
-        console.error("Email sending error:", error);
-        alert("Error sending message.");
+        "PZr-nn48BM-uNPTJg",
+      );
+
+      console.log("Sending to Zapier:", {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
       });
+
+      await fetch("https://hooks.zapier.com/hooks/catch/26979240/unhbenh/", {
+        method: "POST",
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      setStatus("success");
+
+      // ✅ Delay before clearing (GOOD UX)
+      setTimeout(() => {
+        setFormData({ name: "", email: "", message: "" });
+      }, 1000);
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -213,14 +244,32 @@ export default function ContactSection() {
             >
               <button
                 type="submit"
-                className="group flex items-center space-x-4 px-8 lg:px-12 py-3 lg:py-4 border-2 border-purple-600 text-purple-600 font-semibold font-montserrat hover:bg-purple-600 hover:text-white hover:scale-105 transition-all duration-300 mx-auto text-sm lg:text-base mb-12"
+                disabled={loading}
+                className="group flex items-center space-x-4 px-8 lg:px-12 py-3 lg:py-4 border-2 border-purple-600 text-purple-600 font-semibold font-montserrat hover:bg-purple-600 hover:text-white hover:scale-105 transition-all duration-300 mx-auto text-sm lg:text-base mb-12 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span className="text-lime-400">SEND MESSAGE</span>
-                <ArrowRight
-                  size={16}
-                  className="lg:w-5 text-lime-400 lg:h-5 group-hover:translate-x-2 transition-transform duration-300"
-                />
+                {loading ? (
+                  <span className="text-lime-400">Sending...</span>
+                ) : (
+                  <>
+                    <span className="text-lime-400">SEND MESSAGE</span>
+                    <ArrowRight
+                      size={16}
+                      className="lg:w-5 text-lime-400 lg:h-5 group-hover:translate-x-2 transition-transform duration-300"
+                    />
+                  </>
+                )}
               </button>
+              {status === "success" && (
+                <p className="text-green-600 text-center font-medium">
+                  ✅ Message sent successfully!
+                </p>
+              )}
+
+              {status === "error" && (
+                <p className="text-red-500 text-center font-medium">
+                  ❌ Something went wrong. Try again.
+                </p>
+              )}
             </div>
           </form>
         </div>

@@ -21,9 +21,49 @@ blockquote {
   font-family: var(--font-lexend), sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes splash {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3.2);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(5.5);
+    opacity: 0;
+  }
+}
+
+/* Clean utility animations */
+.animate-splash {
+  animation: splash 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-ripple {
+  animation: ripple 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-rippleDelay {
+  animation: ripple 1.05s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.08s;
+}
+
+/* Apple-style shine */
+@keyframes shine {
+  0% {
+    transform: translateX(-120%) rotate(12deg);
+  }
+  100% {
+    transform: translateX(220%) rotate(12deg);
   }
 }
 

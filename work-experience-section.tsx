@@ -1,255 +1,244 @@
-import { MapPin, Menu } from "lucide-react";
-import { useScrollAnimation } from "./use-scroll-animation";
-import Image from "next/image";
+"use client";
 
-export default function WorkExperienceSection() {
-  const { ref, isVisible } = useScrollAnimation(0.2);
-  const isLoaded = isVisible;
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
+
+/* =========================
+   SPATIAL BACKGROUND SYSTEM
+========================= */
+function SpatialBackground() {
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+      document.documentElement.style.setProperty("--mx", `${x}`);
+      document.documentElement.style.setProperty("--my", `${y}`);
+    };
+
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
 
   return (
-    <section
-      ref={ref}
-      id="about"
-      className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500 relative overflow-hidden"
+    <div className="fixed inset-0 -z-10 bg-[#06060a] overflow-hidden">
+      {/* deep gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-black to-black" />
+
+      {/* Vision Pro light fields */}
+      <div
+        className="absolute w-[800px] h-[800px] bg-purple-500/20 blur-[160px] rounded-full"
+        style={{
+          transform:
+            "translate(calc(var(--mx) * 40px), calc(var(--my) * 40px))",
+        }}
+      />
+
+      <div
+        className="absolute bottom-[-25%] right-[-15%] w-[700px] h-[700px] bg-lime-400/10 blur-[180px] rounded-full"
+        style={{
+          transform:
+            "translate(calc(var(--mx) * -30px), calc(var(--my) * -30px))",
+        }}
+      />
+
+      {/* subtle grid depth */}
+      <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:30px_30px]" />
+    </div>
+  );
+}
+
+/* =========================
+   GLASS CARD SYSTEM
+========================= */
+function GlassCard({ children }: any) {
+  return (
+    <motion.div
+      whileHover={{
+        scale: 1.04,
+        rotateX: 3,
+        rotateY: -3,
+      }}
+      transition={{ type: "spring", stiffness: 180, damping: 16 }}
+      className="relative rounded-3xl overflow-hidden border border-white/10 backdrop-blur-3xl bg-white/5 shadow-2xl"
     >
-      {/* Background decorative elements - responsive */}
-      <div className="absolute inset-0">
-        {/* Large circles - smaller on mobile */}
-        <div
-          className={`absolute top-32 right-1/4 lg:right-1/3 w-16 h-16 lg:w-24 lg:h-24 bg-white rounded-full opacity-60 lg:opacity-80 transition-all duration-1000 delay-200 ${
-            isVisible
-              ? "scale-100 opacity-60 lg:opacity-80"
-              : "scale-0 opacity-0"
-          }`}
-        />
-        <div
-          className={`absolute bottom-1/3 left-1/2 lg:left-2/3 w-20 h-20 lg:w-32 lg:h-32 bg-white rounded-full opacity-40 lg:opacity-60 transition-all duration-1000 delay-400 ${
-            isVisible
-              ? "scale-100 opacity-40 lg:opacity-60"
-              : "scale-0 opacity-0"
-          }`}
-        />
-        <div
-          className={`absolute top-2/3 right-1/6 lg:right-1/4 w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-full opacity-50 lg:opacity-70 transition-all duration-1000 delay-300 ${
-            isVisible
-              ? "scale-100 opacity-50 lg:opacity-70"
-              : "scale-0 opacity-0"
-          }`}
-        />
+      <div className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-br from-purple-500/20 to-lime-400/10" />
+      <div className="relative z-10">{children}</div>
+    </motion.div>
+  );
+}
 
-        {/* Plus signs - fewer on mobile */}
-        {[
-          { top: "25%", right: "40%", delay: 500 },
-          { top: "50%", right: "25%", delay: 600 },
-          { bottom: "33%", right: "45%", delay: 700 },
-        ].map((pos, i) => (
-          <div
-            key={i}
-            className={`absolute text-white text-lg lg:text-2xl opacity-40 lg:opacity-60 transition-all duration-1000 hover:rotate-90 hover:scale-125 ${
-              isVisible
-                ? "rotate-0 opacity-40 lg:opacity-60"
-                : "rotate-45 opacity-0"
-            }`}
-            style={{
-              ...pos,
-              transitionDelay: `${pos.delay}ms`,
-            }}
-          >
-            +
-          </div>
-        ))}
+/* =========================
+   MAIN SPATIAL HERO SECTION
+========================= */
+export default function SpatialOS() {
+  const scenes = [
+    {
+      title: "Frontend Developer Crafting High-End Web Experiences",
+      text: "I build modern, performant, and visually immersive web interfaces using React, Next.js, and advanced UI systems.",
+    },
+    {
+      title: "Specialized in UI Engineering & Animations",
+      text: "I design and develop smooth, Apple-level interactions using Framer Motion, GSAP, and spatial UI principles.",
+    },
+    {
+      title: "Real-World Experience",
+      text: "Internships and projects including e-commerce platforms, health apps, dashboards, and SaaS interfaces.",
+    },
+    {
+      title: "Let’s Build Something Exceptional",
+      text: "Available for frontend roles, freelance projects, and product collaborations. Let’s connect and build something world-class.",
+    },
+  ];
 
-        {/* Company logos - responsive positioning */}
-        <div
-          className={`absolute top-1/3 right-1/5 lg:right-1/4 text-lime-400 font-bold font-poppins text-xs lg:text-sm opacity-60 lg:opacity-80 rotate-12 transition-all duration-1000 delay-600 hover:scale-110 ${
-            isVisible
-              ? "translate-y-0 opacity-60 lg:opacity-80"
-              : "translate-y-5 opacity-0"
-          }`}
-        >
-          TrendTrove
-        </div>
-        <div
-          className={`absolute bottom-1/2 right-1/4 lg:right-1/3 text-lime-400 font-bold font-poppins text-xs lg:text-sm opacity-60 lg:opacity-80 rotate-6 transition-all duration-1000 delay-800 hover:scale-110 ${
-            isVisible
-              ? "translate-y-0 opacity-60 lg:opacity-80"
-              : "translate-y-5 opacity-0"
-          }`}
-        >
-          Solaris Surge
-        </div>
-        <div
-          className={`absolute bottom-1/4 right-1/2 lg:right-2/3 text-lime-400 font-bold font-poppins text-sm lg:text-lg opacity-70 lg:opacity-90 transition-all duration-1000 delay-900 hover:scale-110 ${
-            isVisible
-              ? "translate-y-0 opacity-70 lg:opacity-90"
-              : "translate-y-5 opacity-0"
-          }`}
-        >
-          Tobi
-        </div>
-      </div>
+  const [index, setIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-      {/* Header */}
-      <header
-        className={`relative z-10 flex justify-between items-center p-4 lg:p-8 transition-all duration-1000 ${
-          isVisible ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0"
-        }`}
-      >
-        <div className="text-lime-400 p-2 hover:scale-110 transition-transform duration-300">
-          <MapPin size={20} className="lg:w-6 lg:h-6" />
-        </div>
-        <button className="text-lime-400 p-2 hover:rotate-90 transition-transform duration-300">
-          <Menu size={20} className="lg:w-6 lg:h-6" />
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+
+      const totalScroll = window.innerHeight * (scenes.length - 1);
+      const progress = scrollY / totalScroll;
+
+      setProgress(progress);
+
+      const newIndex = Math.min(
+        scenes.length - 1,
+        Math.round(progress * (scenes.length - 1)),
+      );
+
+      setIndex(newIndex);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <main className="text-white">
+      {/* BACKGROUND */}
+      <SpatialBackground />
+
+      {/* NAV (FIXED BRAND) */}
+      <div className="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 backdrop-blur-xl bg-black/20 z-50">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="font-semibold text-white/80 hover:text-lime-300 transition"
+        >
+          Your Brand
         </button>
-      </header>
 
-      {/* Main content */}
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-4 lg:pt-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Left content - Text */}
-          <div className="space-y-6 lg:space-y-8 mb-16 text-left lg:text-left">
-            <h2
-              className={`text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-poppins text-lime-400 leading-tight transition-all duration-1000 delay-200 hover:scale-105 ml-6 lg:ml-8 ${
-                isVisible
-                  ? "translate-x-0 opacity-100"
-                  : "-translate-x-20 opacity-0"
-              }`}
-            >
-              My
-              <br />
-              Journey,
-            </h2>
+        <Menu className="text-white/70" />
+      </div>
 
-            <div className="space-y-4 lg:space-y-6 text-white text-xs lg:text-base font-montserrat leading-relaxed ml-8">
-              {[
-                "Delivering user-centric web solutions that <strong>drive measurable business results</strong> across multiple industries, from transport systems to renewable energy platforms.",
-                "Specializing in responsive, interactive web applications using React and Tailwind CSS to <strong>enhance user engagement and retention</strong>.",
-                "Successfully translated complex design visions into <strong>scalable, high-performance interfaces</strong> for projects with tangible business outcomes.",
-                "Focus on clean, accessible, and pixel-perfect UIs that <strong>improve conversion rates and user satisfaction</strong> across devices.",
-                "Committed to continuous growth and sharing insights to <strong>help teams improve processes, efficiency, and product quality</strong>.",
-              ].map((text, i) => (
-                <p
-                  key={i}
-                  className={`transition-all duration-1000 hover:translate-x-2 ${
-                    isVisible
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-10 opacity-0"
-                  }`}
-                  style={{ transitionDelay: `${300 + i * 100}ms` }}
-                  dangerouslySetInnerHTML={{ __html: text }}
-                />
-              ))}
-            </div>
-          </div>
+      {/* SPATIAL SCROLL HERO SYSTEM */}
+      <section className="h-[420vh]">
+        <div className="sticky top-0 h-screen flex items-center justify-center px-6">
+          <div className="grid lg:grid-cols-2 gap-14 max-w-6xl w-full items-center">
+            {/* LEFT CONTENT (YOUR ORIGINAL STRUCTURE RESTORED) */}
+            <div className="space-y-6">
+              {/* TITLE */}
+              <motion.h1
+                key={index}
+                initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.7 }}
+                className="text-4xl lg:text-6xl font-bold leading-tight"
+              >
+                <span className="text-lime-300">{scenes[index].title}</span>
+              </motion.h1>
 
-          {/* Right content - Image with responsive sizing */}
-          <div
-            className={`relative flex justify-center items-center mt-8 lg:mt-0 transition-all duration-1000 delay-400 ${
-              isLoaded
-                ? "translate-x-0 opacity-100"
-                : "translate-x-20 opacity-0"
-            }`}
-          >
-            <div className="relative mb-6 w-80 h-80 lg:w-96 lg:h-96">
-              {/* Central image */}
-              <div className="absolute inset-6 lg:inset-8 group">
-                <div className="relative w-full h-full rounded-2xl overflow-hidden group-hover:scale-105 transition-transform duration-500">
-                  <Image
-                    src="/engineer.png?height=320&width=320"
-                    alt="Professional workspace"
-                    width={320}
-                    height={320}
-                    className="w-full h-full object-cover"
-                    priority
+              {/* DESCRIPTION (NOW RESTORED TO FULL MARKETING DEPTH) */}
+              <motion.p
+                key={index + "-p"}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-white/70 max-w-xl text-base leading-relaxed"
+              >
+                {scenes[index].text}
+              </motion.p>
+
+              {/* PROGRESS INDICATOR */}
+              <div className="flex gap-2 pt-4">
+                {scenes.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === index ? "w-10 bg-lime-300" : "w-2 bg-white/20"
+                    }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 to-transparent" />
+                ))}
+              </div>
+
+              {/* CTA SYSTEM (YOUR ORIGINAL CONVERSION ENGINE PRESERVED) */}
+              <div className="flex flex-wrap gap-4 pt-6">
+                {/* PRIMARY CTA */}
+                <motion.button
+                  whileHover={{
+                    scale: 1.08,
+                    boxShadow: "0px 0px 35px rgba(163,230,53,0.35)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-3 bg-lime-400 text-black rounded-full font-medium"
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/2348105333852?text=Hi%20I%20want%20a%20solar%20installation%20for%20my%20home/business",
+                      "_blank",
+                    )
+                  }
+                >
+                  Talk to Expert
+                </motion.button>
+
+                {/* SECONDARY CTA */}
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(255,255,255,0.08)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-3 border border-white/20 rounded-full"
+                >
+                  View Work
+                </motion.button>
+              </div>
+            </div>
+
+            {/* RIGHT VISUAL (VISION PRO DEPTH SYSTEM) */}
+            <div className="relative flex justify-center">
+              <div
+                className="relative w-[360px] h-[360px] lg:w-[480px] lg:h-[480px]"
+                style={{
+                  transform: `scale(${1 + progress * 0.06})`,
+                }}
+              >
+                <GlassCard>
+                  <Image
+                    src="/engineer.png"
+                    alt="Solar installation"
+                    width={600}
+                    height={600}
+                    className="rounded-2xl w-full h-full object-cover"
+                  />
+                </GlassCard>
+
+                {/* FLOATING UI TAGS (APPLE STYLE DEPTH) */}
+                <div className="absolute -top-4 left-0 bg-lime-300 text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  Premium Solar
                 </div>
-              </div>
 
-              {/* Responsive badges and elements */}
-
-              {/* Top left - Experience badge */}
-              <div
-                className={`absolute top-0 left-0 bg-lime-400 text-purple-900 px-2 lg:px-4 py-1 lg:py-2 rounded-lg font-bold font-poppins text-xs lg:text-sm shadow-lg transition-all duration-1000 delay-600 hover:scale-110 ${
-                  isLoaded
-                    ? "translate-y-0 opacity-100"
-                    : "-translate-y-5 opacity-0"
-                }`}
-              >
-                4+ Years
-              </div>
-
-              {/* Top right - Skills indicator */}
-              <div
-                className={`absolute top-2 lg:top-4 right-0 bg-white text-purple-600 px-2 lg:px-3 py-1 lg:py-2 rounded-full text-xs font-semibold font-montserrat shadow-md transition-all duration-1000 delay-700 hover:rotate-12 ${
-                  isLoaded
-                    ? "translate-y-0 opacity-100"
-                    : "-translate-y-5 opacity-0"
-                }`}
-              >
-                Frontend Dev
-              </div>
-
-              {/* Left side - Tech stack */}
-              <div
-                className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 lg:-translate-x-4 bg-purple-800 text-lime-400 px-2 lg:px-3 py-2 lg:py-4 rounded-lg shadow-lg transition-all duration-1000 delay-800 hover:scale-105 ${
-                  isLoaded
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-10 opacity-0"
-                }`}
-              >
-                <div className="text-xs font-bold font-poppins mb-1 lg:mb-2">
-                  Tech Stack
+                <div className="absolute bottom-0 right-0 bg-white/10 backdrop-blur-xl px-3 py-1 rounded-full text-xs">
+                  Vision Pro UI Layer
                 </div>
-                <div className="space-y-1 text-xs font-montserrat">
-                  <div>React</div>
-                  <div>Next.js</div>
-                  <div className="hidden lg:block">Tailwindcss</div>
-                </div>
-              </div>
-
-              {/* Right side - Achievement */}
-              <div
-                className={`absolute right-0 top-1/3 transform translate-x-2 lg:translate-x-4 bg-lime-400 text-purple-900 px-2 lg:px-3 py-2 lg:py-3 rounded-lg shadow-lg transition-all duration-1000 delay-900 hover:scale-105 ${
-                  isLoaded
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-10 opacity-0"
-                }`}
-              >
-                <div className="text-xs font-bold font-poppins mb-1">
-                  Projects
-                </div>
-                <div className="text-lg font-bold font-poppins">8+</div>
-                <div className="text-xs font-montserrat">Delivered</div>
-              </div>
-
-              {/* Bottom left - Location */}
-              <div
-                className={`absolute bottom-0 left-2 lg:left-4 bg-white text-purple-600 px-2 lg:px-3 py-1 lg:py-2 rounded-lg shadow-md transition-all duration-1000 delay-1000 hover:scale-110 ${
-                  isLoaded
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
-                <div className="text-xs font-semibold font-montserrat">
-                  📍 Remote
-                </div>
-              </div>
-
-              {/* Bottom right - Status */}
-              <div
-                className={`absolute bottom-2 lg:bottom-4 right-2 lg:right-4 bg-green-500 text-white px-2 lg:px-3 py-1 lg:py-2 rounded-full text-xs font-bold font-poppins shadow-lg transition-all duration-1000 delay-1100 hover:pulse ${
-                  isLoaded
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
-                Available
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

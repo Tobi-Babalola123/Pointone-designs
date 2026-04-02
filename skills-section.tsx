@@ -1,262 +1,91 @@
 "use client";
 
 import { MapPin } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { useScrollAnimation } from "./use-scroll-animation";
+import { useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function SkillsSection() {
-  const { ref, isVisible } = useScrollAnimation(0.2);
-
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const headerRef = useRef<HTMLElement | null>(null);
-  const designRef = useRef<HTMLDivElement | null>(null);
-  const engineeringRef = useRef<HTMLDivElement | null>(null);
-  const bgRef = useRef<HTMLDivElement | null>(null);
-
-  const [dotCount, setDotCount] = useState(64);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleResize = () => {
-        setDotCount(window.innerWidth < 1024 ? 36 : 64);
-      };
-
-      handleResize();
-      window.addEventListener("resize", handleResize);
-
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        defaults: {
-          duration: 0.9,
-          ease: "power3.out",
-          immediateRender: false,
-        },
-      });
-
-      tl.from(headerRef.current, {
-        y: -20,
-        autoAlpha: 0,
-      })
-        .from(
-          designRef.current,
-          {
-            x: -40,
-            autoAlpha: 0,
-          },
-          "-=0.4",
-        )
-        .from(
-          engineeringRef.current,
-          {
-            x: 40,
-            autoAlpha: 0,
-          },
-          "-=0.5",
-        )
-        .from(
-          bgRef.current,
-          {
-            autoAlpha: 0,
-          },
-          "-=0.8",
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [isVisible]);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.25 });
 
   return (
     <section
-      ref={(el) => {
-        ref.current = el;
-        sectionRef.current = el;
-      }}
-      className="min-h-[50vh] lg:min-h-screen bg-gray-50 relative overflow-hidden"
+      ref={sectionRef}
+      className="relative min-h-[70vh] overflow-hidden bg-[#f6f7fb]"
     >
-      {/* Background decorative elements */}
-      <div ref={bgRef} className="absolute inset-0 hidden lg:block">
-        {/* Dotted pattern */}
-        <div
-          style={{ right: "24rem" }}
-          className={`absolute bottom-72 grid grid-cols-12 gap-1 opacity-30 transition-all duration-1000 delay-300 ${
-            isVisible ? "translate-x-0 opacity-30" : "translate-x-10 opacity-0"
-          }`}
-        >
-          {Array.from({ length: 168 }).map((_, i) => (
-            <div
-              key={i}
-              className="w-1 h-1 bg-gray-400 rounded-full hover:bg-purple-400 transition-colors duration-300"
-            />
-          ))}
-        </div>
+      {/* ================= VISION PRO BACKGROUND ================= */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-20%] left-1/2 w-[500px] h-[500px] bg-purple-300/25 blur-[120px] rounded-full -translate-x-1/2" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[420px] h-[420px] bg-cyan-300/20 blur-[120px] rounded-full" />
 
-        {/* Pagination dots - top right */}
-        <div
-          className={`absolute top-1/4 left-1/2 flex space-x-3 transition-all duration-1000 delay-400 ${
-            isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"
-          }`}
-          style={{ transform: "translateX(70%)" }}
-        >
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div
-              key={i}
-              className={`w-2 h-2 rounded-full transition-all duration-500 hover:scale-150 ${
-                i === 0 ? "bg-purple-600" : "bg-gray-300"
-              }`}
-              style={{ animationDelay: `${i * 100}ms` }}
-            />
-          ))}
-        </div>
-
-        {/* Pagination dots - bottom left */}
-        <div
-          className={`absolute bottom-1/4 left-1/3 flex space-x-3 transition-all duration-1000 delay-600 ${
-            isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"
-          }`}
-          style={{ transform: "translateX(-70%)" }}
-        >
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div
-              key={i}
-              className={`w-2 h-2 rounded-full transition-all duration-500 hover:scale-150 ${
-                i === 0 ? "bg-purple-600" : "bg-gray-300"
-              }`}
-              style={{ animationDelay: `${i * 100}ms` }}
-            />
-          ))}
-        </div>
-
-        {/* Decorative elements */}
-        <div className="block">
-          <div
-            className={`absolute bottom-1/3 left-1/3 w-16 h-16 opacity-40 transition-all duration-1000 delay-500 ${
-              isVisible ? "scale-100 rotate-0" : "scale-0 rotate-45"
-            }`}
-          >
-            <svg
-              viewBox="0 0 64 64"
-              className="w-full h-full stroke-purple-400 fill-none stroke-2"
-            >
-              <path
-                d="M0 48 L16 48 L16 32 L32 32 L32 16 L48 16"
-                className="animate-pulse"
-                style={{ animationDuration: "3s" }}
-              />
-            </svg>
-          </div>
-
-          <div
-            className={`absolute right-8 top-1/2 space-y-4 transition-all duration-1000 delay-700 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-8 opacity-0"
-            }`}
-          >
-            {[0, 1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className={`${
-                  i === 3
-                    ? "w-4 h-4 border-2 border-purple-400"
-                    : "w-3 h-3 bg-purple-600"
-                } rotate-45 hover:scale-125 transition-all duration-300`}
-                style={{
-                  animationDelay: `${i * 150}ms`,
-                  animation: isVisible ? "bounce 3s infinite" : "none",
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Circular element */}
-        <div
-          className={`absolute top-32 right-16 w-12 h-12 bg-cyan-400 rounded-full opacity-60 transition-all duration-1000 delay-200 hover:scale-110 ${
-            isVisible ? "translate-y-0 opacity-60" : "-translate-y-10 opacity-0"
-          }`}
-        />
+        <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:22px_22px]" />
       </div>
 
-      {/* Header icon */}
-      <header
-        ref={headerRef}
-        className={`relative z-10 flex justify-between items-center p-4 lg:p-8 transition-all duration-1000 ${
-          isVisible ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0"
-        }`}
+      {/* ================= HEADER ================= */}
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+        className="relative z-10 flex items-center gap-2 p-6 lg:p-8"
       >
-        <div className="text-purple-600 p-2 hover:scale-110 transition-transform duration-300">
-          <MapPin size={20} className="lg:w-6 lg:h-6" />
-        </div>
-      </header>
+        <MapPin className="w-5 h-5 text-purple-600" />
+        <span className="text-sm text-black/60">Skills & Expertise</span>
+      </motion.header>
 
-      {/* Main content */}
-      <div className="relative z-10 container mx-auto px-4 lg:px-12 py-12 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 max-w-7xl mx-auto">
-          {/* Design section */}
-          <div
-            ref={designRef}
-            className={`space-y-6 lg:space-y-10 text-left transition-all duration-1000 delay-200
-              mt-0 lg:-mt-20
-              lg:ml-8
-              
-    
-              `}
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-10 container mx-auto px-6 lg:px-12 py-14 lg:py-18">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
+          {/* ================= DESIGN ================= */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            whileHover={{ scale: 1.02, y: -4 }}
+            className="relative group rounded-3xl overflow-hidden"
           >
-            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
-              Design
-            </h2>
-            <p
-              className={`text-gray-700 text-xs sm:text-sm lg:text-sm font-montserrat leading-relaxed max-w-full sm:max-w-md lg:max-w-lg mx-auto lg:mx-0 transition-all duration-1000 delay-400 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-            >
-              Crafting interfaces that{" "}
-              <strong>convert visitors into customers</strong>. I focus on{" "}
-              <strong>user journeys that drive engagement</strong>, with layouts
-              and visuals that{" "}
-              <strong>increase trust, retention, and sales</strong> for your
-              business.
-            </p>
-          </div>
+            <div className="absolute inset-0 bg-white/40 backdrop-blur-xl border border-white/30 shadow-[0_20px_60px_rgba(0,0,0,0.05)] group-hover:bg-white/60 transition" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-purple-200/30 to-cyan-200/30 blur-2xl transition" />
 
-          {/* Engineering section */}
-          <div
-            ref={engineeringRef}
-            className={`flex flex-col justify-center space-y-6 lg:space-y-10 mt-8 sm:mt-12 lg:mt-48 text-left ml-2 sm:ml-4 lg:ml-0 transition-all duration-1000 delay-300 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-20 opacity-0"
-            }`}
+            <div className="relative p-6 lg:p-8 space-y-4">
+              <h2 className="text-3xl lg:text-4xl font-semibold text-purple-600">
+                Design
+              </h2>
+
+              <p className="text-black/70 leading-relaxed text-sm lg:text-base">
+                Crafting interfaces that{" "}
+                <span className="text-black font-medium">
+                  convert visitors into customers
+                </span>{" "}
+                through clean UX systems and premium UI design.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* ================= ENGINEERING ================= */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            whileHover={{ scale: 1.02, y: -4 }}
+            className="relative group rounded-3xl overflow-hidden"
           >
-            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold font-poppins text-purple-600 leading-tight hover:scale-105 transition-transform duration-300">
-              Engineering
-            </h2>
-            <p
-              className={`text-gray-700 text-xs sm:text-sm lg:text-sm font-montserrat leading-relaxed max-w-full sm:max-w-md lg:max-w-lg mx-2 sm:mx-4 lg:mx-0 transition-all duration-1000 delay-400 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-            >
-              Building robust, scalable applications that{" "}
-              <strong>accelerate business growth</strong>. My code ensures{" "}
-              <strong>
-                fast performance, seamless integrations, and reliable user
-                experiences
-              </strong>{" "}
-              so your products can scale without friction.
-            </p>
-          </div>
+            <div className="absolute inset-0 bg-white/40 backdrop-blur-xl border border-white/30 shadow-[0_20px_60px_rgba(0,0,0,0.05)] group-hover:bg-white/60 transition" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-cyan-200/30 to-purple-200/30 blur-2xl transition" />
+
+            <div className="relative p-6 lg:p-8 space-y-4">
+              <h2 className="text-3xl lg:text-4xl font-semibold text-purple-600">
+                Engineering
+              </h2>
+
+              <p className="text-black/70 leading-relaxed text-sm lg:text-base">
+                Building scalable systems that{" "}
+                <span className="text-black font-medium">
+                  deliver performance and reliability
+                </span>{" "}
+                across modern web applications.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
