@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
@@ -186,7 +187,7 @@ export default function SpatialOS() {
                   className="px-6 py-3 bg-lime-400 text-black rounded-full font-medium"
                   onClick={() =>
                     window.open(
-                      "https://wa.me/2348105333852?text=Hi%20I%20want%20a%20solar%20installation%20for%20my%20home/business",
+                      "https://wa.me/2348105333852?text=Hi%20I%20am%20interested%20in%20getting%20a%20premium%20website%20for%20my%20business",
                       "_blank",
                     )
                   }
@@ -195,16 +196,18 @@ export default function SpatialOS() {
                 </motion.button>
 
                 {/* SECONDARY CTA */}
-                <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                    backgroundColor: "rgba(255,255,255,0.08)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 border border-white/20 rounded-full"
-                >
-                  View Work
-                </motion.button>
+                <Link href="/work">
+                  <motion.button
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "rgba(255,255,255,0.08)",
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 border border-white/20 rounded-full"
+                  >
+                    View Work
+                  </motion.button>
+                </Link>
               </div>
             </div>
 

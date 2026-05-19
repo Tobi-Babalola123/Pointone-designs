@@ -46,8 +46,8 @@ const PricingSection = () => {
   return (
     <section id="services" className="py-12 md:py-16 lg:py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+        <div className="text-center text-white mb-8 md:mb-12">
+          <h2 className="text-2xl text-white sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
             Services & Starting Rates
           </h2>
           <p className="mt-2 md:mt-3 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
@@ -56,7 +56,7 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 text-white sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {services.map((s, idx) => (
             <article
               key={idx}
@@ -108,7 +108,7 @@ const PricingSection = () => {
         </div>
 
         <div className="mt-8 md:mt-10 text-center text-xs sm:text-sm text-muted-foreground px-4">
-          <p className="leading-relaxed">
+          <p className="leading-relaxed text-white">
             <strong className="text-foreground">Note:</strong> Prices shown are{" "}
             <em>starting rates</em>. Final quotes depend on project scope,
             complexity and delivery time.

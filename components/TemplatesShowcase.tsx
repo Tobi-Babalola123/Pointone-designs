@@ -4,336 +4,193 @@ import React, { useState } from "react";
 import { CheckCircle, Headphones, Download, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import ".";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/autoplay";
-// Import required modules
 import { Pagination, Autoplay } from "swiper/modules";
 
 export default function TemplatesShowcase() {
   const [selectedMockup, setSelectedMockup] = useState<any>(null);
 
-  // Free mockups data
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
   const freeMockups = [
     {
       title: "Employee ID Card Mockup",
       preview: "../ID card.png",
-      downloadUrl:
-        "https://drive.google.com/file/d/1VrTuL0_-T7w9OpkjuB33QIGQwNaqM94M/view?usp=drive_link",
+      downloadUrl: "#",
     },
+    { title: "Poster Mockup", preview: "../scentelixir.png", downloadUrl: "#" },
+    { title: "T-Shirt Mockup", preview: "../tshirt.webp", downloadUrl: "#" },
+    { title: "Baseball cap Mockup", preview: "../blue.webp", downloadUrl: "#" },
+  ];
+
+  const products = [
+    { title: "Flyer Packs", price: "$6.99", image: "../pablo.png" },
+    { title: "Social Designs", price: "$5.99", image: "../socials.webp" },
     {
-      title: "Poster Mockup",
-      preview: "../scentelixir.png",
-      downloadUrl:
-        "https://drive.google.com/file/d/1anlLHzvPp5Ilo48exzzqa7Z6LZk4QyQ7/view?usp=sharing",
+      title: "Web Templates",
+      price: "$29.99",
+      image: "../hero.png",
+      liveUrl: "./templates",
     },
-    {
-      title: "T-Shirt Mockup",
-      preview: "../tshirt.webp",
-      downloadUrl:
-        "https://drive.google.com/file/d/1AAe-1IHzroWT_eUGcnLpIMlhb4Zk5g9t/view?usp=sharing",
-    },
-    {
-      title: "Baseball cap Mockup",
-      preview: "../blue.webp",
-      downloadUrl:
-        "https://drive.google.com/file/d/1jdYvJw8DR22bOgEHRJjwTORROvYPageP/view?usp=sharing",
-    },
-    {
-      title: "free-burger-box-mockup",
-      preview: "../biebase.webp",
-      downloadUrl:
-        "https://drive.google.com/file/d/1b7K-rBIyAHTYorcS-nd4-zlo6mnx53fC/view?usp=sharing",
-    },
-    {
-      title: "Rectangle Signage on Wall Mockup",
-      preview: "../jabeam signpost.png",
-      downloadUrl:
-        "https://drive.google.com/file/d/1DCX1jNG09ocHfoO0BXY_jUQUbUxwy6JL/view?usp=sharing",
-    },
-    {
-      title: "Double A4 Flyer Poster mockup",
-      preview: "../scentelixirr.png",
-      downloadUrl:
-        "https://drive.google.com/file/d/1In6twRMO4v_9sXU_lCx21Ams7OFDbMgG/view?usp=sharing",
-    },
-    {
-      title: "Round Embroidered patch mockup ",
-      preview: "../desert.webp",
-      downloadUrl:
-        "https://drive.google.com/file/d/1sYpyzajL2f86om9-ojnKxbIVVj2hfXXD/view?usp=sharing",
-    },
+    { title: "Design Assets", price: "$19.99", image: "../hero.png" },
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white py-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Hero Section */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-extrabold">
-            Best Templates for Your Next Project
-          </h2>
-          <p className="mt-4 text-lg text-gray-300">
-            Discover a variety of design templates including flyer packs, social
-            media designs and website templates to elevate your projects.
+    <section className="relative bg-[#0B0B0F] text-white py-24 overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute inset-0">
+        <div className="absolute w-[500px] h-[500px] bg-purple-600/20 blur-[120px] top-[-100px] left-[-100px]" />
+        <div className="absolute w-[400px] h-[400px] bg-indigo-500/20 blur-[100px] bottom-[-100px] right-[-50px]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Hero */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          className="text-center max-w-3xl mx-auto"
+        >
+          <h2 className="text-4xl md:text-6xl font-bold">Premium Templates</h2>
+          <p className="mt-4 text-white/60">
+            High-quality assets designed to elevate your projects instantly.
           </p>
-          <div className="mt-6">
-            <Link
-              href="/templates"
-              className="inline-flex items-center rounded-lg bg-purple-600 px-6 py-3 text-sm font-semibold shadow hover:bg-purple-500"
-            >
-              Browse Templates
-            </Link>
-          </div>
-        </div>
+        </motion.div>
 
-        {/* Product Cards (Paid Templates) */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              title: "Flyer & Brochure Packs",
-              price: "$6.99",
-              image: "../pablo.png",
-              gradient: "from-purple-600 to-pink-600",
-              url: "https://pointonedesigns.gumroad.com/l/itdig",
-            },
-            {
-              title: "Social Media Designs",
-              price: "$5.99",
-              image: "../socials.webp",
-              gradient: "from-blue-600 to-indigo-600",
-              url: "https://pointonedesigns.gumroad.com/l/flyerpack-vol1",
-            },
-            {
-              title: "Website Templates",
-              price: "$29.99",
-              image: "../hero.png",
-              gradient: "from-orange-600 to-pink-600",
-              url: "/templates", // internal link
-            },
-            {
-              title: "Design Assets",
-              price: "$19.99",
-              image:
-                "https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=800",
-              gradient: "from-teal-600 to-blue-600",
-              url: "#",
-            },
-          ].map((product, idx) =>
-            product.url.startsWith("/") ? (
-              // ✅ Internal link using Next.js <Link>
-              <Link
-                key={idx}
-                href={product.url}
-                className="block transform transition-transform duration-300 hover:scale-105"
+        {/* Products */}
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {products.map((p, i) => (
+            <Link key={i} href={p.liveUrl || "#"}>
+              <motion.div
+                whileHover={{ scale: 1.05, rotateX: 2, rotateY: -2 }}
+                className="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden shadow-xl cursor-pointer"
               >
-                <div
-                  className={`rounded-2xl p-6 bg-gradient-to-tr ${product.gradient} shadow-lg`}
-                >
-                  <div className="overflow-hidden rounded-lg bg-black/20">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      width={400}
-                      height={250}
-                      className="object-cover w-full h-48"
-                    />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold">
-                    {product.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-200">{product.price}</p>
+                <div className="overflow-hidden">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    width={400}
+                    height={250}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                  />
                 </div>
-              </Link>
-            ) : (
-              // 🌍 External links open in new tab
-              <a
-                key={idx}
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transform transition-transform duration-300 hover:scale-105"
-              >
-                <div
-                  className={`rounded-2xl p-6 bg-gradient-to-tr ${product.gradient} shadow-lg`}
-                >
-                  <div className="overflow-hidden rounded-lg bg-black/20">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      width={400}
-                      height={250}
-                      className="object-cover w-full h-48"
-                    />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold">
-                    {product.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-200">{product.price}</p>
+                <div className="p-4">
+                  <h3 className="font-semibold">{p.title}</h3>
+                  <p className="text-white/60 text-sm">{p.price}</p>
                 </div>
-              </a>
-            )
-          )}
-        </div>
-
-        {/* Free Mockups Section */}
-        {/* Free Mockups Section (Carousel) */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-center">
-            Free Mockups for Designers
-          </h3>
-          <p className="mt-2 text-center text-gray-400">
-            Download high-quality mockups to showcase your work in style.
-          </p>
-
-          <div className="mt-10">
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              spaceBetween={20}
-              slidesPerView={1}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 4000, disableOnInteraction: false }}
-              breakpoints={{
-                640: { slidesPerView: 1 }, // mobile
-                768: { slidesPerView: 2 }, // tablet
-                1024: { slidesPerView: 3 }, // desktop
-              }}
-              className="pb-12"
-            >
-              {freeMockups.map((mockup, idx) => (
-                <SwiperSlide key={idx}>
-                  <div className="rounded-2xl p-6 bg-gradient-to-tr from-gray-800 to-gray-700 shadow-lg h-full flex flex-col">
-                    <div className="overflow-hidden rounded-lg bg-black/20">
-                      <Image
-                        src={mockup.preview}
-                        alt={mockup.title}
-                        width={400}
-                        height={250}
-                        className="object-cover w-full h-48"
-                      />
-                    </div>
-                    <h3 className="mt-4 text-lg font-semibold">
-                      {mockup.title}
-                    </h3>
-                    <button
-                      onClick={() => setSelectedMockup(mockup)}
-                      className="mt-3 inline-block rounded-lg bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 text-sm font-medium transition w-fit"
-                    >
-                      Download
-                    </button>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-
-        {/* Why Choose Us */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-center">Why Choose Us?</h3>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="rounded-xl bg-gray-800/50 p-6">
-              <CheckCircle className="mx-auto h-8 w-8 text-blue-500" />
-              <h4 className="mt-4 font-semibold">Verified Templates</h4>
-              <p className="mt-2 text-sm text-gray-400">
-                High-quality, professional templates you can trust.
-              </p>
-            </div>
-            <div className="rounded-xl bg-gray-800/50 p-6">
-              <Headphones className="mx-auto h-8 w-8 text-green-500" />
-              <h4 className="mt-4 font-semibold">Quality Support</h4>
-              <p className="mt-2 text-sm text-gray-400">
-                Get help and guidance whenever you need it.
-              </p>
-            </div>
-            <div className="rounded-xl bg-gray-800/50 p-6">
-              <Download className="mx-auto h-8 w-8 text-yellow-500" />
-              <h4 className="mt-4 font-semibold">Instant Download</h4>
-              <p className="mt-2 text-sm text-gray-400">
-                Access your templates immediately after purchase.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Final CTA */}
-        <div className="mt-20 rounded-2xl bg-gray-800/60 p-10 text-center">
-          <h3 className="text-xl font-semibold">
-            Find the perfect template for your project today
-          </h3>
-          <div className="mt-6">
-            <Link
-              href="/templates"
-              className="inline-flex items-center rounded-lg bg-purple-600 px-6 py-3 text-sm font-semibold shadow hover:bg-purple-500"
-            >
-              Get Started
+              </motion.div>
             </Link>
-          </div>
+          ))}
+        </div>
+
+        {/* Free Mockups Carousel */}
+        {/* <div className="mt-24">
+          <h3 className="text-3xl font-semibold text-center">Free Mockups</h3>
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            autoplay={{ delay: 3000 }}
+            pagination={{ clickable: true }}
+            spaceBetween={20}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="mt-10"
+          >
+            {freeMockups.map((m, i) => (
+              <SwiperSlide key={i}>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 p-4"
+                >
+                  <Image
+                    src={m.preview}
+                    alt={m.title}
+                    width={400}
+                    height={250}
+                    className="rounded-lg object-cover h-40"
+                  />
+                  <h4 className="mt-3">{m.title}</h4>
+                  <button
+                    onClick={() => setSelectedMockup(m)}
+                    className="mt-3 px-4 py-2 rounded-full bg-white text-black text-sm"
+                  >
+                    Download
+                  </button>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div> */}
+
+        {/* Features */}
+        <div className="mt-24 grid md:grid-cols-3 gap-6 text-center">
+          {[CheckCircle, Headphones, Download].map((Icon, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -5 }}
+              className="p-6 rounded-xl bg-white/5 border border-white/10"
+            >
+              <Icon className="mx-auto mb-4" />
+              <p className="text-white/60">Premium quality & instant access</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-24 text-center">
+          <Link href="/templates">
+            <button className="px-8 py-3 rounded-full bg-white text-black hover:scale-105 transition">
+              Explore Templates
+            </button>
+          </Link>
         </div>
       </div>
 
       {/* Modal */}
       {selectedMockup && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-gray-900 rounded-2xl p-8 max-w-lg w-full relative shadow-xl">
-            {/* Close button */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="bg-[#111] p-6 rounded-2xl max-w-md w-full relative"
+          >
             <button
               onClick={() => setSelectedMockup(null)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white"
+              className="absolute top-3 right-3"
             >
-              <X size={20} />
+              <X />
             </button>
-
-            {/* Preview Image */}
             <Image
               src={selectedMockup.preview}
-              alt={selectedMockup.title}
-              width={500}
-              height={300}
-              className="rounded-lg object-cover w-full h-48"
+              alt="preview"
+              width={400}
+              height={200}
+              className="rounded-lg"
             />
-
-            {/* Title */}
-            <h2 className="mt-4 text-xl font-semibold">
-              {selectedMockup.title}
-            </h2>
-            <p className="mt-2 text-gray-400 text-sm">
-              Use this free mockup to enhance your presentations or showcase
-              designs to clients.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href={selectedMockup.downloadUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center rounded-lg bg-purple-600 hover:bg-purple-700 px-4 py-2 text-sm font-medium"
-              >
-                Confirm & Download
-              </a>
-
-              <Link
-                href="/supportpage"
-                // target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center rounded-lg bg-yellow-500 hover:bg-yellow-600 px-4 py-2 text-sm font-medium"
-              >
-                ☕ Buy Me a Coffee
-              </Link>
-
-              <Link
-                href="/#contact"
-                className="block text-center rounded-lg bg-green-600 hover:bg-green-700 px-4 py-2 text-sm font-medium"
-              >
-                Work With Us
-              </Link>
-            </div>
-          </div>
-        </div>
+            <h3 className="mt-4">{selectedMockup.title}</h3>
+            <a
+              href={selectedMockup.downloadUrl}
+              className="mt-4 block text-center bg-white text-black py-2 rounded-full"
+            >
+              Download
+            </a>
+          </motion.div>
+        </motion.div>
       )}
     </section>
   );

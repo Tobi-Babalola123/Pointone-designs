@@ -8,7 +8,12 @@ import MobileMenu from "./mobile-menu";
 import MouseFollower from "./mouse-follower";
 import GraphicDesignModal from "./components/graphic-design-modal";
 
-const categories = ["All", "Business Websites", "Lead-Generation Pages"];
+const categories = [
+  "All",
+  "Business Websites",
+  "Lead-Generation Pages",
+  "SaaS Dashboards",
+];
 
 export default function WorkPage() {
   const projects = [
@@ -16,7 +21,7 @@ export default function WorkPage() {
       title: "Solaris Surge – Solar Sales & Estimation Platform",
       year: "2024",
       category: "Business Websites",
-      imageUrl: "/solaris-surge.png",
+      imageUrl: "/solar.png",
       link: "https://www.solarissurge.net/",
       outcome: "Live business • Used across 50+ countries • Revenue-focused",
       description:
@@ -42,6 +47,17 @@ export default function WorkPage() {
         "Lead-generation landing page • Fintech positioning & trust-focused",
       description:
         "A modern fintech landing page designed to showcase secure digital payments, financial transparency, and seamless user experience..",
+    },
+    {
+      title: "Inventory Tracker",
+      year: "2026",
+      category: "SaaS Dashboards",
+      imageUrl: "/inventorypro.jpg",
+      link: "https://inventorytracker12.netlify.app/",
+      outcome:
+        "Modern inventory & sales management dashboard • Premium SaaS UI/UX • Business analytics system",
+      description:
+        "A modern Inventory & Sales Tracker dashboard designed for small businesses to manage inventory, monitor sales performance, track customer orders, analyze revenue insights, and streamline daily business operations through a premium SaaS experience.",
     },
     {
       title: "Nexus Consulting Landing Page",
@@ -77,7 +93,7 @@ export default function WorkPage() {
     {
       title: "SaaS Dashboard Pro",
       year: "2025",
-      category: "Business Websites",
+      category: "SaaS Dashboards",
       imageUrl: "/dashboard pro.png",
       link: "https://ai-dashboard-template.vercel.app/",
       outcome: "SaaS dashboard UI • Built for scalable web applications",
