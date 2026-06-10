@@ -33,6 +33,16 @@ export default function WorkPage() {
         "A modern pizza delivery web app built with Next.js featuring a custom pizza builder, dynamic cart system, and responsive UI. Designed for fast performance, seamless ordering, and an engaging user experience.",
     },
     {
+      title: "FileFlow – SaaS File Tools Platform (HTML & Tailwind CSS)",
+      year: "2026",
+      category: "Business Websites",
+      imageUrl: "/fileflow2.png",
+      // link: "https://slicefoodx.vercel.app/",
+      outcome: "Product-style web app • Built for PDF and document processing",
+      description:
+        " modern SaaS-style file tools platform inspired by industry-leading PDF and document processing websites",
+    },
+    {
       title: "Flowpay Fintech Landing Page",
       year: "2026",
       category: "Lead-Generation Pages",
@@ -337,7 +347,7 @@ export default function WorkPage() {
               </h1>
               <p className="text-gray-600 max-w-2xl mt-3">
                 A focused selection of websites and landing pages built to
-                generate leads, support sales, and scale real businesses — not
+                generate leads, support sales, and scale real businesses not
                 just look good.
               </p>
             </div>

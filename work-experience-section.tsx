@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
+import MobileMenu from "@/mobile-menu";
 
 /* =========================
    SPATIAL BACKGROUND SYSTEM
 ========================= */
+
 function SpatialBackground() {
   useEffect(() => {
     const move = (e: MouseEvent) => {
@@ -74,6 +77,7 @@ function GlassCard({ children }: any) {
    MAIN SPATIAL HERO SECTION
 ========================= */
 export default function SpatialOS() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scenes = [
     {
       title: "Frontend Developer Crafting High-End Web Experiences",
@@ -123,17 +127,24 @@ export default function SpatialOS() {
       <SpatialBackground />
 
       {/* NAV (FIXED BRAND) */}
-      <div className="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 backdrop-blur-xl bg-black/20 z-50">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="font-semibold text-white/80 hover:text-lime-300 transition"
-        >
-          Tobi Babalola
-        </button>
+      <>
+        <div className="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 backdrop-blur-xl bg-black/20 z-50">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="font-semibold text-white/80 hover:text-lime-300 transition"
+          >
+            Tobi Babalola
+          </button>
 
-        <Menu className="text-white/70" />
-      </div>
-
+          <button
+            onClick={() => setIsMenuOpen(true)}
+            className="text-white/70 hover:text-white transition"
+          >
+            <Menu size={24} />
+          </button>
+        </div>
+        <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      </>
       {/* SPATIAL SCROLL HERO SYSTEM */}
       <section className="h-[420vh]">
         <div className="sticky top-0 h-screen flex items-center justify-center px-6">
@@ -186,7 +197,7 @@ export default function SpatialOS() {
                   className="px-6 py-3 bg-lime-400 text-black rounded-full font-medium"
                   onClick={() =>
                     window.open(
-                      "https://wa.me/2348105333852?text=Hi%20I%20want%20a%20solar%20installation%20for%20my%20home/business",
+                      "https://wa.me/2348105333852?text=Hi%20I%20am%20interested%20in%20getting%20a%20premium%20website%20for%20my%20business",
                       "_blank",
                     )
                   }
@@ -195,16 +206,18 @@ export default function SpatialOS() {
                 </motion.button>
 
                 {/* SECONDARY CTA */}
-                <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                    backgroundColor: "rgba(255,255,255,0.08)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 border border-white/20 rounded-full"
-                >
-                  View Work
-                </motion.button>
+                <Link href="/work">
+                  <motion.button
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "rgba(255,255,255,0.08)",
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 border border-white/20 rounded-full"
+                  >
+                    View Work
+                  </motion.button>
+                </Link>
               </div>
             </div>
 

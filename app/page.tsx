@@ -22,20 +22,20 @@ export default function Page() {
       <SkillsSection />
       <WorkExperienceSection />
       <PortfolioBlogSection />
-      <TemplatesShowcase />
+      {/* <TemplatesShowcase /> */}
       <PricingSection />
       <ContactSection />
       <FooterSection />
 
       {/* Global floating menu button */}
-      <FloatingMenuButton onMenuToggle={() => setIsMobileMenuOpen(true)} />
+      {/* <FloatingMenuButton onMenuToggle={() => setIsMobileMenuOpen(true)} /> */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       />
 
       {/* Mouse follower animation */}
-      <MouseFollower />
+      {/* <MouseFollower /> */}
     </>
   );
 }

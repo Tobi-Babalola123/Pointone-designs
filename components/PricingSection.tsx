@@ -11,20 +11,20 @@ const services = [
       "Brand mockups",
     ],
   },
-  {
-    title: "Flyer, Poster & Social Media Design",
-    price: "From ₦10,000",
-    bullets: ["Event flyers", "Social media graphics", "Print-ready files"],
-  },
-  {
-    title: "Newsletter & Document Layout",
-    price: "From ₦20,000",
-    bullets: [
-      "PDF newsletters",
-      "Presentation-ready layouts",
-      "Print & digital",
-    ],
-  },
+  // {
+  //   title: "Flyer, Poster & Social Media Design",
+  //   price: "From ₦10,000",
+  //   bullets: ["Event flyers", "Social media graphics", "Print-ready files"],
+  // },
+  // {
+  //   title: "Newsletter & Document Layout",
+  //   price: "From ₦20,000",
+  //   bullets: [
+  //     "PDF newsletters",
+  //     "Presentation-ready layouts",
+  //     "Print & digital",
+  //   ],
+  // },
   {
     title: "Website Design & Development",
     price: "Landing From ₦70,000 • Full From ₦150,000",
@@ -35,11 +35,11 @@ const services = [
     price: "From ₦400,000",
     bullets: ["Custom dashboards", "API integration", "Admin panels"],
   },
-  {
-    title: "Motion Graphics & Video Ads",
-    price: "From ₦15,000",
-    bullets: ["Short promos", "Social ads", "Text animations"],
-  },
+  // {
+  //   title: "Motion Graphics & Video Ads",
+  //   price: "From ₦15,000",
+  //   bullets: ["Short promos", "Social ads", "Text animations"],
+  // },
 ];
 
 const PricingSection = () => {
@@ -47,10 +47,10 @@ const PricingSection = () => {
     <section id="services" className="py-12 md:py-16 lg:py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+          <h2 className="text-2xl text-white sm:text-3xl lg:text-4xl font-extrabold tracking-tight ">
             Services & Starting Rates
           </h2>
-          <p className="mt-2 md:mt-3 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-2 md:mt-3 text-white text-sm sm:text-base  max-w-2xl mx-auto">
             Clear starting prices to help you decide fast. Custom quotes
             available.
           </p>
@@ -60,10 +60,10 @@ const PricingSection = () => {
           {services.map((s, idx) => (
             <article
               key={idx}
-              className="bg-card border border-border rounded-2xl p-4 sm:p-5 lg:p-6 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300"
+              className="bg-card border border-white rounded-2xl p-4 sm:p-5 lg:p-6 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300"
             >
               <div className="flex flex-col gap-2">
-                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-card-foreground leading-tight">
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-card-foreground text-white leading-tight">
                   {s.title}
                 </h3>
                 <span className="text-sm sm:text-base lg:text-lg font-bold text-purple-600 break-words">
@@ -71,7 +71,7 @@ const PricingSection = () => {
                 </span>
               </div>
 
-              <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-muted-foreground text-xs sm:text-sm">
+              <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-white text-muted-foreground text-xs sm:text-sm">
                 {s.bullets.map((b, i) => (
                   <li key={i} className="flex items-start">
                     <svg
@@ -93,7 +93,7 @@ const PricingSection = () => {
               </ul>
 
               <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <span className="text-xs text-muted-foreground">
+                <span className="text-xs text-white text-muted-foreground">
                   70% upfront • 2 free revisions
                 </span>
                 <a
@@ -108,8 +108,8 @@ const PricingSection = () => {
         </div>
 
         <div className="mt-8 md:mt-10 text-center text-xs sm:text-sm text-muted-foreground px-4">
-          <p className="leading-relaxed">
-            <strong className="text-foreground">Note:</strong> Prices shown are{" "}
+          <p className="leading-relaxed text-white">
+            <strong className=" text-white">Note:</strong> Prices shown are{" "}
             <em>starting rates</em>. Final quotes depend on project scope,
             complexity and delivery time.
           </p>

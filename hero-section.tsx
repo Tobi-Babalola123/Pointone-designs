@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import MobileMenu from "./mobile-menu";
-import FloatingMenuButton from "./floating-menu-button";
+// import FloatingMenuButton from "./floating-menu-button";
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -143,8 +143,7 @@ export default function HeroSection() {
               className="text-white/70 max-w-lg text-lg leading-relaxed"
             >
               I design and build high-performance SaaS-grade websites that feel
-              like Apple products — fast, premium, and engineered for
-              conversion.
+              like Apple products. fast, premium, and engineered for conversion.
             </motion.p>
 
             {/* CTA (KEYNOTE BUTTON REVEAL) */}
@@ -198,22 +197,24 @@ export default function HeroSection() {
               </motion.button>
 
               {/* ================= SECONDARY CTA ================= */}
-              <motion.button
-                ref={secondaryBtn.ref}
-                onMouseMove={secondaryBtn.handleMouseMove}
-                onMouseLeave={secondaryBtn.handleMouseLeave}
-                whileTap={{ scale: 0.96 }}
-                transition={{ type: "spring", stiffness: 240, damping: 16 }}
-                className="relative px-8 py-3 rounded-full text-white border border-white/15 overflow-hidden"
-              >
-                {/* glass morph background */}
-                <span className="absolute inset-0 bg-white/5 backdrop-blur-xl opacity-0 hover:opacity-100 transition" />
+              <Link href="/work">
+                <motion.button
+                  ref={secondaryBtn.ref}
+                  onMouseMove={secondaryBtn.handleMouseMove}
+                  onMouseLeave={secondaryBtn.handleMouseLeave}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ type: "spring", stiffness: 240, damping: 16 }}
+                  className="relative px-8 py-3 rounded-full text-white border border-white/15 overflow-hidden"
+                >
+                  {/* glass morph background */}
+                  <span className="absolute inset-0 bg-white/5 backdrop-blur-xl opacity-0 hover:opacity-100 transition" />
 
-                {/* soft ring glow */}
-                <span className="absolute inset-0 rounded-full border border-white/10 scale-95 opacity-0 hover:opacity-100 transition-all duration-300" />
+                  {/* soft ring glow */}
+                  <span className="absolute inset-0 rounded-full border border-white/10 scale-95 opacity-0 hover:opacity-100 transition-all duration-300" />
 
-                <span className="relative z-10">View Work</span>
-              </motion.button>
+                  <span className="relative z-10">View Work</span>
+                </motion.button>
+              </Link>
             </motion.div>
 
             {/* MICRO TRUST */}
@@ -262,7 +263,7 @@ export default function HeroSection() {
       </div>
 
       {/* ================= MOBILE MENU ================= */}
-      <FloatingMenuButton onMenuToggle={() => setIsMobileMenuOpen(true)} />
+      {/* <FloatingMenuButton onMenuToggle={() => setIsMobileMenuOpen(true)} /> */}
 
       <MobileMenu
         isOpen={isMobileMenuOpen}
