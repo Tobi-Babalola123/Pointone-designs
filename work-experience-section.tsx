@@ -146,35 +146,35 @@ export default function SpatialOS() {
         <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       </>
       {/* SPATIAL SCROLL HERO SYSTEM */}
-      <section className="h-[420vh]">
-        <div className="sticky top-0 h-screen flex items-center justify-center px-6">
-          <div className="grid lg:grid-cols-2 gap-14 max-w-6xl w-full items-center">
-            {/* LEFT CONTENT (YOUR ORIGINAL STRUCTURE RESTORED) */}
-            <div className="space-y-6">
+      <section className="relative min-h-screen lg:h-[420vh]">
+        <div className="lg:sticky top-0 min-h-screen flex items-center justify-center px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 max-w-6xl w-full items-center">
+            {/* LEFT CONTENT */}
+            <div className="space-y-6 text-center lg:text-left">
               {/* TITLE */}
               <motion.h1
                 key={index}
                 initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.7 }}
-                className="text-4xl lg:text-6xl font-bold leading-tight"
+                className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight break-words"
               >
                 <span className="text-lime-300">{scenes[index].title}</span>
               </motion.h1>
 
-              {/* DESCRIPTION (NOW RESTORED TO FULL MARKETING DEPTH) */}
+              {/* DESCRIPTION */}
               <motion.p
                 key={index + "-p"}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-white/70 max-w-xl text-base leading-relaxed"
+                className="text-white/70 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base leading-relaxed"
               >
                 {scenes[index].text}
               </motion.p>
 
               {/* PROGRESS INDICATOR */}
-              <div className="flex gap-2 pt-4">
+              <div className="flex gap-2 pt-4 justify-center lg:justify-start">
                 {scenes.map((_, i) => (
                   <div
                     key={i}
@@ -185,16 +185,16 @@ export default function SpatialOS() {
                 ))}
               </div>
 
-              {/* CTA SYSTEM (YOUR ORIGINAL CONVERSION ENGINE PRESERVED) */}
-              <div className="flex flex-wrap gap-4 pt-6">
+              {/* CTA SYSTEM */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start">
                 {/* PRIMARY CTA */}
                 <motion.button
                   whileHover={{
-                    scale: 1.08,
-                    boxShadow: "0px 0px 35px rgba(163,230,53,0.35)",
+                    scale: 1.05,
+                    boxShadow: "0px 0px 25px rgba(163,230,53,0.25)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-lime-400 text-black rounded-full font-medium"
+                  className="px-6 py-3 bg-lime-400 text-black rounded-full font-medium w-full sm:w-auto"
                   onClick={() =>
                     window.open(
                       "https://wa.me/2348105333852?text=Hi%20I%20am%20interested%20in%20getting%20a%20premium%20website%20for%20my%20business",
@@ -209,11 +209,11 @@ export default function SpatialOS() {
                 <Link href="/work">
                   <motion.button
                     whileHover={{
-                      scale: 1.05,
+                      scale: 1.03,
                       backgroundColor: "rgba(255,255,255,0.08)",
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 border border-white/20 rounded-full"
+                    className="px-6 py-3 border border-white/20 rounded-full w-full sm:w-auto"
                   >
                     View Work
                   </motion.button>
@@ -221,12 +221,12 @@ export default function SpatialOS() {
               </div>
             </div>
 
-            {/* RIGHT VISUAL (VISION PRO DEPTH SYSTEM) */}
-            <div className="relative flex justify-center">
+            {/* RIGHT VISUAL */}
+            <div className="relative flex justify-center lg:justify-end">
               <div
-                className="relative w-[360px] h-[360px] lg:w-[480px] lg:h-[480px]"
+                className="relative w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[480px] aspect-square mx-auto transition-transform duration-300 ease-out"
                 style={{
-                  transform: `scale(${1 + progress * 0.06})`,
+                  transform: `scale(${1 + progress * 0.05})`,
                 }}
               >
                 <GlassCard>
@@ -235,16 +235,17 @@ export default function SpatialOS() {
                     alt="Solar installation"
                     width={600}
                     height={600}
+                    priority
                     className="rounded-2xl w-full h-full object-cover"
                   />
                 </GlassCard>
 
-                {/* FLOATING UI TAGS (APPLE STYLE DEPTH) */}
-                <div className="absolute -top-4 left-0 bg-lime-300 text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                {/* FLOATING TAGS */}
+                <div className="absolute -top-3 left-2 bg-lime-300 text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                   Premium Solar
                 </div>
 
-                <div className="absolute bottom-0 right-0 bg-white/10 backdrop-blur-xl px-3 py-1 rounded-full text-xs">
+                <div className="absolute bottom-2 right-2 bg-white/10 backdrop-blur-xl px-3 py-1 rounded-full text-xs">
                   Vision Pro UI Layer
                 </div>
               </div>
