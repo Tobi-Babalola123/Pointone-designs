@@ -94,7 +94,11 @@ export default function TemplatesShowcase() {
         </div>
 
         {/* Free Mockups Carousel */}
+<<<<<<< HEAD
         <div className="mt-24">
+=======
+        {/* <div className="mt-24">
+>>>>>>> 0a4ba94d45fcd3edb2f66d3eb05c5ca8ef190402
           <h3 className="text-3xl font-semibold text-center">Free Mockups</h3>
           <Swiper
             modules={[Pagination, Autoplay]}
@@ -131,7 +135,11 @@ export default function TemplatesShowcase() {
               </SwiperSlide>
             ))}
           </Swiper>
+<<<<<<< HEAD
         </div>
+=======
+        </div> */}
+>>>>>>> 0a4ba94d45fcd3edb2f66d3eb05c5ca8ef190402
 
         {/* Features */}
         <div className="mt-24 grid md:grid-cols-3 gap-6 text-center">
