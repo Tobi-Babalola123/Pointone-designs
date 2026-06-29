@@ -1,91 +1,100 @@
 "use client";
 
-import { MapPin } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { ArrowRight, Code2, Globe, Palette, Sparkles, Zap } from "lucide-react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+
+const services = [
+  {
+    icon: Palette,
+    title: "Brand-led UI design",
+    description:
+      "Interfaces that feel high-end, intuitive, and built to guide visitors toward action.",
+  },
+  {
+    icon: Globe,
+    title: "Conversion websites",
+    description:
+      "Fast, responsive marketing sites crafted for product launches, leads, and sales.",
+  },
+  {
+    icon: Code2,
+    title: "Custom web apps",
+    description:
+      "Dashboards, booking flows, and SaaS experiences with polished interactions and logic.",
+  },
+  {
+    icon: Zap,
+    title: "Performance & SEO",
+    description:
+      "Thoughtful technical execution to improve speed, accessibility, and search visibility.",
+  },
+];
 
 export default function SkillsSection() {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.25 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[70vh] overflow-hidden bg-[#f6f7fb]"
+      className="relative overflow-hidden bg-[#f5f7fb] py-28 sm:py-32 lg:py-36"
     >
-      {/* ================= VISION PRO BACKGROUND ================= */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-[-20%] left-1/2 w-[500px] h-[500px] bg-purple-300/25 blur-[120px] rounded-full -translate-x-1/2" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[420px] h-[420px] bg-cyan-300/20 blur-[120px] rounded-full" />
-
-        <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:22px_22px]" />
+        <div className="absolute left-1/2 top-[-180px] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-violet-200/50 blur-[140px]" />
+        <div className="absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-cyan-200/50 blur-[120px]" />
       </div>
 
-      {/* ================= HEADER ================= */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 flex items-center gap-2 p-6 lg:p-8"
-      >
-        <MapPin className="w-5 h-5 text-purple-600" />
-        <span className="text-sm text-black/60">Skills & Expertise</span>
-      </motion.header>
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur">
+            <Sparkles className="h-4 w-4 text-violet-600" />
+            What I do best
+          </div>
+          <h2 className="mt-6 text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl lg:text-5xl">
+            Premium digital products that feel effortless and convert with
+            confidence.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            From first impression to final checkout, every interaction is
+            designed to feel intentional, polished, and easy to trust.
+          </p>
+        </motion.div>
 
-      {/* ================= CONTENT ================= */}
-      <div className="relative z-10 container mx-auto px-6 lg:px-12 py-14 lg:py-18">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
-          {/* ================= DESIGN ================= */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-            whileHover={{ scale: 1.02, y: -4 }}
-            className="relative group rounded-3xl overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-white/40 backdrop-blur-xl border border-white/30 shadow-[0_20px_60px_rgba(0,0,0,0.05)] group-hover:bg-white/60 transition" />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-purple-200/30 to-cyan-200/30 blur-2xl transition" />
-
-            <div className="relative p-6 lg:p-8 space-y-4">
-              <h2 className="text-3xl lg:text-4xl font-semibold text-purple-600">
-                Design
-              </h2>
-
-              <p className="text-black/70 leading-relaxed text-sm lg:text-base">
-                Crafting interfaces that{" "}
-                <span className="text-black font-medium">
-                  convert visitors into customers
-                </span>{" "}
-                through clean UX systems and premium UI design.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* ================= ENGINEERING ================= */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            whileHover={{ scale: 1.02, y: -4 }}
-            className="relative group rounded-3xl overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-white/40 backdrop-blur-xl border border-white/30 shadow-[0_20px_60px_rgba(0,0,0,0.05)] group-hover:bg-white/60 transition" />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-cyan-200/30 to-purple-200/30 blur-2xl transition" />
-
-            <div className="relative p-6 lg:p-8 space-y-4">
-              <h2 className="text-3xl lg:text-4xl font-semibold text-purple-600">
-                Engineering
-              </h2>
-
-              <p className="text-black/70 leading-relaxed text-sm lg:text-base">
-                Building scalable systems that{" "}
-                <span className="text-black font-medium">
-                  deliver performance and reliability
-                </span>{" "}
-                across modern web applications.
-              </p>
-            </div>
-          </motion.div>
+        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.article
+                key={service.title}
+                initial={{ opacity: 0, y: 32 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                whileHover={{ y: -6, scale: 1.01 }}
+                className="group relative overflow-hidden rounded-[1.6rem] border border-white/70 bg-white/80 p-7 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+              >
+                <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-violet-500/10 blur-3xl transition group-hover:bg-violet-500/20" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-slate-900 text-white shadow-lg">
+                  <Icon size={24} />
+                </div>
+                <h3 className="mt-6 text-xl font-semibold text-slate-950">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {service.description}
+                </p>
+                <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-violet-700">
+                  Explore this service
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

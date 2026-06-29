@@ -1,32 +1,17 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Poppins, Montserrat, Inter, Lexend_Deca } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+const geistSans = Geist({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  variable: "--font-geist-sans",
   display: "swap",
 });
 
-const inter = Inter({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-const lexendDeca = Lexend_Deca({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-lexend",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -46,14 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} ${inter.variable} ${montserrat.variable} ${lexendDeca.variable}`}
-    >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body style={{ fontFamily: "var(--font-lexend)" }}>{children}</body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

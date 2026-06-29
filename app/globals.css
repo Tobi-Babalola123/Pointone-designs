@@ -72,7 +72,12 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
     cursor: none;
+  }
+
+  .font-geist-mono {
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
   }
 
   @media (hover: none) and (pointer: coarse) {
@@ -216,9 +221,8 @@ modern templates marketplace aesthetic */
 }
 
 @theme inline {
-  /* Updated font-sans to use Montserrat for sleek, modern typography */
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
