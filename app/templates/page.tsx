@@ -1,14 +1,19 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react"; // <-- import the icon
+import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BadgeCheck,
+  Download,
+  Infinity,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+} from "lucide-react";
 import { TemplateCard } from "@/components/template-card";
 import { Button } from "@/components/ui/button";
-
-const BuyNowButton = dynamic(() => import("@/components/BuyNowButton"), {
-  ssr: false,
-});
 
 const templates = [
   {
@@ -97,7 +102,7 @@ const templates = [
     description:
       "A modern restaurant landing page designed to showcase signature dishes, menu highlights, and seamless ordering through a clean, conversion-focused layout.",
     image: "/restaurant.png",
-    tags: ["Next.js", "TailwindCSS",],
+    tags: ["Next.js", "TailwindCSS"],
     demoUrl: "https://aureumrestaurantlandingpage.netlify.app/",
     amount: 15000,
   },
@@ -107,122 +112,237 @@ const templates = [
     description:
       "A modern pizza ordering app landing page designed to showcase menu options, highlight deals, and drive seamless online orders through a clean, conversion-focused layout.",
     image: "/slice1.png",
-    tags: ["Next.js", "TailwindCSS",],
+    tags: ["Next.js", "TailwindCSS"],
     demoUrl: "https://slicefoodx.vercel.app/",
     amount: 15000,
   },
+];
 
-  
+const filterPills = [
+  "All",
+  "Business",
+  "SaaS",
+  "Healthcare",
+  "Real Estate",
+  "Restaurant",
+  "AI",
+  "Fintech",
+];
+
+const heroStats = [
+  { value: "10+", label: "Premium Templates", icon: Sparkles },
+  { value: "Instant", label: "Download", icon: Download },
+  { value: "Next.js", label: "& Tailwind", icon: Zap },
+  { value: "Lifetime", label: "Updates", icon: Infinity },
 ];
 
 export default function TemplatesPage() {
+  const firstBatch = templates.slice(0, 6);
+  const secondBatch = templates.slice(6);
+
   return (
-    <div className="min-h-screen bg-[#6A1B9A] text-white relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#6A1B9A] via-[#7B1FA2] to-[#4A148C] opacity-95"></div>
+    <div className="min-h-screen overflow-hidden bg-[#050816] text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(132,204,22,0.16),_transparent_32%),radial-gradient(circle_at_80%_20%,_rgba(59,130,246,0.14),_transparent_25%),linear-gradient(135deg,_#03050d_0%,_#050816_45%,_#050816_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:40px_40px] opacity-20" />
 
-      {/* Back Home Icon */}
-      <div className="relative z-20 px-6 pt-6">
-        <Link
-          href="/"
-          className="inline-flex items-center text-[#C6FF00] hover:text-[#D4FF33] font-medium transition-colors duration-300"
-        >
-          <ArrowLeft className="mr-2 h-5 w-5" />
-          Back to Home
-        </Link>
-      </div>
-
-      {/* Hero Section */}
-      <section className="relative z-10 border-b border-[#8E24AA]/40 text-center">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight">
-            <span className="text-[#C6FF00]">Discover</span> Stunning Templates
-            <br />
-            Built for{" "}
-            <span className="text-[#C6FF00]">Developers & Creators</span>
-          </h1>
-          <p className="mt-6 text-lg text-gray-200 max-w-3xl mx-auto">
-            Ship faster with production-ready templates. Built with modern
-            technologies and sleek design.
-          </p>
-        </div>
-      </section>
-
-      {/* Templates Grid */}
-      <section className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {templates.map((template) => (
-            <div
-              key={template.id}
-              className="bg-[#7E57C2]/20 border border-[#9C27B0]/40 rounded-2xl p-5 backdrop-blur-lg hover:scale-105 transition-transform duration-300 hover:shadow-[0_0_25px_#C6FF00]"
-            >
-              <img
-                src={template.image}
-                alt={template.name}
-                className="rounded-xl w-full object-cover mb-5"
-              />
-              <h3 className="text-2xl font-bold text-[#C6FF00] mb-2">
-                {template.name}
-              </h3>
-              <p className="text-lg font-semibold text-white mb-3">
-                ₦{template.amount.toLocaleString()}
-              </p>
-              <p className="text-gray-200 mb-4">{template.description}</p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {template.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 text-sm bg-[#C6FF00]/20 border border-[#C6FF00]/40 rounded-full text-[#C6FF00]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="flex items-center gap-4">
-                <a
-                  href={template.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button className="bg-[#C6FF00] text-black font-semibold px-5 py-2 rounded-full transition-all duration-300 hover:bg-[#D4FF33] hover:scale-105">
-                    Live Demo
-                  </Button>
-                </a>
-                <BuyNowButton
-                  amount={template.amount}
-                  email="user@example.com"
-                  templateName={template.name}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative z-10 border-t border-[#8E24AA]/40 bg-[#4A148C]/60 backdrop-blur-lg">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 py-16 sm:py-24 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-[#C6FF00]">
-            Ready to Build Something Amazing?
-          </h2>
-          <p className="text-gray-200 mb-6 sm:mb-8 text-sm sm:text-base">
-            Explore premium templates that help you ship faster and look
-            professional — all built with React and TailwindCSS.
-          </p>
-
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
-            <Button className="w-full sm:w-auto bg-[#C6FF00] text-black font-bold px-6 py-3 rounded-full hover:bg-[#D4FF33] hover:scale-105 transition-transform duration-300">
-              Browse All Templates
-            </Button>
-            <Button
-              variant="outline"
-              className="w-full sm:w-auto border-[#C6FF00] text-[#C6FF00] font-semibold px-6 py-3 rounded-full hover:bg-[#C6FF00] hover:text-black hover:scale-105 transition-transform duration-300"
-            >
-              View Documentation
-            </Button>
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-5 py-6 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-xl transition hover:bg-white/15"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Home
+          </Link>
+          <div className="hidden items-center gap-2 rounded-full border border-lime-400/20 bg-lime-400/10 px-3 py-2 text-sm text-lime-300 sm:flex">
+            <BadgeCheck className="h-4 w-4" />
+            Premium marketplace
           </div>
         </div>
-      </section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative mt-8 overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 px-6 py-12 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:px-8 sm:py-16 lg:px-12 lg:py-20"
+        >
+          <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(132,204,22,0.18),_transparent_36%),radial-gradient(circle_at_bottom_right,_rgba(34,211,238,0.14),_transparent_34%)]" />
+          <div className="relative mx-auto max-w-5xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-xl">
+              <ShieldCheck className="h-4 w-4 text-lime-300" />
+              Trusted by founders shipping premium products
+            </div>
+            <h1 className="mt-8 text-4xl font-semibold leading-[0.95] text-white sm:mt-10 sm:text-5xl lg:text-7xl">
+              Premium Landing Page Templates Built for Modern Developers.
+            </h1>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
+              Skip weeks of production work and launch with polished,
+              conversion-ready templates built with modern frontend tooling.
+            </p>
+            <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+              <Button
+                asChild
+                className="rounded-full bg-lime-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-lime-300"
+              >
+                <a href="#templates" className="inline-flex items-center gap-2">
+                  Browse Templates
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-xl transition hover:bg-white/15"
+              >
+                <a href={templates[0].demoUrl} target="_blank" rel="noreferrer">
+                  View Live Collection
+                </a>
+              </Button>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {heroStats.map((stat) => {
+                const Icon = stat.icon;
+                return (
+                  <div
+                    key={stat.label}
+                    className="rounded-[1.15rem] border border-white/10 bg-white/10 p-4 text-left backdrop-blur-xl"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="rounded-full border border-lime-400/25 bg-lime-400/10 p-2 text-lime-300">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="text-lg font-semibold text-white">
+                          {stat.value}
+                        </div>
+                        <div className="text-sm text-slate-400">
+                          {stat.label}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </motion.section>
+
+        <section
+          id="templates"
+          className="relative z-10 mx-auto mt-16 w-full max-w-6xl"
+        >
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-400">
+                Curated collection
+              </p>
+              <h2 className="mt-2 text-3xl font-semibold text-white sm:text-4xl">
+                Premium templates for bold launches
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {filterPills.map((pill) => (
+                <button
+                  key={pill}
+                  type="button"
+                  className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-xl transition hover:border-lime-400/30 hover:text-white"
+                >
+                  {pill}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {firstBatch.map((template) => (
+              <div key={template.id} className="h-full">
+                <TemplateCard template={template} />
+              </div>
+            ))}
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4 }}
+              className="col-span-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/8 p-8 text-left shadow-[0_20px_70px_rgba(2,6,23,0.4)] backdrop-blur-2xl sm:p-10"
+            >
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div className="max-w-2xl">
+                  <p className="text-sm font-semibold uppercase tracking-[0.28em] text-lime-300">
+                    Bespoke options
+                  </p>
+                  <h3 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">
+                    Need something custom?
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base">
+                    Want a bespoke landing page designed specifically for your
+                    business? We can create a tailored experience that feels as
+                    premium as the templates you&apos;re browsing.
+                  </p>
+                </div>
+                <Button
+                  asChild
+                  className="rounded-full bg-lime-400 px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-lime-300"
+                >
+                  <a
+                    href="https://wa.me/2348105333852?text=Hi%20I%20am%20interested%20in%20getting%20a%20custom%20website"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Book Discovery Call
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+
+            {secondBatch.map((template) => (
+              <div key={template.id} className="h-full">
+                <TemplateCard template={template} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="relative z-10 mx-auto mt-20 w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-8 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:p-10 lg:p-14"
+        >
+          <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(132,204,22,0.16),_transparent_36%),radial-gradient(circle_at_bottom_right,_rgba(34,211,238,0.12),_transparent_36%)]" />
+          <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-lime-300">
+                Launch faster
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+                Ready to launch faster?
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-slate-300">
+                Skip weeks of development and start from professionally designed
+                templates built with modern frontend technologies.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                className="rounded-full bg-lime-400 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-lime-300"
+              >
+                <a href="#templates">Browse Templates</a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-xl hover:bg-white/15"
+              >
+                <a href="#templates">Explore the Collection</a>
+              </Button>
+            </div>
+          </div>
+        </motion.section>
+      </div>
     </div>
   );
 }

@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    company: "Infinity Solar",
-    role: "Marketing Director",
+    name: "Furkan Kaya",
+    company: "Upwork",
+    role: "Backend Developer",
     quote:
-      "Tobi completely transformed our outdated website into a modern experience. Our inquiries increased almost immediately.",
+      "He completed the job exactly as I wanted and on time; a very good employee",
     tag: "Landing Page Redesign",
-    initials: "SJ",
+    initials: "FK",
   },
   {
     name: "Daniel Chen",

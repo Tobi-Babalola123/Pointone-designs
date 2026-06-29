@@ -92,7 +92,7 @@ export default function TemplatesSection() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <motion.a
-                href="#"
+                href="/templates"
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#06070B] transition"
