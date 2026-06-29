@@ -5,7 +5,7 @@ export default function FooterSection() {
   return (
     <footer className="relative overflow-hidden bg-[#03050d] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(132,204,22,0.08),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(99,102,241,0.12),_transparent_25%)]" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <div className="text-sm font-semibold uppercase tracking-[0.3em] text-lime-300">
@@ -102,7 +102,7 @@ export default function FooterSection() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Tobi Babalola. Crafted with care.</p>
           <p>Available for select projects worldwide.</p>
         </div>

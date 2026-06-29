@@ -90,7 +90,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative overflow-hidden bg-[#07070B] py-24 text-white sm:py-28 lg:py-32"
+      className="relative overflow-hidden bg-[#07070B] py-14 text-white sm:py-16 lg:py-20"
     >
       <div className="absolute inset-0">
         <div className="absolute left-[-80px] top-[-90px] h-[300px] w-[300px] rounded-full bg-violet-600/20 blur-[140px]" />

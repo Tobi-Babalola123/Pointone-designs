@@ -38,7 +38,7 @@ export default function SkillsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#f5f7fb] py-28 sm:py-32 lg:py-36"
+      className="relative overflow-hidden bg-[#f5f7fb] py-14 sm:py-16 lg:py-20"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-[-180px] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-violet-200/50 blur-[140px]" />
@@ -66,7 +66,7 @@ export default function SkillsSection() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

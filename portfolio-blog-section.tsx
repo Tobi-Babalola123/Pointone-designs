@@ -95,7 +95,7 @@ export default function PortfolioBlogSection() {
     <section
       ref={ref}
       onMouseMove={handleMouseMove}
-      className="relative overflow-hidden bg-[#07070B] py-24 text-white sm:py-28 lg:py-32"
+      className="relative overflow-hidden bg-[#07070B] py-14 text-white sm:py-16 lg:py-20"
     >
       <motion.div
         className="pointer-events-none absolute inset-0 z-0"
@@ -124,7 +124,7 @@ export default function PortfolioBlogSection() {
         </button>
       </motion.header>
 
-      <div className="relative z-10 mx-auto mt-12 max-w-7xl px-5 sm:px-8 lg:px-10">
+      <div className="relative z-10 mx-auto mt-8 max-w-7xl px-5 sm:px-8 lg:px-10">
         <motion.div
           initial="hidden"
           animate={isVisible ? "show" : "hidden"}

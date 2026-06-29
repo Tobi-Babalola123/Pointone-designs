@@ -61,7 +61,7 @@ const services = [
 
 const PricingSection = () => {
   return (
-    <section id="services" className="bg-[#07070B] py-24 sm:py-28 lg:py-32">
+    <section id="services" className="bg-[#07070B] py-14 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70 backdrop-blur-xl">
@@ -77,7 +77,7 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {services.map((service, idx) => {
             const Icon = service.icon;
 

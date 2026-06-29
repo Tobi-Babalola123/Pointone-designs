@@ -49,7 +49,7 @@ export default function HeroSection() {
         </button>
       </header>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col justify-center px-6 pb-24 pt-12 sm:pb-28 sm:pt-16 lg:px-10 lg:pb-32 lg:pt-20">
+      <div className="relative z-10 mx-auto flex min-h-[calc(65vh-5rem)] max-w-7xl flex-col justify-center px-6 pb-24 pt-12 sm:pb-28 sm:pt-16 lg:px-10 lg:pb-12 lg:pt-10">
         <div className="grid items-center gap-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -157,7 +157,7 @@ export default function HeroSection() {
                   className="h-[480px] w-full object-cover object-center"
                 />
               </div>
-              <div className="mt-6 grid gap-3 rounded-[1.25rem] border border-white/10 bg-slate-950/60 p-5 text-sm text-slate-300 sm:grid-cols-2 sm:p-6">
+              <div className="mt-4 grid gap-3 rounded-[1.25rem] border border-white/10 bg-slate-950/60 p-4 text-sm text-slate-300 sm:grid-cols-2">
                 <div>
                   <div className="font-semibold text-white">
                     Fast & polished
