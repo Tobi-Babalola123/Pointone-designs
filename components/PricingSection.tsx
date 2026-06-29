@@ -11,6 +11,7 @@ import {
 const services = [
   {
     title: "Launch Websites",
+    price: "₦250,000",
     description:
       "High-conversion marketing sites and product launches built with premium visual systems and clear user journeys.",
     deliverables: ["Responsive UI", "Motion polish", "SEO-ready structure"],
@@ -20,6 +21,7 @@ const services = [
   },
   {
     title: "UI Engineering",
+    price: "₦350,000",
     description:
       "Refined component systems, design implementation, and polished frontend architecture for fast-moving teams.",
     deliverables: [
@@ -33,6 +35,7 @@ const services = [
   },
   {
     title: "Product Experiences",
+    price: " ₦500,000",
     description:
       "Thoughtful interfaces for dashboards, SaaS tools, and internal products with a premium feel at every interaction.",
     deliverables: [
@@ -46,6 +49,7 @@ const services = [
   },
   {
     title: "Design Direction",
+    price: "₦180,000",
     description:
       "Strategic visual direction and creative refinement that turns a product into a memorable brand experience.",
     deliverables: [
@@ -131,10 +135,17 @@ const PricingSection = () => {
                     </div>
                   </div>
 
-                  <div className="mt-8 flex items-center justify-between gap-3 border-t border-white/10 pt-5">
-                    <span className="text-sm font-medium text-white/70">
-                      Starting from
-                    </span>
+                  <div className="mt-8 flex items-end justify-between gap-4 border-t border-white/10 pt-5">
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.25em] text-white/45">
+                        Starting from
+                      </p>
+
+                      <h4 className="mt-1 text-2xl font-bold text-white">
+                        {service.price}
+                      </h4>
+                    </div>
+
                     <a
                       href="#contact"
                       className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/15"
