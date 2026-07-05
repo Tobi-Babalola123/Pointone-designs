@@ -13,13 +13,13 @@ const testimonials = [
     initials: "FK",
   },
   {
-    name: "Daniel Chen",
-    company: "Northstar Labs",
+    name: "Uma Rajpoot",
+    company: "Uma IT Solution",
     role: "Founder",
     quote:
-      "Excellent frontend engineer. Communication was excellent and the final product exceeded expectations.",
+      "Thanks for your support and excellent work. You have done a good job, and I appreciate your continued efforts to improve it.",
     tag: "Product Experience",
-    initials: "DC",
+    initials: "UR",
   },
   {
     name: "Maya Alvarez",

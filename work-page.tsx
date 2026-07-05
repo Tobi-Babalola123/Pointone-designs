@@ -28,6 +28,69 @@ export default function WorkPage() {
         "A solar estimation platform built to convert visitors into qualified leads by calculating installation requirements, costs, and energy savings — supporting daily sales of batteries, inverters, and installations.",
     },
     {
+      title: "Zulkernain Energy Limited – Conversion-Focused Redesign",
+      year: "2026",
+      category: "Lead-Generation Pages",
+      imageUrl: "/zulkernnain.png",
+      link: "https://zulkarnain-energy.vercel.app/",
+      outcome: "Homepage redesign • Better UX • Higher perceived brand value",
+      description:
+        "A strategic redesign of an energy company website to increase credibility, improve information architecture, and create a premium user experience. The project focused on clearer service presentation, stronger calls-to-action, and a modern visual system that positions the company as an industry leader.",
+    },
+    {
+      title: "Gled Energy Limited – Premium Website Redesign",
+      year: "2026",
+      category: "Lead-Generation Pages",
+      imageUrl: "/gled.png",
+      link: "https://gled-energy.vercel.app/",
+      outcome: "UI/UX Redesign • CRO-focused • Modern premium experience",
+      description:
+        "A complete homepage redesign focused on improving trust, visual hierarchy, and conversion. The redesign transforms the existing corporate website into a modern, premium digital experience with stronger messaging, improved user journeys, and high-end interaction design inspired by leading technology brands.",
+    },
+    {
+      title: "Mainstay Global – Corporate Website Redesign",
+      year: "2026",
+      category: "Lead-Generation Pages",
+      imageUrl: "/mainstay.png",
+      link: "https://mainstay-global.vercel.app/",
+      outcome:
+        "Premium redesign • Improved visual hierarchy • Enhanced conversion",
+      description:
+        "A high-end redesign created to modernize the company's online presence through cleaner layouts, premium typography, improved spacing, and conversion-driven design principles. The new concept strengthens brand perception while making it easier for visitors to understand services and take action.",
+    },
+    {
+      title: "Rendezvous Solar Company Limited – Homepage Redesign",
+      year: "2026",
+      category: "Lead-Generation Pages",
+      imageUrl: "/rendezvous.png",
+      link: "https://rendevvouz-solar.vercel.app/",
+      outcome: "Modern UI • Premium branding • Lead-generation optimized",
+      description:
+        "A complete homepage redesign crafted to elevate the company's digital presence through premium UI design, improved storytelling, and conversion-focused layouts. The redesign emphasizes trust, professionalism, and user engagement while creating a seamless experience across desktop and mobile devices.",
+    },
+    {
+      title: "Greylink Construction Nigeria Limited – Homepage Redesign",
+      year: "2026",
+      category: "Lead-Generation Pages",
+      imageUrl: "/greylink.png",
+      link: "https://greylink-kohl.vercel.app/",
+      outcome:
+        "Modern UI • Premium branding • Trust-focused • Conversion optimized",
+      description:
+        "A complete homepage redesign for Greylink Construction Nigeria Limited, created to modernize the company's online presence through premium visual design, stronger storytelling, and an improved user experience. The redesign highlights the company's engineering expertise, showcases featured projects with engaging layouts, strengthens credibility through partner logos and testimonials, and delivers a fully responsive, performance-optimized experience built with Next.js and Tailwind CSS.",
+    },
+    {
+      title: "CRESAN Nigeria – Homepage Redesign",
+      year: "2026",
+      category: "Lead-Generation Pages",
+      imageUrl: "/cresan.png",
+      link: "https://cresan.vercel.app/",
+      outcome:
+        "Modern UI • Enhanced credibility • Membership focused • Conversion optimized",
+      description:
+        "A complete homepage redesign for CRESAN (The Office of Clean and Renewable Energy/Safety Advocacy of Nigeria), created to strengthen the organization's digital presence through a modern interface, improved content hierarchy, and a more engaging user experience. The redesign highlights CRESAN's mission, advocacy programs, partnerships, training initiatives, and nationwide impact while encouraging membership, strategic partnerships, and stakeholder engagement. Built with Next.js and Tailwind CSS, the homepage delivers a fully responsive, performance-optimized experience with premium visuals, subtle animations, and accessibility-focused design.",
+    },
+    {
       title: "Slice & Co - Modern Pizza Delivery & Ordering Web App",
       year: "2026",
       category: "Business Websites",
