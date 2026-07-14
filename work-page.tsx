@@ -7,291 +7,16 @@ import FooterSection from "./footer-section";
 import MobileMenu from "./mobile-menu";
 import MouseFollower from "./mouse-follower";
 import GraphicDesignModal from "./components/graphic-design-modal";
-
+import { projects } from "@/data/projects";
 const categories = [
   "All",
+  "Featured",
+  "Website Redesigns",
   "Business Websites",
-  "Lead-Generation Pages",
-  "SaaS Dashboards",
+  "SaaS",
 ];
 
 export default function WorkPage() {
-  const projects = [
-    {
-      title: "Solaris Surge – Solar Sales & Estimation Platform",
-      year: "2024",
-      category: "Business Websites",
-      imageUrl: "/solar.png",
-      link: "https://www.solarissurge.net/",
-      outcome: "Live business • Used across 50+ countries • Revenue-focused",
-      description:
-        "A solar estimation platform built to convert visitors into qualified leads by calculating installation requirements, costs, and energy savings — supporting daily sales of batteries, inverters, and installations.",
-    },
-    {
-      title: "Zulkernain Energy Limited – Conversion-Focused Redesign",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/zulkernnain.png",
-      link: "https://zulkarnain-energy.vercel.app/",
-      outcome: "Homepage redesign • Better UX • Higher perceived brand value",
-      description:
-        "A strategic redesign of an energy company website to increase credibility, improve information architecture, and create a premium user experience. The project focused on clearer service presentation, stronger calls-to-action, and a modern visual system that positions the company as an industry leader.",
-    },
-    {
-      title: "Gled Energy Limited – Premium Website Redesign",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/gled.png",
-      link: "https://gled-energy.vercel.app/",
-      outcome: "UI/UX Redesign • CRO-focused • Modern premium experience",
-      description:
-        "A complete homepage redesign focused on improving trust, visual hierarchy, and conversion. The redesign transforms the existing corporate website into a modern, premium digital experience with stronger messaging, improved user journeys, and high-end interaction design inspired by leading technology brands.",
-    },
-    {
-      title: "Mainstay Global – Corporate Website Redesign",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/mainstay.png",
-      link: "https://mainstay-global.vercel.app/",
-      outcome:
-        "Premium redesign • Improved visual hierarchy • Enhanced conversion",
-      description:
-        "A high-end redesign created to modernize the company's online presence through cleaner layouts, premium typography, improved spacing, and conversion-driven design principles. The new concept strengthens brand perception while making it easier for visitors to understand services and take action.",
-    },
-    {
-      title: "Rendezvous Solar Company Limited – Homepage Redesign",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/rendezvous.png",
-      link: "https://rendevvouz-solar.vercel.app/",
-      outcome: "Modern UI • Premium branding • Lead-generation optimized",
-      description:
-        "A complete homepage redesign crafted to elevate the company's digital presence through premium UI design, improved storytelling, and conversion-focused layouts. The redesign emphasizes trust, professionalism, and user engagement while creating a seamless experience across desktop and mobile devices.",
-    },
-    {
-      title: "Greylink Construction Nigeria Limited – Homepage Redesign",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/greylink.png",
-      link: "https://greylink-kohl.vercel.app/",
-      outcome:
-        "Modern UI • Premium branding • Trust-focused • Conversion optimized",
-      description:
-        "A complete homepage redesign for Greylink Construction Nigeria Limited, created to modernize the company's online presence through premium visual design, stronger storytelling, and an improved user experience. The redesign highlights the company's engineering expertise, showcases featured projects with engaging layouts, strengthens credibility through partner logos and testimonials, and delivers a fully responsive, performance-optimized experience built with Next.js and Tailwind CSS.",
-    },
-    {
-      title: "CRESAN Nigeria – Homepage Redesign",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/cresan.png",
-      link: "https://cresan.vercel.app/",
-      outcome:
-        "Modern UI • Enhanced credibility • Membership focused • Conversion optimized",
-      description:
-        "A complete homepage redesign for CRESAN (The Office of Clean and Renewable Energy/Safety Advocacy of Nigeria), created to strengthen the organization's digital presence through a modern interface, improved content hierarchy, and a more engaging user experience. The redesign highlights CRESAN's mission, advocacy programs, partnerships, training initiatives, and nationwide impact while encouraging membership, strategic partnerships, and stakeholder engagement. Built with Next.js and Tailwind CSS, the homepage delivers a fully responsive, performance-optimized experience with premium visuals, subtle animations, and accessibility-focused design.",
-    },
-    {
-      title: "Slice & Co - Modern Pizza Delivery & Ordering Web App",
-      year: "2026",
-      category: "Business Websites",
-      imageUrl: "/slice1.png",
-      link: "https://slice-and-co.vercel.app/",
-      outcome: "Product-style web app • Built for online ordering & conversion",
-      description:
-        "A modern pizza delivery web app built with Next.js featuring a custom pizza builder, dynamic cart system, and responsive UI. Designed for fast performance, seamless ordering, and an engaging user experience.",
-    },
-    {
-      title: "FileFlow – SaaS File Tools Platform (HTML & Tailwind CSS)",
-      year: "2026",
-      category: "Business Websites",
-      imageUrl: "/fileflow2.png",
-      // link: "https://slicefoodx.vercel.app/",
-      outcome: "Product-style web app • Built for PDF and document processing",
-      description:
-        " modern SaaS-style file tools platform inspired by industry-leading PDF and document processing websites",
-    },
-    {
-      title: "Flowpay Fintech Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/flowpay.png",
-      link: "https://flowpay-fintech.netlify.app/",
-      outcome:
-        "Lead-generation landing page • Fintech positioning & trust-focused",
-      description:
-        "A modern fintech landing page designed to showcase secure digital payments, financial transparency, and seamless user experience..",
-    },
-    {
-      title: "Inventory Tracker",
-      year: "2026",
-      category: "SaaS Dashboards",
-      imageUrl: "/inventorypro.jpg",
-      link: "https://inventorytracker12.netlify.app/",
-      outcome:
-        "Modern inventory & sales management dashboard • Premium SaaS UI/UX • Business analytics system",
-      description:
-        "A modern Inventory & Sales Tracker dashboard designed for small businesses to manage inventory, monitor sales performance, track customer orders, analyze revenue insights, and streamline daily business operations through a premium SaaS experience.",
-    },
-    {
-      title: "Nexus Consulting Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/nexus.png",
-      link: "https://nexus-consulting-landingpage.netlify.app/",
-      outcome:
-        "Conversion-focused consulting page • Built for credibility & leads",
-      description:
-        "A clean, conversion-focused corporate consulting landing page designed to communicate expertise, credibility, and strategic value.",
-    },
-    {
-      title: "Landing Page",
-      year: "2025",
-      category: "Lead-Generation Pages",
-      imageUrl: "/landing page.png",
-      link: "https://landing-page-templates.netlify.app/",
-      outcome: "Landing page template • UI & layout exploration",
-      description:
-        "A sleek and modern landing page template designed in 2025, featuring a clean layout, smooth interactions, and a strong visual hierarchy.",
-    },
-    {
-      title: "Medicore Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/medicore.png",
-      link: "https://medicore-landing-page.netlify.app/",
-      outcome: "Healthcare landing page • Trust-driven & conversion-focused",
-      description:
-        "A clean, conversion-focused medical landing page designed to communicate healthcare services with clarity, trust, and professionalism.",
-    },
-    {
-      title: "SaaS Dashboard Pro",
-      year: "2025",
-      category: "SaaS Dashboards",
-      imageUrl: "/dashboard pro.png",
-      link: "https://ai-dashboard-template.vercel.app/",
-      outcome: "SaaS dashboard UI • Built for scalable web applications",
-      description:
-        "A professional SaaS dashboard interface built in 2025, featuring a clean and intuitive layout designed for modern web applications.",
-    },
-    {
-      title: "Sterling & Associates landing page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/sterling.png",
-      link: "https://sterlingandassociateslegal.netlify.app/",
-      outcome:
-        "Legal services landing page • Built to establish trust & authority",
-      description:
-        "A clean, conversion-focused legal services landing page designed to communicate trust, expertise, and professional credibility.",
-    },
-    {
-      title: "Health Monitoring Dashboard",
-      year: "2024",
-      category: "Business Websites",
-      imageUrl: "/healthsphere.png",
-      link: "https://healthmonitoring-apps.netlify.app/",
-      outcome: "Data-driven web dashboard • Real-time monitoring concept",
-      description:
-        "Comprehensive health tracking platform featuring real-time vital signs monitoring and personalized health insights.",
-    },
-    {
-      title: "TravelSphere Booking App",
-      year: "2024",
-      category: "Business Websites",
-      imageUrl: "/Travelsphere.jpg",
-      link: "https://bus-booking-system1.netlify.app/",
-      outcome: "Booking platform UI • Multi-step flows & user interaction",
-      description:
-        "Modern bus booking system with route planning, seat selection, and secure payment integration for seamless travel experiences.",
-    },
-    {
-      title: "Trentrove E-commerce Website",
-      year: "2024",
-      category: "Business Websites",
-      imageUrl: "/trendtrovy.png",
-      link: "https://trendtrovei.netlify.app/",
-      outcome: "E-commerce website • Product browsing & checkout flow",
-      description:
-        "Full-featured online shopping platform with product catalog, cart functionality, and smooth checkout experience.",
-    },
-    {
-      title: "Emergency Toolkit Website",
-      year: "2025",
-      category: "Business Websites",
-      imageUrl: "/crisisaid.png",
-      link: "https://emergency-toolkit.netlify.app/",
-      outcome: "Information platform • Structured content & accessibility",
-      description:
-        "Essential resource hub providing emergency preparedness guides, tools, and critical information for crisis situations.",
-    },
-    {
-      title: "Real Estate Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/Haven real estate.png",
-      link: "https://haven-real-estate-landing-page.netlify.app/",
-      outcome: "Real estate landing page • Built for property lead generation",
-      description:
-        "A clean, conversion-focused real estate landing page designed to showcase property investment offerings with clarity, trust, and visual hierarchy. Built with a minimal, corporate layout optimized for lead generation",
-    },
-    {
-      title: "Aureum Restaurant Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/restaurant.png",
-      link: "https://aureumrestaurantlandingpage.netlify.app/",
-      outcome:
-        "Restaurant landing page • Built to attract diners and drive reservations",
-      description:
-        "A modern, visually engaging restaurant landing page designed to showcase signature dishes, atmosphere, and dining experience with clarity and strong visual appeal. Built with a clean layout and strategic content sections to highlight the menu, encourage reservations, and guide visitors toward making a booking or visiting the location",
-    },
-    {
-      title: "Saas Tech Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/nexasite.png",
-      link: "https://saas-tech-landingpage.netlify.app/",
-      description:
-        "A clean, conversion-focused SaaS tech landing page designed to communicate product capabilities, support user onboarding, and drive engagement through a structured, performance-focused layout",
-    },
-    {
-      title: "HR Software Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/HR.png",
-      link: "https://hr-software-landing-page.netlify.app/",
-      description:
-        "A clean, conversion-focused HR landing page designed to communicate product value, streamline information flow, and support user onboarding through a structured, professional layout.",
-    },
-    {
-      title: "HR Software Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/workflow.png",
-      link: "https://workflowhr-landingpage.netlify.app/",
-      description:
-        "A clean, conversion-focused HR landing page designed to communicate product value, streamline information flow, and support user onboarding through a structured, professional layout.",
-    },
-    {
-      title: "Saas AI Powered Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/productflow.png",
-      link: "https://productflow-landing-page.netlify.app/",
-      description:
-        "A modern product landing page designed to highlight AI-powered roadmapping, customer insights, and collaborative workflows through a clean, conversion-focused layout.",
-    },
-    {
-      title: "Saas HR Landing Page",
-      year: "2026",
-      category: "Lead-Generation Pages",
-      imageUrl: "/talentio.png",
-      link: "https://talentio-hr.netlify.app/",
-      description:
-        "A clean, conversion-focused HR landing page designed to communicate workforce solutions with clarity, trust, and usability.",
-    },
-  ];
-
   const [activeCategory, setActiveCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(6);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -396,43 +121,54 @@ export default function WorkPage() {
   return (
     <>
       <div className="min-h-screen bg-gray-50 relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-32 right-8 lg:right-16 w-8 h-8 lg:w-12 lg:h-12 bg-cyan-400 rounded-full opacity-60" />
+        {/* Background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-24 left-10 w-40 h-40 bg-lime-200/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-24 right-10 w-52 h-52 bg-cyan-300/20 rounded-full blur-3xl" />
         </div>
 
         {/* Header */}
-        <header className="relative z-10 flex justify-between items-center p-4 lg:p-8">
+        <header className="relative z-10 flex justify-between items-center px-6 lg:px-10 py-6">
           <Link href="/">
-            <div className="text-purple-600 text-xl lg:text-2xl font-bold font-poppins hover:scale-110 transition-transform duration-300 cursor-pointer">
+            <h2 className="text-2xl font-bold font-poppins text-gray-900 hover:opacity-70 transition cursor-pointer">
               Tobi Babalola
-            </div>
+            </h2>
           </Link>
+
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="text-purple-600 p-2 hover-target"
+            className="text-gray-900 hover:text-lime-500 transition"
           >
-            <Menu size={20} className="lg:w-6 lg:h-6" />
+            <Menu size={24} />
           </button>
         </header>
 
-        {/* Main content */}
-        <main className="relative z-10 container mx-auto px-4 lg:px-8 pt-4 lg:pt-8">
-          <div className="max-w-7xl mx-auto">
-            {/* Page header */}
-            <div className="mb-8 lg:mb-12 text-center lg:text-left">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins text-gray-800 mb-6 lg:mb-8">
-                Selected Work That Drives Business Results
-              </h1>
-              <p className="text-gray-600 max-w-2xl mt-3">
-                A focused selection of websites and landing pages built to
-                generate leads, support sales, and scale real businesses not
-                just look good.
-              </p>
-            </div>
+        <main className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+          {/* Hero */}
+          <section className="pt-8 pb-14">
+            <span className="inline-flex items-center rounded-full bg-lime-100 text-lime-700 px-4 py-2 text-xs font-semibold uppercase tracking-wider">
+              Selected Case Studies
+            </span>
 
-            {/* Filter tabs */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-12">
+            <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 font-poppins max-w-5xl">
+              Websites Designed To Generate Leads,
+              <br />
+              Build Trust &
+              <span className="text-lime-500"> Grow Businesses.</span>
+            </h1>
+
+            <p className="mt-6 max-w-3xl text-lg text-gray-600 leading-relaxed">
+              A curated collection of conversion-focused websites, homepage
+              redesigns and SaaS products built with Next.js, Tailwind CSS and
+              modern frontend technologies. Every project is crafted to improve
+              user experience, strengthen brand credibility and increase
+              customer enquiries.
+            </p>
+          </section>
+
+          {/* Filter */}
+          <section className="mb-12">
+            <div className="flex flex-wrap gap-3">
               {categories.map((category) => (
                 <button
                   key={category}
@@ -440,53 +176,89 @@ export default function WorkPage() {
                     setActiveCategory(category);
                     setVisibleCount(6);
                   }}
-                  className={`px-4 lg:px-6 py-2 lg:py-3 rounded-full text-xs lg:text-sm font-medium font-montserrat transition-all duration-300 hover-target ${
+                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                     activeCategory === category
-                      ? "bg-gray-800 text-white"
-                      : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                      ? "bg-gray-900 text-white shadow-lg"
+                      : "bg-white border border-gray-200 text-gray-600 hover:border-lime-400 hover:text-lime-600"
                   }`}
                 >
                   {category}
                 </button>
               ))}
             </div>
+          </section>
 
-            {/* Projects grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-              {displayedProjects.map((project, index) => (
-                <Card key={index} project={project} />
-              ))}
+          {/* Grid */}
+          <section className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {displayedProjects.map((project, index) => (
+              <Card key={index} project={project} />
+            ))}
+          </section>
+
+          {/* View More */}
+          {visibleCount < filteredProjects.length && (
+            <div className="flex justify-center mt-14">
+              <button
+                onClick={showMore}
+                className="px-8 py-4 rounded-full bg-lime-400 hover:bg-lime-500 transition font-semibold text-gray-900"
+              >
+                View More Projects
+              </button>
+            </div>
+          )}
+
+          {/* CTA */}
+          <section className="mt-24 mb-20 overflow-hidden rounded-3xl bg-gray-900 relative">
+            {/* Glow */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-lime-400 blur-3xl" />
             </div>
 
-            {/* View More button */}
-            {visibleCount < filteredProjects.length && (
-              <div className="text-center">
-                <button
-                  onClick={showMore}
-                  className="mt-6 px-6 py-3 bg-lime-400 text-black rounded-lg hover:bg-blue-700 transition"
-                >
-                  View More
-                </button>
-              </div>
-            )}
+            <div className="relative z-10 grid lg:grid-cols-2 gap-14 items-center px-8 py-14 lg:px-16 lg:py-20">
+              {/* Left */}
+              <div>
+                <span className="uppercase tracking-[0.35em] text-lime-400 text-xs font-semibold">
+                  Ready to Elevate Your Business?
+                </span>
 
-            {/* Call to action */}
-            <section className="mt-20 mb-10 text-center bg-gray-900 text-white py-16 rounded-lg">
-              <h2 className="text-3xl font-bold font-poppins mb-4">
-                Need a website that actually brings results?
-              </h2>
-              <p className="max-w-xl mx-auto text-gray-300 mb-6">
-                I work with startups and growing businesses to build fast,
-                conversion-focused websites that support real revenue.
-              </p>
-              <Link
-                href="/#contact"
-                className="inline-block bg-lime-400 text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition"
-              >
-                Let’s Talk
-              </Link>
-            </section>
-          </div>
+                <h2 className="mt-5 text-4xl lg:text-5xl font-bold leading-tight text-white font-poppins">
+                  Let's build a website that works as hard as you do.
+                </h2>
+
+                <p className="mt-6 text-gray-300 leading-8 max-w-xl">
+                  I help businesses transform outdated websites into modern,
+                  conversion-focused experiences that build trust, generate
+                  qualified leads, and support long-term business growth.
+                </p>
+              </div>
+
+              {/* Right */}
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+                <h3 className="text-white text-xl font-semibold mb-5">
+                  Here's what you'll get
+                </h3>
+
+                <ul className="space-y-4 text-gray-300">
+                  <li>✓ Premium UI that builds instant credibility</li>
+
+                  <li>✓ Faster loading and better mobile experience</li>
+
+                  <li>✓ Conversion-focused layouts that increase enquiries</li>
+
+                  <li>✓ SEO-ready structure for better visibility</li>
+
+                  <li>✓ Built with Next.js & Tailwind CSS</li>
+                </ul>
+
+                <Link
+                  href="/#contact"
+                  className="inline-flex mt-8 rounded-full bg-lime-400 px-7 py-4 font-semibold text-gray-900 hover:scale-105 transition"
+                >
+                  Start Your Project
+                </Link>
+              </div>
+            </div>
+          </section>
         </main>
       </div>
 
