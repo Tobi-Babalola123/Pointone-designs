@@ -10,6 +10,56 @@ export const projects = [
       "A solar estimation platform built to convert visitors into qualified leads by calculating installation requirements, costs, and energy savings — supporting daily sales of batteries, inverters, and installations.",
   },
   {
+    title: "Sara Transport Website Redesign",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/saratransport.png",
+    link: "https://sara-transport.vercel.app/",
+    outcome: "Homepage redesign • Better UX • Higher perceived brand value",
+    description:
+      "A Premium Logistics website redesign focused on improving user experience, strengthening brand credibility, and increasing quote enquiries through a modern, conversion-focused interface",
+  },
+  {
+    title: "Packaging Depot",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/packagingdepot.jpg",
+    link: "https://packaging-depot.vercel.app/",
+    outcome: "Homepage redesign • Better UX • Higher perceived brand value",
+    description:
+      "A Modern packaging supplies website redesign focused on showcasing products, improving navigation, and creating a clean, conversion-driven experience that encourages enquiries and online purchases.",
+  },
+  {
+    title: "OnYourMark Delivery Inc",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/OYM.jpg",
+    link: "https://on-your-mark-delivery.vercel.app/",
+    outcome: "Homepage redesign • Better UX • Higher perceived brand value",
+    description:
+      "A Modern courier and delivery company website featuring clean layouts, clear service presentation, and optimized call-to-actions designed to drive customer enquiries and bookings.",
+  },
+  {
+    title: "North Star Trucking Ltd",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/northstar.jpg",
+    link: "https://on-your-mark-delivery.vercel.app/",
+    outcome: "Homepage redesign • Better UX • Higher perceived brand value",
+    description:
+      "A Modern courier and delivery company website featuring clean layouts, clear service presentation, and optimized call-to-actions designed to drive customer enquiries and bookings.",
+  },
+  {
+    title: "Starlight Engineering Ltd",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/northstar.jpg",
+    link: "https://on-your-mark-delivery.vercel.app/",
+    outcome: "Homepage redesign • Better UX • Higher perceived brand value",
+    description:
+      "A professional engineering company website designed with a clean industrial aesthetic, showcasing services, projects and company expertise while improving trust and lead generation.",
+  },
+  {
     title: "Zulkernain Energy Limited – Conversion-Focused Redesign",
     year: "2026",
     category: "Website Redesigns",
