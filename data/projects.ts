@@ -13,7 +13,7 @@ export const projects = [
     title: "Sara Transport Website Redesign",
     year: "2026",
     category: "Website Redesigns",
-    imageUrl: "/saratransport.png",
+    imageUrl: "/saratransport.jpg",
     link: "https://sara-transport.vercel.app/",
     outcome: "Homepage redesign • Better UX • Higher perceived brand value",
     description:
