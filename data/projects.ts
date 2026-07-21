@@ -44,7 +44,7 @@ export const projects = [
     year: "2026",
     category: "Website Redesigns",
     imageUrl: "/northstar.jpg",
-    link: "https://on-your-mark-delivery.vercel.app/",
+    link: "https://northstartruckingca.vercel.app/",
     outcome: "Homepage redesign • Better UX • Higher perceived brand value",
     description:
       "A Modern courier and delivery company website featuring clean layouts, clear service presentation, and optimized call-to-actions designed to drive customer enquiries and bookings.",
@@ -53,8 +53,8 @@ export const projects = [
     title: "Starlight Engineering Ltd",
     year: "2026",
     category: "Website Redesigns",
-    imageUrl: "/northstar.jpg",
-    link: "https://on-your-mark-delivery.vercel.app/",
+    imageUrl: "/starlight.png",
+    link: "https://starlight-green-seven.vercel.app/",
     outcome: "Homepage redesign • Better UX • Higher perceived brand value",
     description:
       "A professional engineering company website designed with a clean industrial aesthetic, showcasing services, projects and company expertise while improving trust and lead generation.",
