@@ -30,6 +30,26 @@ export const projects = [
       "A Modern packaging supplies website redesign focused on showcasing products, improving navigation, and creating a clean, conversion-driven experience that encourages enquiries and online purchases.",
   },
   {
+    title: "Trapline Contracting",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/trapline.png",
+    link: "https://traplinetransportca.vercel.app/",
+    outcome: "Homepage redesign • Better UX • Stronger trust & credibility",
+    description:
+      "A modern heavy civil construction and earthworks company website redesigned with a cleaner layout, improved service presentation, and strategically placed call-to-actions to generate more project enquiries.",
+  },
+  {
+    title: "Razir Transport",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/razirwork.png",
+    link: "https://razirtransportca.vercel.app/",
+    outcome: "Homepage redesign • Better UX • Increased customer confidence",
+    description:
+      "A professional transportation and logistics website featuring a modern interface, clearer service hierarchy, and conversion-focused sections designed to increase quote requests and customer enquiries.",
+  },
+  {
     title: "OnYourMark Delivery Inc",
     year: "2026",
     category: "Website Redesigns",
