@@ -72,12 +72,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-    cursor: none;
-  }
-
-  .font-geist-mono {
-    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    font-family: var(--font-stack-sans-notch), sans-serif;
   }
 
   @media (hover: none) and (pointer: coarse) {
@@ -221,8 +216,6 @@ modern templates marketplace aesthetic */
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -262,11 +255,13 @@ modern templates marketplace aesthetic */
 }
 
 @layer base {
+  html,
+  body {
+    font-family: var(--font-stack-sans-notch), sans-serif;
+  }
+
   * {
     @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
 

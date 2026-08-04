@@ -13,6 +13,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        sans: ["var(--font-stack-sans-notch)", "sans-serif"],
+        heading: ["var(--font-stack-sans-notch)", "sans-serif"],
+
         poppins: ["var(--font-poppins)", "sans-serif"],
         montserrat: ["var(--font-montserrat)", "sans-serif"],
         lexend: ["var(--font-lexend)", "sans-serif"],
