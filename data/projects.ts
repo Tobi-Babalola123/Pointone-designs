@@ -20,6 +20,17 @@ export const projects = [
       "A Premium Logistics website redesign focused on improving user experience, strengthening brand credibility, and increasing quote enquiries through a modern, conversion-focused interface",
   },
   {
+    title: "Boneso Plumbing & Mechanical Website Redesign",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/boneso.png",
+    link: "https://boneso-plumbing-mechanical.vercel.app/",
+    outcome:
+      "Homepage redesign • Stronger brand positioning • Improved UX • Clearer service presentation",
+    description:
+      "A premium website redesign for a California plumbing and mechanical contractor, focused on strengthening the company's digital presence, communicating its technical expertise clearly, and creating a more professional path from first impression to project enquiry.",
+  },
+  {
     title: "Packaging Depot",
     year: "2026",
     category: "Website Redesigns",
@@ -30,6 +41,39 @@ export const projects = [
       "A Modern packaging supplies website redesign focused on showcasing products, improving navigation, and creating a clean, conversion-driven experience that encourages enquiries and online purchases.",
   },
   {
+    title: "MTM Roofing Website Redesign",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/MTM.png",
+    link: "https://mtmroofingservicesca.vercel.app/",
+    outcome:
+      "Website redesign • Better service discovery • Stronger credibility • Improved conversion flow",
+    description:
+      "A modern roofing website redesign focused on presenting MTM Roofing's services with greater clarity, improving the user experience, and creating a stronger digital foundation for generating enquiries and quote requests.",
+  },
+  {
+    title: "First Class Roofing & Renovations Website Redesign",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/firstclass.png",
+    link: "https://firstclassreno.vercel.app/",
+    outcome:
+      "Website redesign • Premium visual direction • Better UX • Stronger brand credibility",
+    description:
+      "A premium website redesign for a roofing and renovations company, designed to organize a broad range of services more effectively while strengthening brand perception and making it easier for potential customers to explore, trust and contact the company.",
+  },
+  {
+    title: "Rhino Roofing Website Redesign",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/rhino.png",
+    link: "https://rhinoroofingltd.vercel.app/",
+    outcome:
+      "Website redesign • Clearer service structure • Modern UX • Stronger conversion focus",
+    description:
+      "A professional roofing website redesign focused on simplifying service discovery, improving the visual presentation of the company, and creating a clearer journey for visitors looking for roofing solutions and estimates.",
+  },
+  {
     title: "Trapline Contracting",
     year: "2026",
     category: "Website Redesigns",
@@ -38,6 +82,17 @@ export const projects = [
     outcome: "Homepage redesign • Better UX • Stronger trust & credibility",
     description:
       "A modern heavy civil construction and earthworks company website redesigned with a cleaner layout, improved service presentation, and strategically placed call-to-actions to generate more project enquiries.",
+  },
+  {
+    title: "Goose Creek Solar Installations Website Redesign",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/goosecreek.png",
+    link: "https://goosecreek.vercel.app/",
+    outcome:
+      "Website redesign • Better information hierarchy • Stronger visual storytelling • Improved UX",
+    description:
+      "A modern solar website redesign focused on communicating renewable energy solutions more clearly, improving information hierarchy, and creating a more engaging experience for visitors researching solar installations and energy solutions.",
   },
   {
     title: "Razir Transport",
