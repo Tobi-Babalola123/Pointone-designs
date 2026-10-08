@@ -14,7 +14,7 @@ export const projects = [
     title: "Greenbolt Electric Website Redesign",
     year: "2026",
     category: "Website Redesigns",
-    imageUrl: "/greenbolt1.png",
+    imageUrl: "/greenbolt2.png",
     link: "https://greenbolt-electric.vercel.app/",
     outcome: "Homepage redesign • Better UX • Stronger brand credibility",
     description:
