@@ -9,6 +9,17 @@ export const projects = [
     description:
       "A solar estimation platform built to convert visitors into qualified leads by calculating installation requirements, costs, and energy savings — supporting daily sales of batteries, inverters, and installations.",
   },
+
+  {
+    title: "Parker Electric Website Redesign",
+    year: "2026",
+    category: "Website Redesigns",
+    imageUrl: "/greenbolt1.png",
+    link: "https://greenbolt-electric.vercel.app/",
+    outcome: "Homepage redesign • Better UX • Stronger brand credibility",
+    description:
+      "A Premium Electrical Contractor website redesign focused on improving user experience, strengthening local brand credibility, and increasing service enquiries through a modern, conversion-focused interface",
+  },
   {
     title: "Sara Transport Website Redesign",
     year: "2026",
