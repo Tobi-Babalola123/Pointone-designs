@@ -11,7 +11,7 @@ export const projects = [
   },
 
   {
-    title: "Parker Electric Website Redesign",
+    title: "Greenbolt Electric Website Redesign",
     year: "2026",
     category: "Website Redesigns",
     imageUrl: "/greenbolt1.png",
